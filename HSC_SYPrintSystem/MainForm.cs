@@ -406,7 +406,10 @@ namespace HSC_SYPrintSystem
             packageData.workLine = txt_workLine.Text.Trim();
             packageData.grade = txt_grade.Text.Trim();
             packageData.hiddenProduct = oldMat.Text.Trim();
-            packageData.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text.Trim());
+            if (string.IsNullOrEmpty(txt_nbtWeight.Text.Trim()))
+                packageData.nbtWeight = 0;
+            else
+                packageData.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text.Trim());
             packageData.SILONUM = siloNum.Text.Trim();//料仓号
             #endregion
             if (!PrintValidating.Verification(packageData, ref msg, txt_page.Text))

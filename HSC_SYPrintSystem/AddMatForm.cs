@@ -29,6 +29,12 @@ namespace HSC_SYPrintSystem
         {
             DateTime now = DateTime.Now;
             string user = "申远聚合";
+            if (string.IsNullOrEmpty(materialTB.Text.Trim()))
+            {
+                MessageBox.Show("物料号不能为空！","警告");
+                materialTB.Focus();
+                return;
+            }
             #region 组装物料
             tblMaterial mat = new tblMaterial
             {
