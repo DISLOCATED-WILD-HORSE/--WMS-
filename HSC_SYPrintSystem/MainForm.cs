@@ -441,6 +441,7 @@ namespace HSC_SYPrintSystem
             packageData.workLine = txt_workLine.Text.Trim();
             packageData.grade = txt_grade.Text.Trim();
             packageData.hiddenProduct = oldMat.Text.Trim();
+            packageData.packType = packType.Text.Trim();
             if (string.IsNullOrEmpty(txt_nbtWeight.Text.Trim()))
                 packageData.nbtWeight = 0;
             else

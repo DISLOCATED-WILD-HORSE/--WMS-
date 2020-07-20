@@ -69,7 +69,12 @@ namespace HSC_Util
             }
             if (string.IsNullOrEmpty(page) || !IsUnsign(page))
             {
-                Msg = "张数不能为空!";
+                Msg = "张数为空或者不是正整数！";
+                return false;
+            }
+            if (string.IsNullOrEmpty(model.packType))
+            {
+                Msg = "类型不能为空！";
                 return false;
             }
             return isPass;
