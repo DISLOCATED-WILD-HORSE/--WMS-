@@ -1,6 +1,7 @@
 ﻿using HSC_BLL;
 using HSC_Entity;
 using HSC_Util;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,6 +57,11 @@ namespace HSC_SYPrintSystem
         /// <returns></returns>
         private bool SaveValidate(ref string msg)
         {
+            if (string.IsNullOrEmpty(materialTB.Text.Trim()))
+            {
+                msg = "物料号不能为空";
+                return false;
+            }
             if (string.IsNullOrEmpty(workLineCB.Text))
             {
                 msg = "线别不能为空";
@@ -77,6 +83,8 @@ namespace HSC_SYPrintSystem
             batchInfo bat = new batchInfo
             {
                 batchNo = txt_batchNo.Text.Trim(),
+                material = materialTB.Text.Trim(),
+                workLine = workLineCB.Text.Trim(),
                 characteristics = txt_characteristics.Text.Trim(),
                 productDate = dtp_productDate.Value,
                 siloNo = txt_siloNo.Text.Trim(),
@@ -114,6 +122,37 @@ namespace HSC_SYPrintSystem
             {
                 batchValidateBox.Visible = false;
                 batchValidateBox.Text = "";
+                BatSaveBtn.Enabled = true;
+            }
+        }
+
+        private void materialTB_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(materialTB.Text))
+            {
+                materialValidateBox.Visible = true;
+                materialValidateBox.Text = "物料号不能为空！";
+                materialValidateBox.ForeColor = Color.Red;
+                materialTB.Focus();
+                BatSaveBtn.Enabled = false;
+            }
+            else
+            {
+                var matDao = SqlSugarDB.Instance<tblMaterial>();
+                var matModel = matDao.Query().First(p => p.MAT_ID == materialTB.Text.Trim());
+                if (matModel == null)
+                {
+                    string msg = string.Format("物料号：{0} 未维护，请先在物料主数据维护该物料后再操作！", materialTB.Text.Trim());
+                    //materialValidateBox.Visible = true;
+                    //materialValidateBox.Text = msg;
+                    //materialValidateBox.ForeColor = Color.Red;
+                    materialTB.Focus();
+                    BatSaveBtn.Enabled = false;
+                    MessageBox.Show(msg, "错误");
+                    return;
+                }
+                materialValidateBox.Visible = false;
+                materialValidateBox.Text = "";
                 BatSaveBtn.Enabled = true;
             }
         }
@@ -168,5 +207,7 @@ namespace HSC_SYPrintSystem
             if (!string.IsNullOrEmpty(cNo))
                 txt_batchNo.Text = "J" + productType + workline + DateTime.Now.ToString("yyMMdd") + cNo;
         }
+
+        
     }
 }

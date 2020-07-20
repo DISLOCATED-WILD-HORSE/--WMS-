@@ -139,17 +139,18 @@ namespace HSC_BLL
         }
 
         /// <summary>
-        /// 根据批次获取特性值
+        /// 根据物料批次获取特性值
         /// </summary>
+        /// <param name="material"></param>
         /// <param name="batchNo"></param>
         /// <returns></returns>
-        public ReturnValue<batchInfo> GetBatInfo(string batchNo)
+        public ReturnValue<batchInfo> GetBatInfo(string material, string batchNo)
         {
             ReturnValue<batchInfo> rv = new ReturnValue<batchInfo>();
             var batDao = SqlSugarDB.Instance<batchInfo>();
             try
             {
-                batchInfo model = batDao.Query().First(p => p.batchNo == batchNo);
+                batchInfo model = batDao.Query().First(p => p.material == material && p.batchNo == batchNo);
                 return rv.Success(model);
             }
             catch (Exception e)

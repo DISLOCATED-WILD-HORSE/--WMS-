@@ -31,22 +31,22 @@
             this.characteristicsLB = new System.Windows.Forms.Label();
             this.txt_characteristics = new System.Windows.Forms.TextBox();
             this.siloNoLB = new System.Windows.Forms.Label();
-            this.txt_siloNo = new System.Windows.Forms.TextBox();
-            this.processNumberLB = new System.Windows.Forms.Label();
-            this.txt_processNumber = new System.Windows.Forms.TextBox();
             this.gradeLB = new System.Windows.Forms.Label();
-            this.txt_grade = new System.Windows.Forms.TextBox();
-            this.changeDateLB = new System.Windows.Forms.Label();
-            this.dtp_changeDate = new System.Windows.Forms.DateTimePicker();
+            this.productDateLB = new System.Windows.Forms.Label();
+            this.dtp_productDate = new System.Windows.Forms.DateTimePicker();
             this.matSaveBTN = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.workLineLB = new System.Windows.Forms.Label();
+            this.workLineCB = new System.Windows.Forms.ComboBox();
+            this.siloNoCB = new System.Windows.Forms.ComboBox();
+            this.gradeCB = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // characteristicsLB
             // 
             this.characteristicsLB.AutoSize = true;
-            this.characteristicsLB.Location = new System.Drawing.Point(61, 28);
+            this.characteristicsLB.Location = new System.Drawing.Point(378, 29);
             this.characteristicsLB.Name = "characteristicsLB";
             this.characteristicsLB.Size = new System.Drawing.Size(88, 16);
             this.characteristicsLB.TabIndex = 3;
@@ -54,7 +54,7 @@
             // 
             // txt_characteristics
             // 
-            this.txt_characteristics.Location = new System.Drawing.Point(142, 25);
+            this.txt_characteristics.Location = new System.Drawing.Point(472, 26);
             this.txt_characteristics.Name = "txt_characteristics";
             this.txt_characteristics.Size = new System.Drawing.Size(192, 26);
             this.txt_characteristics.TabIndex = 4;
@@ -62,66 +62,36 @@
             // siloNoLB
             // 
             this.siloNoLB.AutoSize = true;
-            this.siloNoLB.Location = new System.Drawing.Point(73, 78);
+            this.siloNoLB.Location = new System.Drawing.Point(57, 97);
             this.siloNoLB.Name = "siloNoLB";
             this.siloNoLB.Size = new System.Drawing.Size(72, 16);
             this.siloNoLB.TabIndex = 5;
             this.siloNoLB.Text = "料仓号：";
             // 
-            // txt_siloNo
-            // 
-            this.txt_siloNo.Location = new System.Drawing.Point(142, 75);
-            this.txt_siloNo.Name = "txt_siloNo";
-            this.txt_siloNo.Size = new System.Drawing.Size(192, 26);
-            this.txt_siloNo.TabIndex = 6;
-            // 
-            // processNumberLB
-            // 
-            this.processNumberLB.AutoSize = true;
-            this.processNumberLB.Location = new System.Drawing.Point(378, 28);
-            this.processNumberLB.Name = "processNumberLB";
-            this.processNumberLB.Size = new System.Drawing.Size(72, 16);
-            this.processNumberLB.TabIndex = 7;
-            this.processNumberLB.Text = "工艺号：";
-            // 
-            // txt_processNumber
-            // 
-            this.txt_processNumber.Location = new System.Drawing.Point(451, 25);
-            this.txt_processNumber.Name = "txt_processNumber";
-            this.txt_processNumber.Size = new System.Drawing.Size(192, 26);
-            this.txt_processNumber.TabIndex = 8;
-            // 
             // gradeLB
             // 
             this.gradeLB.AutoSize = true;
-            this.gradeLB.Location = new System.Drawing.Point(85, 129);
+            this.gradeLB.Location = new System.Drawing.Point(410, 97);
             this.gradeLB.Name = "gradeLB";
             this.gradeLB.Size = new System.Drawing.Size(56, 16);
             this.gradeLB.TabIndex = 9;
             this.gradeLB.Text = "等级：";
             // 
-            // txt_grade
+            // productDateLB
             // 
-            this.txt_grade.Location = new System.Drawing.Point(142, 126);
-            this.txt_grade.Name = "txt_grade";
-            this.txt_grade.Size = new System.Drawing.Size(192, 26);
-            this.txt_grade.TabIndex = 10;
+            this.productDateLB.AutoSize = true;
+            this.productDateLB.Location = new System.Drawing.Point(41, 176);
+            this.productDateLB.Name = "productDateLB";
+            this.productDateLB.Size = new System.Drawing.Size(88, 16);
+            this.productDateLB.TabIndex = 11;
+            this.productDateLB.Text = "生产日期：";
             // 
-            // changeDateLB
+            // dtp_productDate
             // 
-            this.changeDateLB.AutoSize = true;
-            this.changeDateLB.Location = new System.Drawing.Point(354, 78);
-            this.changeDateLB.Name = "changeDateLB";
-            this.changeDateLB.Size = new System.Drawing.Size(104, 16);
-            this.changeDateLB.TabIndex = 11;
-            this.changeDateLB.Text = "改特性日期：";
-            // 
-            // dtp_changeDate
-            // 
-            this.dtp_changeDate.Location = new System.Drawing.Point(451, 72);
-            this.dtp_changeDate.Name = "dtp_changeDate";
-            this.dtp_changeDate.Size = new System.Drawing.Size(192, 26);
-            this.dtp_changeDate.TabIndex = 12;
+            this.dtp_productDate.Location = new System.Drawing.Point(142, 169);
+            this.dtp_productDate.Name = "dtp_productDate";
+            this.dtp_productDate.Size = new System.Drawing.Size(192, 26);
+            this.dtp_productDate.TabIndex = 12;
             // 
             // matSaveBTN
             // 
@@ -140,22 +110,65 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.gradeCB);
+            this.panel1.Controls.Add(this.siloNoCB);
+            this.panel1.Controls.Add(this.workLineCB);
+            this.panel1.Controls.Add(this.workLineLB);
             this.panel1.Controls.Add(this.matSaveBTN);
             this.panel1.Controls.Add(this.txt_characteristics);
             this.panel1.Controls.Add(this.siloNoLB);
             this.panel1.Controls.Add(this.characteristicsLB);
-            this.panel1.Controls.Add(this.txt_siloNo);
-            this.panel1.Controls.Add(this.txt_processNumber);
-            this.panel1.Controls.Add(this.dtp_changeDate);
-            this.panel1.Controls.Add(this.processNumberLB);
-            this.panel1.Controls.Add(this.txt_grade);
-            this.panel1.Controls.Add(this.changeDateLB);
+            this.panel1.Controls.Add(this.dtp_productDate);
+            this.panel1.Controls.Add(this.productDateLB);
             this.panel1.Controls.Add(this.gradeLB);
             this.panel1.Font = new System.Drawing.Font("宋体", 12F);
             this.panel1.Location = new System.Drawing.Point(-1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(705, 458);
             this.panel1.TabIndex = 26;
+            // 
+            // workLineLB
+            // 
+            this.workLineLB.AutoSize = true;
+            this.workLineLB.Location = new System.Drawing.Point(73, 32);
+            this.workLineLB.Name = "workLineLB";
+            this.workLineLB.Size = new System.Drawing.Size(56, 16);
+            this.workLineLB.TabIndex = 69;
+            this.workLineLB.Text = "线别：";
+            // 
+            // workLineCB
+            // 
+            this.workLineCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workLineCB.FormattingEnabled = true;
+            this.workLineCB.Items.AddRange(new object[] {
+            "140-U010A",
+            "140-U010B",
+            "240-U010A",
+            "240-U010B",
+            "340-U010A",
+            "340-U010B"});
+            this.workLineCB.Location = new System.Drawing.Point(142, 29);
+            this.workLineCB.Name = "workLineCB";
+            this.workLineCB.Size = new System.Drawing.Size(192, 24);
+            this.workLineCB.TabIndex = 70;
+            // 
+            // siloNoCB
+            // 
+            this.siloNoCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siloNoCB.FormattingEnabled = true;
+            this.siloNoCB.Location = new System.Drawing.Point(142, 91);
+            this.siloNoCB.Name = "siloNoCB";
+            this.siloNoCB.Size = new System.Drawing.Size(192, 24);
+            this.siloNoCB.TabIndex = 71;
+            // 
+            // gradeCB
+            // 
+            this.gradeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gradeCB.FormattingEnabled = true;
+            this.gradeCB.Location = new System.Drawing.Point(472, 91);
+            this.gradeCB.Name = "gradeCB";
+            this.gradeCB.Size = new System.Drawing.Size(192, 24);
+            this.gradeCB.TabIndex = 72;
             // 
             // UpdateBatForm
             // 
@@ -179,14 +192,14 @@
         private System.Windows.Forms.Label characteristicsLB;
         private System.Windows.Forms.TextBox txt_characteristics;
         private System.Windows.Forms.Label siloNoLB;
-        private System.Windows.Forms.TextBox txt_siloNo;
-        private System.Windows.Forms.Label processNumberLB;
-        private System.Windows.Forms.TextBox txt_processNumber;
         private System.Windows.Forms.Label gradeLB;
-        private System.Windows.Forms.TextBox txt_grade;
-        private System.Windows.Forms.Label changeDateLB;
-        private System.Windows.Forms.DateTimePicker dtp_changeDate;
+        private System.Windows.Forms.Label productDateLB;
+        private System.Windows.Forms.DateTimePicker dtp_productDate;
         private System.Windows.Forms.Button matSaveBTN;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label workLineLB;
+        private System.Windows.Forms.ComboBox workLineCB;
+        private System.Windows.Forms.ComboBox siloNoCB;
+        private System.Windows.Forms.ComboBox gradeCB;
     }
 }

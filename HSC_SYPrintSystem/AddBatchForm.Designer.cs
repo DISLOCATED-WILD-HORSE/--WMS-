@@ -48,6 +48,9 @@
             this.gradeCB = new System.Windows.Forms.ComboBox();
             this.txt_siloNo = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.materialTB = new System.Windows.Forms.TextBox();
+            this.materialValidateBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,7 +78,7 @@
             // characteristicsLB
             // 
             this.characteristicsLB.AutoSize = true;
-            this.characteristicsLB.Location = new System.Drawing.Point(19, 150);
+            this.characteristicsLB.Location = new System.Drawing.Point(336, 150);
             this.characteristicsLB.Name = "characteristicsLB";
             this.characteristicsLB.Size = new System.Drawing.Size(88, 16);
             this.characteristicsLB.TabIndex = 2;
@@ -83,7 +86,7 @@
             // 
             // txt_characteristics
             // 
-            this.txt_characteristics.Location = new System.Drawing.Point(107, 147);
+            this.txt_characteristics.Location = new System.Drawing.Point(430, 147);
             this.txt_characteristics.Name = "txt_characteristics";
             this.txt_characteristics.Size = new System.Drawing.Size(192, 26);
             this.txt_characteristics.TabIndex = 3;
@@ -100,7 +103,7 @@
             // gradeLB
             // 
             this.gradeLB.AutoSize = true;
-            this.gradeLB.Location = new System.Drawing.Point(368, 207);
+            this.gradeLB.Location = new System.Drawing.Point(51, 259);
             this.gradeLB.Name = "gradeLB";
             this.gradeLB.Size = new System.Drawing.Size(56, 16);
             this.gradeLB.TabIndex = 8;
@@ -109,7 +112,7 @@
             // productDateLB
             // 
             this.productDateLB.AutoSize = true;
-            this.productDateLB.Location = new System.Drawing.Point(336, 90);
+            this.productDateLB.Location = new System.Drawing.Point(19, 150);
             this.productDateLB.Name = "productDateLB";
             this.productDateLB.Size = new System.Drawing.Size(88, 16);
             this.productDateLB.TabIndex = 10;
@@ -117,7 +120,7 @@
             // 
             // dtp_productDate
             // 
-            this.dtp_productDate.Location = new System.Drawing.Point(430, 86);
+            this.dtp_productDate.Location = new System.Drawing.Point(107, 143);
             this.dtp_productDate.Name = "dtp_productDate";
             this.dtp_productDate.Size = new System.Drawing.Size(192, 26);
             this.dtp_productDate.TabIndex = 11;
@@ -154,7 +157,7 @@
             // 
             this.batchValidateBox.BackColor = System.Drawing.Color.White;
             this.batchValidateBox.ForeColor = System.Drawing.Color.Red;
-            this.batchValidateBox.Location = new System.Drawing.Point(107, 54);
+            this.batchValidateBox.Location = new System.Drawing.Point(107, 48);
             this.batchValidateBox.Name = "batchValidateBox";
             this.batchValidateBox.ReadOnly = true;
             this.batchValidateBox.Size = new System.Drawing.Size(192, 26);
@@ -187,7 +190,7 @@
             // workLineLB
             // 
             this.workLineLB.AutoSize = true;
-            this.workLineLB.Location = new System.Drawing.Point(368, 25);
+            this.workLineLB.Location = new System.Drawing.Point(368, 93);
             this.workLineLB.Name = "workLineLB";
             this.workLineLB.Size = new System.Drawing.Size(56, 16);
             this.workLineLB.TabIndex = 68;
@@ -204,7 +207,7 @@
             "240-U010B",
             "340-U010A",
             "340-U010B"});
-            this.workLineCB.Location = new System.Drawing.Point(430, 22);
+            this.workLineCB.Location = new System.Drawing.Point(430, 90);
             this.workLineCB.Name = "workLineCB";
             this.workLineCB.Size = new System.Drawing.Size(192, 24);
             this.workLineCB.TabIndex = 69;
@@ -213,7 +216,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(368, 150);
+            this.label2.Location = new System.Drawing.Point(368, 207);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 16);
             this.label2.TabIndex = 70;
@@ -226,7 +229,7 @@
             "纺丝级  H",
             "工程塑料级  P",
             "薄膜级  F"});
-            this.nbtWeightCB.Location = new System.Drawing.Point(430, 147);
+            this.nbtWeightCB.Location = new System.Drawing.Point(430, 204);
             this.nbtWeightCB.Name = "nbtWeightCB";
             this.nbtWeightCB.Size = new System.Drawing.Size(192, 24);
             this.nbtWeightCB.TabIndex = 71;
@@ -235,7 +238,7 @@
             // 
             this.gradeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gradeCB.FormattingEnabled = true;
-            this.gradeCB.Location = new System.Drawing.Point(430, 204);
+            this.gradeCB.Location = new System.Drawing.Point(107, 256);
             this.gradeCB.Name = "gradeCB";
             this.gradeCB.Size = new System.Drawing.Size(192, 24);
             this.gradeCB.TabIndex = 72;
@@ -255,6 +258,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.materialValidateBox);
+            this.panel1.Controls.Add(this.materialTB);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.productTypeCB);
             this.panel1.Controls.Add(this.BatResetBtn);
             this.panel1.Controls.Add(this.txt_batchNo);
@@ -279,6 +285,35 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(704, 457);
             this.panel1.TabIndex = 74;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(348, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.TabIndex = 74;
+            this.label1.Text = "物料号：";
+            // 
+            // materialTB
+            // 
+            this.materialTB.Location = new System.Drawing.Point(430, 22);
+            this.materialTB.Name = "materialTB";
+            this.materialTB.Size = new System.Drawing.Size(192, 26);
+            this.materialTB.TabIndex = 75;
+            this.materialTB.Validating += new System.ComponentModel.CancelEventHandler(this.materialTB_Validating);
+            // 
+            // materialValidateBox
+            // 
+            this.materialValidateBox.BackColor = System.Drawing.Color.White;
+            this.materialValidateBox.ForeColor = System.Drawing.Color.Red;
+            this.materialValidateBox.Location = new System.Drawing.Point(430, 49);
+            this.materialValidateBox.Name = "materialValidateBox";
+            this.materialValidateBox.ReadOnly = true;
+            this.materialValidateBox.Size = new System.Drawing.Size(192, 26);
+            this.materialValidateBox.TabIndex = 76;
+            this.materialValidateBox.Visible = false;
             // 
             // AddBatchForm
             // 
@@ -321,5 +356,8 @@
         private System.Windows.Forms.ComboBox gradeCB;
         private System.Windows.Forms.ComboBox txt_siloNo;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox materialTB;
+        private System.Windows.Forms.TextBox materialValidateBox;
     }
 }

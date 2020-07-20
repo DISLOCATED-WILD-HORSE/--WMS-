@@ -25,9 +25,9 @@ namespace HSC_SYPrintSystem
             GetAllInitInfo(this.Controls[0]);
             sn.Text = packagebll.GetSNInfo("申远聚合").Value;
             dic = SelectListModel.SiloNumList();
-            siloNum.DataSource = dic.Keys.ToList();
-            txt_grade.DataSource = SelectListModel.GradeList();
-            txt_workLine.DataSource = SelectListModel.WorkLineList().Keys.ToList();
+            //siloNum.DataSource = dic.Keys.ToList();
+            //txt_grade.DataSource = SelectListModel.GradeList();
+            //txt_workLine.DataSource = SelectListModel.WorkLineList().Keys.ToList();
             packType.DataSource = SelectListModel.PackTypeList();
             if (this.TabControl.SelectedTab.Text.Equals("标签打印"))
                 footPanl.Visible = false;
@@ -242,9 +242,10 @@ namespace HSC_SYPrintSystem
                     siloNum.Text = dic.FirstOrDefault(o => o.Value == packageInfo.Value.SILONUM).Key;
                     txt_grade.Text = packageInfo.Value.grade;
                     PROCESSNUM.Text = packageInfo.Value.PROCESSNUM;
-                    txt_workLine.Text = SelectListModel.WorkLineList().FirstOrDefault(o => o.Value == packageInfo.Value.workLine).Key;
+                    chracteristicsTB.Text = packageInfo.Value.characteristic;
+                    txt_workLine.Text = packageInfo.Value.workLine;
                     txt_nbtWeight.Text = packageInfo.Value.nbtWeight.ToString("0.00");
-                    //txt_changeDate.Text = packageInfo.Value.changeDate.ToString();
+                    txt_productDate.Text = packageInfo.Value.productDate.ToString("yyyy-MM-dd");
                     remark.Text = packageInfo.Value.comments;
                     packType.Text = packageInfo.Value.packType;
                 }
@@ -270,10 +271,16 @@ namespace HSC_SYPrintSystem
                     ClearChracteries();
                     return;
                 }
-                var rv = batInfobll.GetBatInfo(batch_no.Text.Trim());
+                if (string.IsNullOrEmpty(MaterialNo.Text))
+                {
+                    MessageBox.Show("物料号未空，请检查！");
+                    ClearChracteries();
+                    return;
+                }
+                var rv = batInfobll.GetBatInfo(MaterialNo.Text.Trim(), batch_no.Text.Trim());
                 if (rv.IsSuccess && rv.Value == null)
                 {
-                    MessageBox.Show(string.Format("批次号：{0}对应的特性信息未维护，请先在批次信息页面维护！", batch_no.Text.Trim()));
+                    MessageBox.Show(string.Format("批次号：{0}与物料号{1}未绑定，请先在批次信息页面维护！", batch_no.Text.Trim(), MaterialNo.Text.Trim()));
                     ClearChracteries();
                     return;
                 }
@@ -286,7 +293,10 @@ namespace HSC_SYPrintSystem
                 siloNum.Text = rv.Value.siloNo;
                 txt_grade.Text = rv.Value.grade;
                 txt_nbtWeight.Text = rv.Value.ntbWeight.ToString("0.00");
-                txt_chracteristics.Text = rv.Value.characteristics;
+                chracteristicsTB.Text = rv.Value.characteristics;
+                txt_workLine.Text = rv.Value.workLine;
+                txt_productDate.Value = (DateTime)rv.Value.productDate;
+
             }
         }
 
@@ -317,11 +327,35 @@ namespace HSC_SYPrintSystem
                 oldMat.Text = result.Value.MAT_OLD;
                 //执行标准
                 //standard.Text = standard.Items[0].ToString();
+                resetPartPrintInfo();
             }
             else
             {
+                resetAllPrintInfo();
                 MessageBox.Show(string.Format("物料号:{0} 不存在，请先在物料主数据界面维护！", material));
             }
+        }
+
+        private void resetPartPrintInfo()
+        {
+            batch_no.Text = "";
+            siloNum.Text = "";
+            txt_grade.Text = "";
+            chracteristicsTB.Text = "";
+            PROCESSNUM.Text = "";
+            txt_workLine.Text = "";
+            txt_nbtWeight.Text = "";
+            txt_productDate.Value = DateTime.Now;
+            remark.Text = "";
+        }
+
+        private void resetAllPrintInfo()
+        {
+            jhspeci.Text = "";
+            mat_desc.Text = "";
+            englishDesc.Text = "";
+            oldMat.Text = "";
+            resetPartPrintInfo();
         }
 
         private packageInfo GetPrintPackageInfo()
@@ -341,12 +375,12 @@ namespace HSC_SYPrintSystem
             printModel.workLine = txt_workLine.Text;
             printModel.SILONUM = dic[siloNum.Text];
             printModel.grade = txt_grade.Text;
-            //printModel.characteristic = txt_characteristic.Text;
+            printModel.characteristic = chracteristicsTB.Text;
             printModel.PROCESSNUM = PROCESSNUM.Text;
             //printModel.grainWeight = txt_grainWeight.Text;
             //printModel.unit = txt_unit.Text.ToInt();
             printModel.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text);
-            printModel.productDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            //printModel.productDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.packageDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.timestamps = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.packType = packType.Text;
@@ -358,13 +392,14 @@ namespace HSC_SYPrintSystem
             {
                 printModel.packageType = 0;
             }
-            printModel.changeDate = Convert.ToDateTime(txt_changeDate.Text);
+            printModel.productDate = Convert.ToDateTime(txt_productDate.Text);
             //printModel.pipeColor = txt_pipeColor.Text;
             //printModel.wireType = txt_WireType.Text;
             //printModel.insp = txt_insp.Text;//班次
             //printModel.caseWeight = txt_caseWeight.Text.ToDecimal();
             //printModel.canWeight = txt_canWeight.Text.ToDecimal();
             //printModel.grossWeight = txt_grossWeight.Text.ToDecimal();
+            printModel.comments = remark.Text;
             printModel.ISExport = false;//是否出口
             printModel.ISViceProduct = false;//是否副产品
             printModel.BOX_TYPE = 0;//纸箱类型

@@ -18,6 +18,15 @@ namespace HSC_Entity
             set { _batchno = value; }
         }
         /// <summary>
+        /// 物料号
+        /// </summary>
+        private string _material;
+        public string material
+        {
+            get { return _material; }
+            set { _material = value; }
+        }
+        /// <summary>
         /// 生产日期
         /// </summary>		
         private DateTime? _productDate;
@@ -106,6 +115,15 @@ namespace HSC_Entity
         {
             get { return _ntbWeight; }
             set { _ntbWeight = value; }
+        }
+        /// <summary>
+        /// workLine
+        /// </summary>
+        private string _workLine;
+        public string workLine
+        {
+            get { return _workLine; }
+            set { _workLine = value; }
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using HSC_BLL;
 using HSC_Entity;
+using HSC_Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,14 +25,18 @@ namespace HSC_SYPrintSystem
         {
             InitializeComponent();
             this.batModel = model;
+            siloNoCB.DataSource = SelectListModel.SiloNumList().Keys.ToList();
+            gradeCB.DataSource = SelectListModel.GradeList();
         }
 
         private void UpdateBatForm_Load(object sender, EventArgs e)
         {
+            workLineCB.Text = batModel.workLine;
             txt_characteristics.Text = batModel.characteristics;
-            txt_siloNo.Text = batModel.siloNo;
-            txt_processNumber.Text = batModel.processNumber;
-            txt_grade.Text = batModel.grade;
+            siloNoCB.Text = batModel.siloNo;
+            //txt_processNumber.Text = batModel.processNumber;
+            gradeCB.Text = batModel.grade;
+            dtp_productDate.Value = (DateTime)batModel.productDate;
 
         }
 
@@ -44,11 +49,12 @@ namespace HSC_SYPrintSystem
                 return;
             }
             #region 更新对象组装
+            batModel.workLine = workLineCB.Text.Trim();
             batModel.characteristics = txt_characteristics.Text.Trim();
-            batModel.siloNo = txt_siloNo.Text.Trim();
-            batModel.processNumber = txt_processNumber.Text.Trim();
-            batModel.grade = txt_grade.Text.Trim().ToUpper();
-            batModel.productDate = dtp_changeDate.Value;
+            batModel.siloNo = siloNoCB.Text.Trim();
+            //batModel.processNumber = txt_processNumber.Text.Trim();
+            batModel.grade = gradeCB.Text.Trim().ToUpper();
+            batModel.productDate = dtp_productDate.Value;
             #endregion
             BatchInfoBLL batbll = new BatchInfoBLL();
             var rv = batbll.UpdateBatInfo(batModel);

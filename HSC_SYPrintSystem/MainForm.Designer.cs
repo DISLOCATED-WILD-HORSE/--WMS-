@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.version = new System.Windows.Forms.Label();
             this.footPanl = new System.Windows.Forms.Panel();
@@ -47,10 +47,12 @@
             this.label51 = new System.Windows.Forms.Label();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.printTab = new System.Windows.Forms.TabPage();
+            this.txt_workLine = new System.Windows.Forms.TextBox();
+            this.txt_grade = new System.Windows.Forms.TextBox();
+            this.siloNum = new System.Windows.Forms.TextBox();
             this.txt_nbtWeight = new System.Windows.Forms.TextBox();
             this.com_packageType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.siloNum = new System.Windows.Forms.ComboBox();
             this.PrintBtn = new System.Windows.Forms.Button();
             this.sn = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -60,15 +62,13 @@
             this.label31 = new System.Windows.Forms.Label();
             this.txt_page = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.txt_changeDate = new System.Windows.Forms.DateTimePicker();
+            this.txt_productDate = new System.Windows.Forms.DateTimePicker();
             this.label29 = new System.Windows.Forms.Label();
-            this.txt_workLine = new System.Windows.Forms.ComboBox();
             this.label27 = new System.Windows.Forms.Label();
             this.PROCESSNUM = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.chracteristicsTB = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.txt_grade = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.batch_no = new System.Windows.Forms.TextBox();
@@ -195,7 +195,10 @@
             this.txt_batchNo = new System.Windows.Forms.TextBox();
             this.batchNoLB = new System.Windows.Forms.Label();
             this.batchInfoDG = new System.Windows.Forms.DataGridView();
+            this.label52 = new System.Windows.Forms.Label();
             this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.changesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.characteritics = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siloNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,7 +207,6 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label52 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -390,10 +392,12 @@
             // printTab
             // 
             this.printTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.printTab.Controls.Add(this.txt_workLine);
+            this.printTab.Controls.Add(this.txt_grade);
+            this.printTab.Controls.Add(this.siloNum);
             this.printTab.Controls.Add(this.txt_nbtWeight);
             this.printTab.Controls.Add(this.com_packageType);
             this.printTab.Controls.Add(this.label9);
-            this.printTab.Controls.Add(this.siloNum);
             this.printTab.Controls.Add(this.PrintBtn);
             this.printTab.Controls.Add(this.sn);
             this.printTab.Controls.Add(this.label33);
@@ -403,15 +407,13 @@
             this.printTab.Controls.Add(this.label31);
             this.printTab.Controls.Add(this.txt_page);
             this.printTab.Controls.Add(this.label30);
-            this.printTab.Controls.Add(this.txt_changeDate);
+            this.printTab.Controls.Add(this.txt_productDate);
             this.printTab.Controls.Add(this.label29);
-            this.printTab.Controls.Add(this.txt_workLine);
             this.printTab.Controls.Add(this.label27);
             this.printTab.Controls.Add(this.PROCESSNUM);
             this.printTab.Controls.Add(this.label26);
-            this.printTab.Controls.Add(this.textBox23);
+            this.printTab.Controls.Add(this.chracteristicsTB);
             this.printTab.Controls.Add(this.label25);
-            this.printTab.Controls.Add(this.txt_grade);
             this.printTab.Controls.Add(this.label24);
             this.printTab.Controls.Add(this.label23);
             this.printTab.Controls.Add(this.batch_no);
@@ -435,10 +437,39 @@
             this.printTab.TabIndex = 0;
             this.printTab.Text = "标签打印";
             // 
+            // txt_workLine
+            // 
+            this.txt_workLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txt_workLine.Location = new System.Drawing.Point(140, 283);
+            this.txt_workLine.Name = "txt_workLine";
+            this.txt_workLine.ReadOnly = true;
+            this.txt_workLine.Size = new System.Drawing.Size(151, 26);
+            this.txt_workLine.TabIndex = 47;
+            // 
+            // txt_grade
+            // 
+            this.txt_grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txt_grade.Location = new System.Drawing.Point(353, 212);
+            this.txt_grade.Name = "txt_grade";
+            this.txt_grade.ReadOnly = true;
+            this.txt_grade.Size = new System.Drawing.Size(116, 26);
+            this.txt_grade.TabIndex = 46;
+            // 
+            // siloNum
+            // 
+            this.siloNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.siloNum.Location = new System.Drawing.Point(138, 212);
+            this.siloNum.Name = "siloNum";
+            this.siloNum.ReadOnly = true;
+            this.siloNum.Size = new System.Drawing.Size(151, 26);
+            this.siloNum.TabIndex = 45;
+            // 
             // txt_nbtWeight
             // 
+            this.txt_nbtWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txt_nbtWeight.Location = new System.Drawing.Point(353, 281);
             this.txt_nbtWeight.Name = "txt_nbtWeight";
+            this.txt_nbtWeight.ReadOnly = true;
             this.txt_nbtWeight.Size = new System.Drawing.Size(116, 26);
             this.txt_nbtWeight.TabIndex = 26;
             // 
@@ -462,17 +493,6 @@
             this.label9.Size = new System.Drawing.Size(72, 16);
             this.label9.TabIndex = 43;
             this.label9.Text = "包装类型";
-            // 
-            // siloNum
-            // 
-            this.siloNum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siloNum.FormattingEnabled = true;
-            this.siloNum.Location = new System.Drawing.Point(140, 215);
-            this.siloNum.Name = "siloNum";
-            this.siloNum.Size = new System.Drawing.Size(151, 24);
-            this.siloNum.TabIndex = 42;
-            this.siloNum.SelectedIndexChanged += new System.EventHandler(this.siloNum_SelectedIndexChanged);
-            this.siloNum.SelectedValueChanged += new System.EventHandler(this.siloNum_SelectedValueChanged);
             // 
             // PrintBtn
             // 
@@ -554,12 +574,14 @@
             this.label30.TabIndex = 31;
             this.label30.Text = "张数：";
             // 
-            // txt_changeDate
+            // txt_productDate
             // 
-            this.txt_changeDate.Location = new System.Drawing.Point(140, 313);
-            this.txt_changeDate.Name = "txt_changeDate";
-            this.txt_changeDate.Size = new System.Drawing.Size(151, 26);
-            this.txt_changeDate.TabIndex = 30;
+            this.txt_productDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.txt_productDate.Enabled = false;
+            this.txt_productDate.Location = new System.Drawing.Point(140, 313);
+            this.txt_productDate.Name = "txt_productDate";
+            this.txt_productDate.Size = new System.Drawing.Size(151, 26);
+            this.txt_productDate.TabIndex = 30;
             // 
             // label29
             // 
@@ -569,15 +591,6 @@
             this.label29.Size = new System.Drawing.Size(88, 16);
             this.label29.TabIndex = 29;
             this.label29.Text = "生产日期：";
-            // 
-            // txt_workLine
-            // 
-            this.txt_workLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txt_workLine.FormattingEnabled = true;
-            this.txt_workLine.Location = new System.Drawing.Point(140, 283);
-            this.txt_workLine.Name = "txt_workLine";
-            this.txt_workLine.Size = new System.Drawing.Size(151, 24);
-            this.txt_workLine.TabIndex = 27;
             // 
             // label27
             // 
@@ -605,12 +618,14 @@
             this.label26.TabIndex = 23;
             this.label26.Text = "工艺号：";
             // 
-            // textBox23
+            // chracteristicsTB
             // 
-            this.textBox23.Location = new System.Drawing.Point(140, 246);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(151, 26);
-            this.textBox23.TabIndex = 22;
+            this.chracteristicsTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.chracteristicsTB.Location = new System.Drawing.Point(140, 246);
+            this.chracteristicsTB.Name = "chracteristicsTB";
+            this.chracteristicsTB.ReadOnly = true;
+            this.chracteristicsTB.Size = new System.Drawing.Size(151, 26);
+            this.chracteristicsTB.TabIndex = 22;
             // 
             // label25
             // 
@@ -620,15 +635,6 @@
             this.label25.Size = new System.Drawing.Size(88, 16);
             this.label25.TabIndex = 21;
             this.label25.Text = "生产特性：";
-            // 
-            // txt_grade
-            // 
-            this.txt_grade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txt_grade.FormattingEnabled = true;
-            this.txt_grade.Location = new System.Drawing.Point(353, 215);
-            this.txt_grade.Name = "txt_grade";
-            this.txt_grade.Size = new System.Drawing.Size(116, 24);
-            this.txt_grade.TabIndex = 20;
             // 
             // label24
             // 
@@ -700,7 +706,7 @@
             // 
             // englishDesc
             // 
-            this.englishDesc.BackColor = System.Drawing.Color.White;
+            this.englishDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.englishDesc.Location = new System.Drawing.Point(138, 77);
             this.englishDesc.Name = "englishDesc";
             this.englishDesc.ReadOnly = true;
@@ -718,7 +724,7 @@
             // 
             // mat_desc
             // 
-            this.mat_desc.BackColor = System.Drawing.Color.White;
+            this.mat_desc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.mat_desc.Location = new System.Drawing.Point(138, 45);
             this.mat_desc.Name = "mat_desc";
             this.mat_desc.ReadOnly = true;
@@ -736,7 +742,7 @@
             // 
             // jhspeci
             // 
-            this.jhspeci.BackColor = System.Drawing.Color.White;
+            this.jhspeci.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.jhspeci.Location = new System.Drawing.Point(138, 110);
             this.jhspeci.Name = "jhspeci";
             this.jhspeci.ReadOnly = true;
@@ -1001,19 +1007,19 @@
             this.workShop,
             this.packageType,
             this.comments});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle11;
             this.printInfoDG.Location = new System.Drawing.Point(0, 74);
             this.printInfoDG.Name = "printInfoDG";
             this.printInfoDG.ReadOnly = true;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.printInfoDG.RowTemplate.Height = 23;
             this.printInfoDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.printInfoDG.Size = new System.Drawing.Size(1014, 366);
@@ -1024,8 +1030,8 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.id.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle10;
             this.id.HeaderText = "序号";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -1910,6 +1916,8 @@
             this.batchInfoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.batchInfoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.batchNumber,
+            this.materialNum,
+            this.line,
             this.changesDate,
             this.characteritics,
             this.siloNo,
@@ -1926,6 +1934,17 @@
             this.batchInfoDG.Size = new System.Drawing.Size(1014, 382);
             this.batchInfoDG.TabIndex = 1;
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(159)))));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(1, 579);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(63, 14);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "版本号：";
+            // 
             // batchNumber
             // 
             this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1934,6 +1953,22 @@
             this.batchNumber.Name = "batchNumber";
             this.batchNumber.ReadOnly = true;
             this.batchNumber.Width = 81;
+            // 
+            // materialNum
+            // 
+            this.materialNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.materialNum.DataPropertyName = "material";
+            this.materialNum.HeaderText = "物料号";
+            this.materialNum.Name = "materialNum";
+            this.materialNum.ReadOnly = true;
+            this.materialNum.Width = 81;
+            // 
+            // line
+            // 
+            this.line.DataPropertyName = "workLine";
+            this.line.HeaderText = "生产线";
+            this.line.Name = "line";
+            this.line.ReadOnly = true;
             // 
             // changesDate
             // 
@@ -2011,17 +2046,6 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 97;
             // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(159)))));
-            this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(1, 579);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(63, 14);
-            this.label52.TabIndex = 6;
-            this.label52.Text = "版本号：";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2067,17 +2091,15 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox txt_page;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.DateTimePicker txt_changeDate;
+        private System.Windows.Forms.DateTimePicker txt_productDate;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox txt_workLine;
         private System.Windows.Forms.TextBox txt_nbtWeight;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox PROCESSNUM;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox chracteristicsTB;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ComboBox txt_grade;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox batch_no;
@@ -2142,7 +2164,6 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label version;
         private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.ComboBox siloNum;
         private System.Windows.Forms.LinkLabel previousPage;
         private System.Windows.Forms.LinkLabel lastPage;
         private System.Windows.Forms.LinkLabel nextPage;
@@ -2188,15 +2209,6 @@
         private System.Windows.Forms.Button batch_add;
         private System.Windows.Forms.Button batch_edit;
         private System.Windows.Forms.Button batch_del;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn changesDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn characteritics;
-        private System.Windows.Forms.DataGridViewTextBoxColumn siloNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gradeNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn seriesNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn mat_old;
@@ -2229,6 +2241,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifyDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifyUser;
+        private System.Windows.Forms.TextBox siloNum;
+        private System.Windows.Forms.TextBox txt_grade;
+        private System.Windows.Forms.TextBox txt_workLine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn line;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changesDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn characteritics;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siloNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gradeNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
     }
 }
 
