@@ -42,7 +42,7 @@ namespace HSC_Util
 
             Font Font19 = new Font("微软雅黑", 19, FontStyle.Bold);
             g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.spec) ? "尼龙粒-全消光" : printModel.spec), Font19, bush, new Rectangle(15, 20, 360, 40), sf);
-            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.newNo) ? "POLYAMIDE 6 FD CHIP" : printModel.newNo), Font19, bush, new Rectangle(15, 53, 360, 40), sf);
+            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.productDesc) ? "POLYAMIDE 6 FD CHIP" : printModel.productDesc), Font19, bush, new Rectangle(15, 53, 360, 40), sf);
             g.DrawString(string.Format("执行标准 EXECUTIVE STANDARD {0}", string.IsNullOrEmpty(printModel.standard) ? "DTY FZ/T54007-2009" : printModel.standard), Font9, bush, new Rectangle(10, 81, 360, 40), sf);
             g.DrawString("批号", Font9, bush, 21, 125);
             g.DrawString("LOT.NO", Font9, bush, 19, 146);

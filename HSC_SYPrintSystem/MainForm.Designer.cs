@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.version = new System.Windows.Forms.Label();
             this.footPanl = new System.Windows.Forms.Panel();
@@ -195,7 +196,6 @@
             this.txt_batchNo = new System.Windows.Forms.TextBox();
             this.batchNoLB = new System.Windows.Forms.Label();
             this.batchInfoDG = new System.Windows.Forms.DataGridView();
-            this.label52 = new System.Windows.Forms.Label();
             this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -207,6 +207,7 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label52 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -1007,19 +1008,19 @@
             this.workShop,
             this.packageType,
             this.comments});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle2;
             this.printInfoDG.Location = new System.Drawing.Point(0, 74);
             this.printInfoDG.Name = "printInfoDG";
             this.printInfoDG.ReadOnly = true;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.printInfoDG.RowTemplate.Height = 23;
             this.printInfoDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.printInfoDG.Size = new System.Drawing.Size(1014, 366);
@@ -1030,8 +1031,8 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.id.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
             this.id.HeaderText = "序号";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -1934,17 +1935,6 @@
             this.batchInfoDG.Size = new System.Drawing.Size(1014, 382);
             this.batchInfoDG.TabIndex = 1;
             // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(159)))));
-            this.label52.ForeColor = System.Drawing.Color.White;
-            this.label52.Location = new System.Drawing.Point(1, 579);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(63, 14);
-            this.label52.TabIndex = 6;
-            this.label52.Text = "版本号：";
-            // 
             // batchNumber
             // 
             this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -2046,12 +2036,24 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 97;
             // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(163)))), ((int)(((byte)(159)))));
+            this.label52.ForeColor = System.Drawing.Color.White;
+            this.label52.Location = new System.Drawing.Point(1, 579);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(63, 14);
+            this.label52.TabIndex = 6;
+            this.label52.Text = "版本号：";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 598);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "标签打印系统";
