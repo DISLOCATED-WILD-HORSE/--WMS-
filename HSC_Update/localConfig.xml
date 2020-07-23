@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<!--版本号-->
+	<version>1.0.0.0</version>
+	<!--要更新的文件名-->
+	<files>
+		<file>Release.zip</file>
+	</files>
+	<!--更新msg-->
+	<message>更新内容:</message>
+	<!--程序名称-->
+	<program>HSC_SYPrintSystem.exe</program>
+	<!--是否支持静默升级-->
+	<isSilentUpgrade>false</isSilentUpgrade>
+	<!--服务器地址-->
+	<serviceUrl>http://192.168.30.86:8080/SY/</serviceUrl>
+</configuration>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSC_SYPrintSystem", "HSC_SYPrintSystem\HSC_SYPrintSystem.csproj", "{DEE58B99-146D-4767-941D-309E1E92DCD6}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSC_BLL", "HSC_BLL\HSC_BLL.csproj", "{983AE0C4-1A14-443F-B000-9F350900AD31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSC_CustomModel", "HSC_CustomModel\HSC_CustomModel.csproj", "{4DCD4175-FEDE-43BE-8F12-0102B954A628}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HSC_Update", "HSC_Update\HSC_Update.csproj", "{B3DDBF59-839D-45CA-9A04-F64189DBE540}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{4DCD4175-FEDE-43BE-8F12-0102B954A628}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DCD4175-FEDE-43BE-8F12-0102B954A628}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DCD4175-FEDE-43BE-8F12-0102B954A628}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3DDBF59-839D-45CA-9A04-F64189DBE540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3DDBF59-839D-45CA-9A04-F64189DBE540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3DDBF59-839D-45CA-9A04-F64189DBE540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3DDBF59-839D-45CA-9A04-F64189DBE540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BC6B51F-70DE-4544-AE60-F6DA6C4EB808}
 	EndGlobalSection
 EndGlobal
