@@ -22,6 +22,8 @@ namespace HSC_Update
         /// </summary>
         public static bool CheckServerEdition()
         {
+            string url = ConfigHelper.GetContextNode("serviceUrl", ConfigHelper.XmlConfig());
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
             var ConfigClient = ConfigHelper.GetClientConfig();
             var ConfigServer = ConfigHelper.GetServerConfig();
             if (ConfigClient == null || ConfigServer == null)
@@ -33,6 +35,7 @@ namespace HSC_Update
             if (ConfigClient.Version == ConfigServer.Version)
             {
                 MessageBox.Show("目前程序已是最新版本,不用更新！");
+                Process p = Process.Start(path + Const.ProgramName);
                 return false;
             }
             if (int.Parse(ConfigClient.Version.Replace(".","")) > int.Parse(ConfigServer.Version.Replace(".","")))
@@ -40,8 +43,6 @@ namespace HSC_Update
                 MessageBox.Show("目前服务端版本可能已经发生异常,请联系管理人员！");
                 return false;
             }
-            string url = ConfigHelper.GetContextNode("serviceUrl", ConfigHelper.XmlConfig());
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
             //静默更新开启就开始更新
             if (ConfigServer.IsSilentUpgrade)
             {
