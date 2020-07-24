@@ -1,4 +1,5 @@
-﻿using SharpCompress.Common;
+﻿using HSC_Update.Progress;
+using SharpCompress.Common;
 using SharpCompress.Readers;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Net;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Threading;
@@ -26,16 +28,15 @@ namespace HSC_Update
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
             var ConfigClient = ConfigHelper.GetClientConfig();
             var ConfigServer = ConfigHelper.GetServerConfig();
-            
+            if (ConfigClient == null || ConfigServer == null)
+            {
+                MessageBox.Show("获取升级文件发生异常，已结束本次更新！");
+                return false;
+            }
             //静默更新开启就开始更新
             if (ConfigServer.IsSilentUpgrade)
             {
                 #region 验证
-                if (ConfigClient == null || ConfigServer == null)
-                {
-                    MessageBox.Show("获取升级文件发生异常，已结束本次更新！");
-                    return false;
-                }
                 //比较版本号
                 if (ConfigClient.Version == ConfigServer.Version)
                 {
@@ -54,6 +55,13 @@ namespace HSC_Update
                 {
                     Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp"), true);
                 }
+
+                ProgressManager pm = new ProgressManager();
+                pm.backWork = DoWithProcess;
+                pm.txtInfo = "正在下载中";
+                pm.BackWorkCompleted += new EventHandler<BackgroundWorkerEventArgs>(process_BackgroundWorkerCompleted);
+                pm.Start();
+
                 foreach (string fileName in ConfigHelper.GetServerConfig().Files)
                 {
                     //下载文件失败
@@ -201,6 +209,27 @@ namespace HSC_Update
                         }
                     } 
                 }
+            }
+        }
+
+        private static void process_BackgroundWorkerCompleted(object sender, BackgroundWorkerEventArgs e)
+        {
+            if (e.BackGroundException == null)
+            {
+                //MessageBox.Show("执行完毕");
+            }
+            else
+            {
+                MessageBox.Show("异常:" + e.BackGroundException.Message);
+            }
+        }
+
+        private static void DoWithProcess(Action<int> percent)
+        {
+            for (int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(50);
+                percent(i);
             }
         }
     }
