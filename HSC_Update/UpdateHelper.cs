@@ -26,35 +26,38 @@ namespace HSC_Update
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
             var ConfigClient = ConfigHelper.GetClientConfig();
             var ConfigServer = ConfigHelper.GetServerConfig();
-            if (ConfigClient == null || ConfigServer == null)
-            {
-                MessageBox.Show("获取升级文件发生异常，已结束本次更新！");
-                return false;
-            }
-            //比较版本号
-            if (ConfigClient.Version == ConfigServer.Version)
-            {
-                MessageBox.Show("目前程序已是最新版本,不用更新！");
-                Process p = Process.Start(path + Const.ProgramName);
-                return false;
-            }
-            if (int.Parse(ConfigClient.Version.Replace(".","")) > int.Parse(ConfigServer.Version.Replace(".","")))
-            {
-                MessageBox.Show("目前服务端版本可能已经发生异常,请联系管理人员！");
-                return false;
-            }
+            
             //静默更新开启就开始更新
             if (ConfigServer.IsSilentUpgrade)
             {
+                #region 验证
+                if (ConfigClient == null || ConfigServer == null)
+                {
+                    MessageBox.Show("获取升级文件发生异常，已结束本次更新！");
+                    return false;
+                }
+                //比较版本号
+                if (ConfigClient.Version == ConfigServer.Version)
+                {
+                    MessageBox.Show("目前程序已是最新版本,不用更新！");
+                    Process p = Process.Start(path + Const.ProgramName);
+                    return false;
+                }
+                if (int.Parse(ConfigClient.Version.Replace(".", "")) > int.Parse(ConfigServer.Version.Replace(".", "")))
+                {
+                    MessageBox.Show("目前服务端版本可能已经发生异常,请联系管理人员！");
+                    return false;
+                }
+                #endregion
+                //下载之前文件夹存在则删除
                 if (Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp")))
                 {
                     Directory.Delete(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "temp"), true);
                 }
-                
                 foreach (string fileName in ConfigHelper.GetServerConfig().Files)
                 {
                     //下载文件失败
-                    if(!StartDownFile(url + fileName, path, fileName))
+                    if (!StartDownFile(url + fileName, path, fileName))
                     {
                         MessageBox.Show("升级程序下载失败，重试无效请联系管理人员！");
                         return false;
@@ -69,7 +72,6 @@ namespace HSC_Update
             }
             Application.Exit();
             Process proc = Process.Start(path + Const.ProgramName);
-            //KillAll("HSC_Update.exe");
             if (proc != null)
             {
                 proc.WaitForExit();
