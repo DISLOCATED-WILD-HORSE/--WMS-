@@ -62,20 +62,6 @@ namespace HSC_Update
                 pm.BackWorkCompleted += new EventHandler<BackgroundWorkerEventArgs>(process_BackgroundWorkerCompleted);
                 pm.Start();
 
-                foreach (string fileName in ConfigHelper.GetServerConfig().Files)
-                {
-                    //下载文件失败
-                    if (!StartDownFile(url + fileName, path, fileName))
-                    {
-                        MessageBox.Show("升级程序下载失败，重试无效请联系管理人员！");
-                        return false;
-                    }
-                    copyDirectory(path + "temp", path);
-                    //解压文件
-                    StartUnzipFile(path + Path.DirectorySeparatorChar + fileName, path);
-                }
-                //下载XML配置文件
-                DownConfigFile(url + Const.FileName, path + Path.DirectorySeparatorChar + Const.FileName);
                 MessageBox.Show("更新完成，" + ConfigServer.Msg);
             }
             Application.Exit();
@@ -226,11 +212,35 @@ namespace HSC_Update
 
         private static void DoWithProcess(Action<int> percent)
         {
-            for (int i = 0; i <= 100; i++)
+            string url = ConfigHelper.GetContextNode("serviceUrl", ConfigHelper.XmlConfig());
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
+            int i = 0;
+            foreach (string fileName in ConfigHelper.GetServerConfig().Files)
             {
-                Thread.Sleep(50);
+                Thread.Sleep(500);
+                //下载文件失败
+                if (!StartDownFile(url + fileName, path, fileName))
+                {
+                    MessageBox.Show("升级程序下载失败，重试无效请联系管理人员！");
+                    return;
+                }
+                copyDirectory(path + "temp", path);
+                //解压文件
+                StartUnzipFile(path + Path.DirectorySeparatorChar + fileName, path);
+                i++;
                 percent(i);
             }
+            //下载XML配置文件
+            DownConfigFile(url + Const.FileName, path + Path.DirectorySeparatorChar + Const.FileName);
+            i = 100;
+            
+            percent(i);
+            Thread.Sleep(500);
+            //for (int i = 0; i <= 100; i++)
+            //{
+            //    Thread.Sleep(50);
+            //    percent(i);
+            //}
         }
     }
 }
