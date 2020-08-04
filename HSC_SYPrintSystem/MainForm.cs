@@ -248,6 +248,7 @@ namespace HSC_SYPrintSystem
                     txt_productDate.Text = packageInfo.Value.productDate.ToString("yyyy-MM-dd");
                     remark.Text = packageInfo.Value.comments;
                     packType.Text = packageInfo.Value.packType;
+                    sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
                 }
                 else
                 {
@@ -1257,7 +1258,13 @@ namespace HSC_SYPrintSystem
             {
                 batch_search_Click(sender, e);
             }
-        } 
+        }
         #endregion
+
+        private void siloNum_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(siloNum.Text))
+                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+        }
     }
 }

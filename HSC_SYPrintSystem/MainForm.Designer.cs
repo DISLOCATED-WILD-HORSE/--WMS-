@@ -464,6 +464,7 @@
             this.siloNum.ReadOnly = true;
             this.siloNum.Size = new System.Drawing.Size(151, 26);
             this.siloNum.TabIndex = 45;
+            this.siloNum.TextChanged += new System.EventHandler(this.siloNum_TextChanged);
             // 
             // txt_nbtWeight
             // 
