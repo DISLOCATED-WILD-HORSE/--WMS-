@@ -1,4 +1,5 @@
 ﻿using HSC_Entity;
+using HSC_SYPrintSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,7 +30,14 @@ namespace HSC_Util
             }
             if (string.IsNullOrEmpty(model.mNo))
             {
-                Msg = "新物料号不能为空！";
+                Msg = "物料号不能为空！";
+                return false;
+            }
+            var matDao = SqlSugarDB.Instance<MatMaping>();
+            var matMapingModel = matDao.Query().First(p => p.CustomMat == model.mNo);
+            if(matMapingModel == null)
+            {
+                Msg = "物料号" + model.mNo + "未维护有对应关系的新物料，请检查！";
                 return false;
             }
             if (string.IsNullOrEmpty(model.standard))

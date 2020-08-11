@@ -207,6 +207,22 @@
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matMaping = new System.Windows.Forms.TabPage();
+            this.matRelationEditBtn = new System.Windows.Forms.Button();
+            this.matRelationDelBtn = new System.Windows.Forms.Button();
+            this.matRelationAddBtn = new System.Windows.Forms.Button();
+            this.matRelationSearchBtn = new System.Windows.Forms.Button();
+            this.txt_hscMat_ID = new System.Windows.Forms.TextBox();
+            this.txt_customMat = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.matRelationDGV = new System.Windows.Forms.DataGridView();
+            this.customMat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hscMat_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label52 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
@@ -220,6 +236,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.Mat_DataGridView)).BeginInit();
             this.batchInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batchInfoDG)).BeginInit();
+            this.matMaping.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.matRelationDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -382,6 +400,7 @@
             this.TabControl.Controls.Add(this.printSummary);
             this.TabControl.Controls.Add(this.matData);
             this.TabControl.Controls.Add(this.batchInfo);
+            this.TabControl.Controls.Add(this.matMaping);
             this.TabControl.Font = new System.Drawing.Font("宋体", 12F);
             this.TabControl.Location = new System.Drawing.Point(0, 41);
             this.TabControl.Name = "TabControl";
@@ -1933,7 +1952,7 @@
             this.batchInfoDG.ReadOnly = true;
             this.batchInfoDG.RowTemplate.Height = 23;
             this.batchInfoDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.batchInfoDG.Size = new System.Drawing.Size(1014, 382);
+            this.batchInfoDG.Size = new System.Drawing.Size(1014, 374);
             this.batchInfoDG.TabIndex = 1;
             // 
             // batchNumber
@@ -2037,6 +2056,170 @@
             this.dataGridViewTextBoxColumn17.ReadOnly = true;
             this.dataGridViewTextBoxColumn17.Width = 97;
             // 
+            // matMaping
+            // 
+            this.matMaping.Controls.Add(this.matRelationEditBtn);
+            this.matMaping.Controls.Add(this.matRelationDelBtn);
+            this.matMaping.Controls.Add(this.matRelationAddBtn);
+            this.matMaping.Controls.Add(this.matRelationSearchBtn);
+            this.matMaping.Controls.Add(this.txt_hscMat_ID);
+            this.matMaping.Controls.Add(this.txt_customMat);
+            this.matMaping.Controls.Add(this.label4);
+            this.matMaping.Controls.Add(this.label2);
+            this.matMaping.Controls.Add(this.matRelationDGV);
+            this.matMaping.Location = new System.Drawing.Point(4, 26);
+            this.matMaping.Name = "matMaping";
+            this.matMaping.Size = new System.Drawing.Size(1014, 439);
+            this.matMaping.TabIndex = 5;
+            this.matMaping.Text = "物料关系";
+            this.matMaping.UseVisualStyleBackColor = true;
+            // 
+            // matRelationEditBtn
+            // 
+            this.matRelationEditBtn.Location = new System.Drawing.Point(923, 32);
+            this.matRelationEditBtn.Name = "matRelationEditBtn";
+            this.matRelationEditBtn.Size = new System.Drawing.Size(75, 23);
+            this.matRelationEditBtn.TabIndex = 66;
+            this.matRelationEditBtn.Text = "编辑";
+            this.matRelationEditBtn.UseVisualStyleBackColor = true;
+            this.matRelationEditBtn.Click += new System.EventHandler(this.matRelationEditBtn_Click);
+            // 
+            // matRelationDelBtn
+            // 
+            this.matRelationDelBtn.Location = new System.Drawing.Point(923, 5);
+            this.matRelationDelBtn.Name = "matRelationDelBtn";
+            this.matRelationDelBtn.Size = new System.Drawing.Size(75, 23);
+            this.matRelationDelBtn.TabIndex = 65;
+            this.matRelationDelBtn.Text = "删除";
+            this.matRelationDelBtn.UseVisualStyleBackColor = true;
+            this.matRelationDelBtn.Click += new System.EventHandler(this.matRelationDelBtn_Click);
+            // 
+            // matRelationAddBtn
+            // 
+            this.matRelationAddBtn.Location = new System.Drawing.Point(842, 32);
+            this.matRelationAddBtn.Name = "matRelationAddBtn";
+            this.matRelationAddBtn.Size = new System.Drawing.Size(75, 23);
+            this.matRelationAddBtn.TabIndex = 64;
+            this.matRelationAddBtn.Text = "新增";
+            this.matRelationAddBtn.UseVisualStyleBackColor = true;
+            this.matRelationAddBtn.Click += new System.EventHandler(this.matRelationAddBtn_Click);
+            // 
+            // matRelationSearchBtn
+            // 
+            this.matRelationSearchBtn.Location = new System.Drawing.Point(842, 5);
+            this.matRelationSearchBtn.Name = "matRelationSearchBtn";
+            this.matRelationSearchBtn.Size = new System.Drawing.Size(75, 23);
+            this.matRelationSearchBtn.TabIndex = 63;
+            this.matRelationSearchBtn.Text = "搜索";
+            this.matRelationSearchBtn.UseVisualStyleBackColor = true;
+            this.matRelationSearchBtn.Click += new System.EventHandler(this.matRelationSearchBtn_Click);
+            // 
+            // txt_hscMat_ID
+            // 
+            this.txt_hscMat_ID.Location = new System.Drawing.Point(433, 18);
+            this.txt_hscMat_ID.Name = "txt_hscMat_ID";
+            this.txt_hscMat_ID.Size = new System.Drawing.Size(170, 26);
+            this.txt_hscMat_ID.TabIndex = 7;
+            // 
+            // txt_customMat
+            // 
+            this.txt_customMat.Location = new System.Drawing.Point(106, 18);
+            this.txt_customMat.Name = "txt_customMat";
+            this.txt_customMat.Size = new System.Drawing.Size(159, 26);
+            this.txt_customMat.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(346, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 16);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "新物料号：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "物料号：";
+            // 
+            // matRelationDGV
+            // 
+            this.matRelationDGV.AllowUserToAddRows = false;
+            this.matRelationDGV.BackgroundColor = System.Drawing.Color.White;
+            this.matRelationDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.matRelationDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.customMat,
+            this.hscMat_ID,
+            this.mDate,
+            this.mUser,
+            this.cDate,
+            this.cUser});
+            this.matRelationDGV.Location = new System.Drawing.Point(0, 61);
+            this.matRelationDGV.Name = "matRelationDGV";
+            this.matRelationDGV.ReadOnly = true;
+            this.matRelationDGV.RowTemplate.Height = 23;
+            this.matRelationDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.matRelationDGV.Size = new System.Drawing.Size(1014, 379);
+            this.matRelationDGV.TabIndex = 0;
+            // 
+            // customMat
+            // 
+            this.customMat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.customMat.DataPropertyName = "CustomMat";
+            this.customMat.HeaderText = "物料号";
+            this.customMat.Name = "customMat";
+            this.customMat.ReadOnly = true;
+            this.customMat.Width = 81;
+            // 
+            // hscMat_ID
+            // 
+            this.hscMat_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.hscMat_ID.DataPropertyName = "Mat_ID";
+            this.hscMat_ID.HeaderText = "新物料号";
+            this.hscMat_ID.Name = "hscMat_ID";
+            this.hscMat_ID.ReadOnly = true;
+            this.hscMat_ID.Width = 97;
+            // 
+            // mDate
+            // 
+            this.mDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mDate.DataPropertyName = "modifyDate";
+            this.mDate.HeaderText = "修改日期";
+            this.mDate.Name = "mDate";
+            this.mDate.ReadOnly = true;
+            this.mDate.Width = 97;
+            // 
+            // mUser
+            // 
+            this.mUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mUser.DataPropertyName = "modifyUser";
+            this.mUser.HeaderText = "修改人";
+            this.mUser.Name = "mUser";
+            this.mUser.ReadOnly = true;
+            this.mUser.Width = 81;
+            // 
+            // cDate
+            // 
+            this.cDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cDate.DataPropertyName = "createDate";
+            this.cDate.HeaderText = "创建日期";
+            this.cDate.Name = "cDate";
+            this.cDate.ReadOnly = true;
+            this.cDate.Width = 97;
+            // 
+            // cUser
+            // 
+            this.cUser.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.cUser.DataPropertyName = "createUser";
+            this.cUser.HeaderText = "创建人";
+            this.cUser.Name = "cUser";
+            this.cUser.ReadOnly = true;
+            this.cUser.Width = 81;
+            // 
             // label52
             // 
             this.label52.AutoSize = true;
@@ -2077,6 +2260,9 @@
             this.batchInfo.ResumeLayout(false);
             this.batchInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.batchInfoDG)).EndInit();
+            this.matMaping.ResumeLayout(false);
+            this.matMaping.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.matRelationDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2258,6 +2444,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.TabPage matMaping;
+        private System.Windows.Forms.DataGridView matRelationDGV;
+        private System.Windows.Forms.TextBox txt_hscMat_ID;
+        private System.Windows.Forms.TextBox txt_customMat;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button matRelationEditBtn;
+        private System.Windows.Forms.Button matRelationDelBtn;
+        private System.Windows.Forms.Button matRelationAddBtn;
+        private System.Windows.Forms.Button matRelationSearchBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn customMat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hscMat_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cUser;
     }
 }
 

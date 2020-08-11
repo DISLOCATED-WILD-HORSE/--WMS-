@@ -70,6 +70,12 @@
     <Compile Include="AddMatForm.Designer.cs">
       <DependentUpon>AddMatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddMatRelationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddMatRelationForm.Designer.cs">
+      <DependentUpon>AddMatRelationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,11 +96,20 @@
     <Compile Include="UpdateMatForm.Designer.cs">
       <DependentUpon>UpdateMatForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateMatRelationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateMatRelationForm.Designer.cs">
+      <DependentUpon>UpdateMatRelationForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBatchForm.resx">
       <DependentUpon>AddBatchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddMatForm.resx">
       <DependentUpon>AddMatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddMatRelationForm.resx">
+      <DependentUpon>AddMatRelationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -117,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateMatForm.resx">
       <DependentUpon>UpdateMatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateMatRelationForm.resx">
+      <DependentUpon>UpdateMatRelationForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

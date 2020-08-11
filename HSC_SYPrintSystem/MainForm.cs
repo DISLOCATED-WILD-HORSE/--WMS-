@@ -4,6 +4,7 @@ using HSC_Entity;
 using HSC_Util;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace HSC_SYPrintSystem
         PackageInfoBLL packagebll = new PackageInfoBLL();
         MaterialBLL materialbll = new MaterialBLL();
         BatchInfoBLL batInfobll = new BatchInfoBLL();
+        MatMapingBLL matMapingbll = new MatMapingBLL();
         packageInfo packageData = null;
         Dictionary<string, string> dic = null;
         public MainForm()
@@ -68,6 +70,12 @@ namespace HSC_SYPrintSystem
                         break;
                     case "批次信息":
                         batch_search_Click(sender, e);
+                        break;
+                    case "物料关系":
+                        matRelationSearchBtn_Click(sender, e);
+                        break;
+                    default:
+
                         break;
                 }
             }
@@ -248,7 +256,6 @@ namespace HSC_SYPrintSystem
                     txt_productDate.Text = packageInfo.Value.productDate.ToString("yyyy-MM-dd");
                     remark.Text = packageInfo.Value.comments;
                     packType.Text = packageInfo.Value.packType;
-                    sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
                 }
                 else
                 {
@@ -365,27 +372,29 @@ namespace HSC_SYPrintSystem
 
             #region 标签打印数据组装
             //printModel.ORD_NO = txt_ORD_NO.Text;
-            printModel.spec = jhspeci.Text;
-            printModel.description = mat_desc.Text;
-            printModel.hiddenProduct = oldMat.Text;
-            printModel.newNo = oldMat.Text;
-            printModel.productDesc = englishDesc.Text;
-            printModel.mNo = MaterialNo.Text;
+            printModel.spec = jhspeci.Text.Trim();
+            printModel.description = mat_desc.Text.Trim();
+            printModel.hiddenProduct = oldMat.Text.Trim();
+            printModel.newNo = oldMat.Text.Trim();
+            printModel.productDesc = englishDesc.Text.Trim();
+            var matDao = SqlSugarDB.Instance<MatMaping>();
+            var matMapingModel = matDao.Query().First(p => p.CustomMat == MaterialNo.Text.Trim());
+            printModel.mNo = matMapingModel.Mat_ID;
             printModel.standard = "FZ/T 51004-2011";
-            printModel.bNo = batch_no.Text;
-            printModel.workLine = txt_workLine.Text;
-            printModel.SILONUM = dic[siloNum.Text];
-            printModel.grade = txt_grade.Text;
-            printModel.characteristic = chracteristicsTB.Text;
-            printModel.PROCESSNUM = PROCESSNUM.Text;
+            printModel.bNo = batch_no.Text.Trim();
+            printModel.workLine = txt_workLine.Text.Trim();
+            printModel.SILONUM = dic[siloNum.Text.Trim()];
+            printModel.grade = txt_grade.Text.Trim();
+            printModel.characteristic = chracteristicsTB.Text.Trim();
+            printModel.PROCESSNUM = PROCESSNUM.Text.Trim();
             //printModel.grainWeight = txt_grainWeight.Text;
             //printModel.unit = txt_unit.Text.ToInt();
-            printModel.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text);
+            printModel.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text.Trim());
             //printModel.productDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.packageDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.timestamps = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-            printModel.packType = packType.Text;
-            if (com_packageType.Text.Equals("生产下线"))
+            printModel.packType = packType.Text.Trim();
+            if (com_packageType.Text.Trim().Equals("生产下线"))
             {
                 printModel.packageType = 1;
             }
@@ -393,14 +402,14 @@ namespace HSC_SYPrintSystem
             {
                 printModel.packageType = 0;
             }
-            printModel.productDate = Convert.ToDateTime(txt_productDate.Text);
+            printModel.productDate = Convert.ToDateTime(txt_productDate.Text.Trim());
             //printModel.pipeColor = txt_pipeColor.Text;
             //printModel.wireType = txt_WireType.Text;
             //printModel.insp = txt_insp.Text;//班次
             //printModel.caseWeight = txt_caseWeight.Text.ToDecimal();
             //printModel.canWeight = txt_canWeight.Text.ToDecimal();
             //printModel.grossWeight = txt_grossWeight.Text.ToDecimal();
-            printModel.comments = remark.Text;
+            printModel.comments = remark.Text.Trim();
             printModel.ISExport = false;//是否出口
             printModel.ISViceProduct = false;//是否副产品
             printModel.BOX_TYPE = 0;//纸箱类型
@@ -519,6 +528,11 @@ namespace HSC_SYPrintSystem
         }
 
         private void siloNum_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(siloNum.Text))
+                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+        }
+        private void siloNum_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
                 sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
@@ -1261,10 +1275,92 @@ namespace HSC_SYPrintSystem
         }
         #endregion
 
-        private void siloNum_TextChanged(object sender, EventArgs e)
+        
+        /// <summary>
+        /// 物料对应关系新增
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void matRelationAddBtn_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+            AddMatRelationForm addMatRelationFrm = new AddMatRelationForm();
+            addMatRelationFrm.ShowDialog();
+            if (addMatRelationFrm.DialogResult == DialogResult.OK)
+            {
+                matRelationSearchBtn_Click(sender, e);
+            }
+        }
+        /// <summary>
+        /// 物料对应关系的搜索功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void matRelationSearchBtn_Click(object sender, EventArgs e)
+        {
+            firstPage.Enabled = false;
+            previousPage.Enabled = false;
+            nextPage.Enabled = true;
+            lastPage.Enabled = true;
+            Page page = new Page();
+            var rv = matMapingbll.GetMatMapingInfo(txt_customMat.Text.Trim(), txt_hscMat_ID.Text.Trim(), page);
+            if (page.GetTotalPage() == 1)
+            {
+                nextPage.Enabled = false;
+                lastPage.Enabled = false;
+            }
+            if (rv.IsSuccess && rv.Value.Count > 0)
+            {
+                //去掉datagrideview自动加载多余的列
+                this.matRelationDGV.AutoGenerateColumns = false;
+                matRelationDGV.DataSource = rv.Value;
+                totalCount.Text = page.GetTotalPage().ToString();
+                currentPage.Text = page.pageIndex.ToString();
+                this.NoChecked(matRelationDGV);
+                return;
+            }
+            this.matRelationDGV.DataSource = null;
+        }
+
+        /// <summary>
+        /// 物料对应关系编辑
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void matRelationEditBtn_Click(object sender, EventArgs e)
+        {
+            if (matRelationDGV.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("请选择一条数据");
+                return;
+            }
+            UpdateMatRelationForm updateForm = new UpdateMatRelationForm((MatMaping)matRelationDGV.CurrentRow.DataBoundItem);
+            updateForm.ShowDialog();
+            if (updateForm.DialogResult == DialogResult.OK)
+            {
+                batch_search_Click(sender, e);
+            }
+        }
+
+        private void matRelationDelBtn_Click(object sender, EventArgs e)
+        {
+            if (matRelationDGV.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("至少选中一行数据");
+                return;
+            }
+            if (MessageBox.Show("确认删除" + matRelationDGV.SelectedRows.Count + "条记录？", "此删除不可恢复", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                List<string> list = new List<string>();
+                foreach (DataGridViewRow item in matRelationDGV.SelectedRows)
+                {
+                    MatMaping matMapingModel = (MatMaping)item.DataBoundItem;
+                    list.Add(matMapingModel.CustomMat);
+                }
+                var rv = matMapingbll.DelMatMapingInfo(list.ToArray());
+                MessageBox.Show(rv.Msg);
+            }
+            //matRelationSearchBtn_Click(sender, e);
+            matRelationDelBtn.Click += new EventHandler(matRelationSearchBtn_Click);
         }
     }
 }

@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="BatchInfoBLL.cs" />
     <Compile Include="MaterialBLL.cs" />
+    <Compile Include="MatMapingBLL.cs" />
     <Compile Include="PackageInfoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
