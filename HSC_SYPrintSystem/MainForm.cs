@@ -502,7 +502,7 @@ namespace HSC_SYPrintSystem
 
         private void PrintExecute(object sender, PrintPageEventArgs e)
         {
-            PrintHelper.PrintImplementation(packageData, e);
+            PrintHelper.PrintImplementation(packageData, MaterialNo.Text.Trim(), e);
             var result = packagebll.AddPackageInfo(packageData);
             if (!result.IsSuccess)
                 MessageBox.Show(result.Msg);
@@ -511,7 +511,7 @@ namespace HSC_SYPrintSystem
         }
         private void revPrintExecute(object sender, PrintPageEventArgs e)
         {
-            PrintHelper.PrintImplementation(packageData, e);
+            PrintHelper.PrintImplementation(packageData, MaterialNo.Text.Trim(), e);
             packageDate = null;
         }
 

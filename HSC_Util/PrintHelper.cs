@@ -12,7 +12,7 @@ namespace HSC_Util
 {
     public static class PrintHelper
     {
-        public static void PrintImplementation(packageInfo printModel, PrintPageEventArgs e)
+        public static void PrintImplementation(packageInfo printModel, string customMat, PrintPageEventArgs e)
         {
             Graphics g = e.Graphics;
             Pen p4 = new Pen(Color.Black, 4);//定义了一个蓝色,宽度为的画笔
@@ -50,7 +50,7 @@ namespace HSC_Util
 
             g.DrawString("物料号", Font9, bush, 19, 179);
             g.DrawString("M.NO", Font9, bush, 19, 198);
-            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.mNo) ? "301000018" : printModel.mNo), Font16, bush, 100, 185);
+            g.DrawString(string.Format("{0}", customMat ?? ""), Font16, bush, 100, 185);
 
             g.DrawString("批次", Font9, bush, 19, 234);
             g.DrawString("B.NO", Font9, bush, 19, 254);
@@ -62,7 +62,7 @@ namespace HSC_Util
 
             g.DrawString("净重", Font9, bush, 19, 341);
             g.DrawString("N.W", Font9, bush, 19, 361);
-            g.DrawString(string.Format("{0}", printModel.nbtWeight == null ? "820 KG" : printModel?.nbtWeight + " KG"), Font16, bush, new Rectangle(80, 345, 130, 31), sf);
+            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.nbtWeight.ToString()) ? "820 KG" : printModel?.nbtWeight + " KG"), Font16, bush, new Rectangle(80, 345, 130, 31), sf);
             g.DrawImage(Create_ImgCode2(@"" + 1 + ";;" + printModel.mNo + ";" + printModel.bNo + ";" + printModel.grade + ";" + printModel.nbtWeight + ";" + printModel.seriesNo + ";" + printModel?.packageDate + ";" + printModel.SILONUM + ";" + printModel.PROCESSNUM + ";;", 6), new Rectangle(232, 292, 134, 130));
             g.DrawString("Made In China", Font9, bush, new Rectangle(230, 425, 130, 24), sf);
 
