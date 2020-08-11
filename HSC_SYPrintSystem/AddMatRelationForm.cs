@@ -86,7 +86,7 @@ namespace HSC_SYPrintSystem
         private void BatSaveBtn_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            string user = "申远聚合";
+            string user = UserBLL.userInfo.UserName;
             #region 组装物料对应关系信息
             MatMaping matMaping = new MatMaping
             {

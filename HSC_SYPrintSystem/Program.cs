@@ -18,7 +18,16 @@ namespace HSC_SYPrintSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            //LoginForm lf = new LoginForm();
+
+            //if (lf.ShowDialog() == DialogResult.OK)
+            //{
+
+            //    Application.Run(new MainForm());
+
+            //}
+            Application.Run(new LoginForm());
         }
     }
 }

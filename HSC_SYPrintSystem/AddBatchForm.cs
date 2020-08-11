@@ -78,7 +78,7 @@ namespace HSC_SYPrintSystem
         private void BatSaveBtn_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            string user = "申远聚合";
+            string user = UserBLL.userInfo.UserName;
             #region 组装批次信息
             batchInfo bat = new batchInfo
             {

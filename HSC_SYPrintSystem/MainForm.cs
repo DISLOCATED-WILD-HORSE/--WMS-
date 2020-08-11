@@ -25,7 +25,7 @@ namespace HSC_SYPrintSystem
         {
             InitializeComponent();
             GetAllInitInfo(this.Controls[0]);
-            sn.Text = packagebll.GetSNInfo("申远聚合").Value;
+            sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine).Value;
             dic = SelectListModel.SiloNumList();
             //siloNum.DataSource = dic.Keys.ToList();
             //txt_grade.DataSource = SelectListModel.GradeList();
@@ -421,10 +421,10 @@ namespace HSC_SYPrintSystem
             //{
             //    printModel.packageType = 0;
             //}
-            printModel.workShop = "申远聚合";
-            printModel.wksplit = "申远聚合";
+            printModel.workShop = UserBLL.userInfo.WorkLine;
+            printModel.wksplit = UserBLL.userInfo.WorkLine;
             printModel.warehouseNo = "SJC";
-            printModel.CREATEUSER = printModel.MODIFYUSER = "申远聚合";
+            printModel.CREATEUSER = printModel.MODIFYUSER = UserBLL.userInfo.UserName;
             printModel.CREATEDATE = printModel.MODIFYDATE = DateTime.Now;
             //string fg = siloNum.Text.Split('-')[0].Substring(1, siloNum.Text.Split('-')[0].Length - 1) + (!string.IsNullOrEmpty(printModel.PROCESSNUM.Trim()) ? printModel.PROCESSNUM : "00");
             printModel.seriesNo = sn.Text;
@@ -470,7 +470,7 @@ namespace HSC_SYPrintSystem
                 var packageInfo = packageDao.Query().First(p => p.seriesNo.Equals(sn.Text.Trim()));
                 if (packageInfo != null)
                 {
-                    sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
+                    sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
                     MessageBox.Show("已经自动重置最大箱号!请继续点击打印!");
                     return;
                 }
@@ -506,7 +506,7 @@ namespace HSC_SYPrintSystem
             var result = packagebll.AddPackageInfo(packageData);
             if (!result.IsSuccess)
                 MessageBox.Show(result.Msg);
-            sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
+            sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
             packageDate = null;
         }
         private void revPrintExecute(object sender, PrintPageEventArgs e)
@@ -524,18 +524,18 @@ namespace HSC_SYPrintSystem
         private void siloNum_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
 
         private void siloNum_SelectedValueChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
         private void siloNum_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
 
         /// <summary>
@@ -546,7 +546,7 @@ namespace HSC_SYPrintSystem
         private void PROCESSNUM_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo("申远聚合", dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
         #endregion
 
@@ -1361,6 +1361,11 @@ namespace HSC_SYPrintSystem
             }
             //matRelationSearchBtn_Click(sender, e);
             matRelationDelBtn.Click += new EventHandler(matRelationSearchBtn_Click);
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

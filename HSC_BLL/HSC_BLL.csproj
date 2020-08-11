@@ -53,6 +53,7 @@
     <Compile Include="MatMapingBLL.cs" />
     <Compile Include="PackageInfoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HSC_CustomModel\HSC_CustomModel.csproj">

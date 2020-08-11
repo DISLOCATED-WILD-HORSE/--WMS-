@@ -28,7 +28,7 @@ namespace HSC_SYPrintSystem
         private void MatSaveBtn_Click(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
-            string user = "申远聚合";
+            string user = UserBLL.userInfo.UserName;
             if (string.IsNullOrEmpty(materialTB.Text.Trim()))
             {
                 MessageBox.Show("物料号不能为空！","警告");

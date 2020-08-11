@@ -47,6 +47,8 @@ namespace HSC_SYPrintSystem
             }
             #region 更新对象组装
             matMapingModel.Mat_ID = hscMat_ID.Text.Trim();
+            matMapingModel.modifyDate = DateTime.Now;
+            matMapingModel.modifyUser = UserBLL.userInfo.UserName;
             #endregion
             MatMapingBLL matMapingbll = new MatMapingBLL();
             var rv = matMapingbll.UpdateMatMapingInfo(matMapingModel);
