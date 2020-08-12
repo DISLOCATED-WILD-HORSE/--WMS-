@@ -35,7 +35,7 @@ namespace HSC_SYPrintSystem
         private static bool CanCreate()
         {
             bool canCreate;
-            mutex = new Mutex(true, "HSC.QrCodeProject", out canCreate);
+            mutex = new Mutex(true, "HSC_SYPrintSystem", out canCreate);
             return canCreate;
         }
 
