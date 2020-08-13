@@ -221,8 +221,19 @@ namespace HSC_SYPrintSystem
             if (e.KeyChar == 13)
             {
                 if (string.IsNullOrEmpty(material))
+                {
                     MessageBox.Show("物料号为空，请检查！");
-                var packageInfo = packagebll.GetPackageInfo(material);
+                    return;
+                }
+                //获取物料号的映射物料
+                var matMapingDao = SqlSugarDB.Instance<MatMaping>();
+                var matMapModel = matMapingDao.Query().First(p => p.CustomMat == material);
+                if (matMapModel == null)
+                {
+                    MessageBox.Show("物料号" + material + "未维护有对应关系的新物料，请检查！");
+                    return;
+                }
+                var packageInfo = packagebll.GetPackageInfo(matMapModel.Mat_ID);
                 if (packageInfo.Value != null && packageInfo.IsSuccess)
                 {
                     if (string.IsNullOrEmpty(packageInfo.Value.spec) || string.IsNullOrEmpty(packageInfo.Value.description)
