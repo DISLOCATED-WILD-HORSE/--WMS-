@@ -62,7 +62,7 @@ namespace HSC_Update
                 pm.BackWorkCompleted += new EventHandler<BackgroundWorkerEventArgs>(process_BackgroundWorkerCompleted);
                 pm.Start();
 
-                MessageBox.Show("更新完成，" + ConfigServer.Msg);
+                
             }
             Application.Exit();
             Process proc = Process.Start(path + Const.ProgramName);
@@ -202,7 +202,7 @@ namespace HSC_Update
         {
             if (e.BackGroundException == null)
             {
-                //MessageBox.Show("执行完毕");
+                MessageBox.Show("更新完成，" + ConfigHelper.GetServerConfig().Msg);
             }
             else
             {
