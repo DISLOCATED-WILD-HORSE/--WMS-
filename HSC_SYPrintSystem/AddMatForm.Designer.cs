@@ -214,6 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 457);
             this.Controls.Add(this.panelAdd);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "AddMatForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

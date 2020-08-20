@@ -36,10 +36,10 @@
             this.dtp_productDate = new System.Windows.Forms.DateTimePicker();
             this.matSaveBTN = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.workLineLB = new System.Windows.Forms.Label();
-            this.workLineCB = new System.Windows.Forms.ComboBox();
-            this.siloNoCB = new System.Windows.Forms.ComboBox();
             this.gradeCB = new System.Windows.Forms.ComboBox();
+            this.siloNoCB = new System.Windows.Forms.ComboBox();
+            this.workLineCB = new System.Windows.Forms.ComboBox();
+            this.workLineLB = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -127,14 +127,23 @@
             this.panel1.Size = new System.Drawing.Size(705, 458);
             this.panel1.TabIndex = 26;
             // 
-            // workLineLB
+            // gradeCB
             // 
-            this.workLineLB.AutoSize = true;
-            this.workLineLB.Location = new System.Drawing.Point(73, 32);
-            this.workLineLB.Name = "workLineLB";
-            this.workLineLB.Size = new System.Drawing.Size(56, 16);
-            this.workLineLB.TabIndex = 69;
-            this.workLineLB.Text = "线别：";
+            this.gradeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gradeCB.FormattingEnabled = true;
+            this.gradeCB.Location = new System.Drawing.Point(472, 91);
+            this.gradeCB.Name = "gradeCB";
+            this.gradeCB.Size = new System.Drawing.Size(192, 24);
+            this.gradeCB.TabIndex = 72;
+            // 
+            // siloNoCB
+            // 
+            this.siloNoCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siloNoCB.FormattingEnabled = true;
+            this.siloNoCB.Location = new System.Drawing.Point(142, 91);
+            this.siloNoCB.Name = "siloNoCB";
+            this.siloNoCB.Size = new System.Drawing.Size(192, 24);
+            this.siloNoCB.TabIndex = 71;
             // 
             // workLineCB
             // 
@@ -152,23 +161,14 @@
             this.workLineCB.Size = new System.Drawing.Size(192, 24);
             this.workLineCB.TabIndex = 70;
             // 
-            // siloNoCB
+            // workLineLB
             // 
-            this.siloNoCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.siloNoCB.FormattingEnabled = true;
-            this.siloNoCB.Location = new System.Drawing.Point(142, 91);
-            this.siloNoCB.Name = "siloNoCB";
-            this.siloNoCB.Size = new System.Drawing.Size(192, 24);
-            this.siloNoCB.TabIndex = 71;
-            // 
-            // gradeCB
-            // 
-            this.gradeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gradeCB.FormattingEnabled = true;
-            this.gradeCB.Location = new System.Drawing.Point(472, 91);
-            this.gradeCB.Name = "gradeCB";
-            this.gradeCB.Size = new System.Drawing.Size(192, 24);
-            this.gradeCB.TabIndex = 72;
+            this.workLineLB.AutoSize = true;
+            this.workLineLB.Location = new System.Drawing.Point(73, 32);
+            this.workLineLB.Name = "workLineLB";
+            this.workLineLB.Size = new System.Drawing.Size(56, 16);
+            this.workLineLB.TabIndex = 69;
+            this.workLineLB.Text = "线别：";
             // 
             // UpdateBatForm
             // 
@@ -176,7 +176,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 457);
             this.Controls.Add(this.panel1);
-            this.MinimizeBox = false;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "UpdateBatForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "编辑批次";

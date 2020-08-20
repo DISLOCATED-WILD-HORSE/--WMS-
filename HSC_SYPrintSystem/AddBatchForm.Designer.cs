@@ -48,9 +48,9 @@
             this.gradeCB = new System.Windows.Forms.ComboBox();
             this.txt_siloNo = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.materialTB = new System.Windows.Forms.TextBox();
             this.materialValidateBox = new System.Windows.Forms.TextBox();
+            this.materialTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -286,24 +286,6 @@
             this.panel1.Size = new System.Drawing.Size(704, 457);
             this.panel1.TabIndex = 74;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(348, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 16);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "物料号：";
-            // 
-            // materialTB
-            // 
-            this.materialTB.Location = new System.Drawing.Point(430, 22);
-            this.materialTB.Name = "materialTB";
-            this.materialTB.Size = new System.Drawing.Size(192, 26);
-            this.materialTB.TabIndex = 75;
-            this.materialTB.Validating += new System.ComponentModel.CancelEventHandler(this.materialTB_Validating);
-            // 
             // materialValidateBox
             // 
             this.materialValidateBox.BackColor = System.Drawing.Color.White;
@@ -315,6 +297,24 @@
             this.materialValidateBox.TabIndex = 76;
             this.materialValidateBox.Visible = false;
             // 
+            // materialTB
+            // 
+            this.materialTB.Location = new System.Drawing.Point(430, 22);
+            this.materialTB.Name = "materialTB";
+            this.materialTB.Size = new System.Drawing.Size(192, 26);
+            this.materialTB.TabIndex = 75;
+            this.materialTB.Validating += new System.ComponentModel.CancelEventHandler(this.materialTB_Validating);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(348, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 16);
+            this.label1.TabIndex = 74;
+            this.label1.Text = "物料号：";
+            // 
             // AddBatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -322,6 +322,7 @@
             this.ClientSize = new System.Drawing.Size(704, 457);
             this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "AddBatchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
