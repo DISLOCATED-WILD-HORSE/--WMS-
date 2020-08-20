@@ -522,7 +522,9 @@ namespace HSC_SYPrintSystem
         }
         private void revPrintExecute(object sender, PrintPageEventArgs e)
         {
-            PrintHelper.PrintImplementation(packageData, MaterialNo.Text.Trim(), e);
+            var matMapingDao = SqlSugarDB.Instance<MatMaping>();
+            var matMapingModel = matMapingDao.Query().First(p => p.Mat_ID == packageData.mNo);
+            PrintHelper.PrintImplementation(packageData, matMapingModel.CustomMat, e);
             packageDate = null;
         }
 
