@@ -207,6 +207,7 @@ namespace HSC_Update
             else
             {
                 MessageBox.Show("异常:" + e.BackGroundException.Message);
+                return;
             }
         }
 

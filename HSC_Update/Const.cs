@@ -15,6 +15,7 @@ namespace HSC_Update
         public const string IsSilentUpgrade = "isSilentUpgrade";
         public const string FileName = "localConfig.xml"; 
         public const string Files = "files";
+        public const string UpdateProgramName = "HSC_Update.exe";
 
     }
 }
