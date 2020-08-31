@@ -1350,7 +1350,7 @@ namespace HSC_SYPrintSystem
             updateForm.ShowDialog();
             if (updateForm.DialogResult == DialogResult.OK)
             {
-                batch_search_Click(sender, e);
+                matRelationSearchBtn_Click(sender, e);
             }
         }
 
@@ -1372,8 +1372,8 @@ namespace HSC_SYPrintSystem
                 var rv = matMapingbll.DelMatMapingInfo(list.ToArray());
                 MessageBox.Show(rv.Msg);
             }
-            //matRelationSearchBtn_Click(sender, e);
-            matRelationDelBtn.Click += new EventHandler(matRelationSearchBtn_Click);
+            matRelationSearchBtn_Click(sender, e);
+            //matRelationDelBtn.Click += new EventHandler(matRelationSearchBtn_Click);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
