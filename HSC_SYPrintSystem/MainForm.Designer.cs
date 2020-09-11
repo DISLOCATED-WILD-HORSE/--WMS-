@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.version = new System.Windows.Forms.Label();
@@ -108,21 +109,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.printInfoDG = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.seriesNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mat_old = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.batchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.caseWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nbtWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.workShop = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.packageType = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.printSummary = new System.Windows.Forms.TabPage();
             this.isChangePackageCB = new System.Windows.Forms.ComboBox();
             this.txt_endPackageDate = new System.Windows.Forms.TextBox();
@@ -224,6 +210,21 @@
             this.cDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label52 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.seriesNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mat_old = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.batchNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.caseWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workLine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nbtWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.workShop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.packageType = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.comments = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -939,8 +940,8 @@
             // 
             this.isChangePack.FormattingEnabled = true;
             this.isChangePack.Items.AddRange(new object[] {
-            "否",
-            "是"});
+            "生产下线",
+            "改包装"});
             this.isChangePack.Location = new System.Drawing.Point(493, 5);
             this.isChangePack.Name = "isChangePack";
             this.isChangePack.Size = new System.Drawing.Size(112, 24);
@@ -951,9 +952,9 @@
             this.label39.AutoSize = true;
             this.label39.Location = new System.Drawing.Point(396, 11);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(104, 16);
+            this.label39.Size = new System.Drawing.Size(88, 16);
             this.label39.TabIndex = 26;
-            this.label39.Text = "是否改包装：";
+            this.label39.Text = "包装类型：";
             // 
             // serialno
             // 
@@ -1028,166 +1029,24 @@
             this.workShop,
             this.packageType,
             this.comments});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle3;
             this.printInfoDG.Location = new System.Drawing.Point(0, 74);
             this.printInfoDG.Name = "printInfoDG";
             this.printInfoDG.ReadOnly = true;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.printInfoDG.RowTemplate.Height = 23;
             this.printInfoDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.printInfoDG.Size = new System.Drawing.Size(1014, 366);
             this.printInfoDG.TabIndex = 0;
             this.printInfoDG.RowPrePaint += new System.Windows.Forms.DataGridViewRowPrePaintEventHandler(this.printInfoDG_RowPrePaint);
-            // 
-            // id
-            // 
-            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.id.DataPropertyName = "id";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.id.DefaultCellStyle = dataGridViewCellStyle1;
-            this.id.HeaderText = "序号";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 65;
-            // 
-            // seriesNo
-            // 
-            this.seriesNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.seriesNo.DataPropertyName = "seriesNo";
-            this.seriesNo.HeaderText = "袋号";
-            this.seriesNo.Name = "seriesNo";
-            this.seriesNo.ReadOnly = true;
-            this.seriesNo.Width = 65;
-            // 
-            // mat_old
-            // 
-            this.mat_old.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.mat_old.DataPropertyName = "newNo";
-            this.mat_old.HeaderText = "旧物料号";
-            this.mat_old.Name = "mat_old";
-            this.mat_old.ReadOnly = true;
-            this.mat_old.Width = 97;
-            // 
-            // matNo
-            // 
-            this.matNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.matNo.DataPropertyName = "mNo";
-            this.matNo.HeaderText = "物料号";
-            this.matNo.Name = "matNo";
-            this.matNo.ReadOnly = true;
-            this.matNo.Width = 81;
-            // 
-            // batchNo
-            // 
-            this.batchNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.batchNo.DataPropertyName = "bNo";
-            this.batchNo.HeaderText = "批次号";
-            this.batchNo.Name = "batchNo";
-            this.batchNo.ReadOnly = true;
-            this.batchNo.Width = 81;
-            // 
-            // productDesc
-            // 
-            this.productDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.productDesc.DataPropertyName = "productDesc";
-            this.productDesc.HeaderText = "产品描述";
-            this.productDesc.Name = "productDesc";
-            this.productDesc.ReadOnly = true;
-            this.productDesc.Width = 97;
-            // 
-            // state
-            // 
-            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.state.DataPropertyName = "STATE";
-            this.state.HeaderText = "状态";
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            this.state.Width = 65;
-            // 
-            // caseWeight
-            // 
-            this.caseWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.caseWeight.DataPropertyName = "caseWeight";
-            this.caseWeight.HeaderText = "袋重";
-            this.caseWeight.Name = "caseWeight";
-            this.caseWeight.ReadOnly = true;
-            this.caseWeight.Width = 65;
-            // 
-            // grade
-            // 
-            this.grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.grade.DataPropertyName = "grade";
-            this.grade.HeaderText = "等级";
-            this.grade.Name = "grade";
-            this.grade.ReadOnly = true;
-            this.grade.Width = 65;
-            // 
-            // workLine
-            // 
-            this.workLine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.workLine.DataPropertyName = "workLine";
-            this.workLine.HeaderText = "线别";
-            this.workLine.Name = "workLine";
-            this.workLine.ReadOnly = true;
-            this.workLine.Width = 65;
-            // 
-            // nbtWeight
-            // 
-            this.nbtWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nbtWeight.DataPropertyName = "nbtWeight";
-            this.nbtWeight.HeaderText = "净重";
-            this.nbtWeight.Name = "nbtWeight";
-            this.nbtWeight.ReadOnly = true;
-            this.nbtWeight.Width = 65;
-            // 
-            // ProductDate
-            // 
-            this.ProductDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ProductDate.DataPropertyName = "productDate";
-            this.ProductDate.HeaderText = "生产日期";
-            this.ProductDate.Name = "ProductDate";
-            this.ProductDate.ReadOnly = true;
-            this.ProductDate.Width = 97;
-            // 
-            // workShop
-            // 
-            this.workShop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.workShop.DataPropertyName = "workShop";
-            this.workShop.HeaderText = "生产车间";
-            this.workShop.Name = "workShop";
-            this.workShop.ReadOnly = true;
-            this.workShop.Width = 97;
-            // 
-            // packageType
-            // 
-            this.packageType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.packageType.DataPropertyName = "packageType";
-            this.packageType.FalseValue = "";
-            this.packageType.HeaderText = "是否改包装";
-            this.packageType.IndeterminateValue = "";
-            this.packageType.Name = "packageType";
-            this.packageType.ReadOnly = true;
-            this.packageType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.packageType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.packageType.TrueValue = "";
-            this.packageType.Width = 113;
-            // 
-            // comments
-            // 
-            this.comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.comments.DataPropertyName = "comments";
-            this.comments.HeaderText = "备注";
-            this.comments.Name = "comments";
-            this.comments.ReadOnly = true;
-            this.comments.Width = 65;
             // 
             // printSummary
             // 
@@ -2232,6 +2091,152 @@
             this.label52.TabIndex = 6;
             this.label52.Text = "版本号：";
             // 
+            // id
+            // 
+            this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.id.DataPropertyName = "id";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "序号";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 65;
+            // 
+            // seriesNo
+            // 
+            this.seriesNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.seriesNo.DataPropertyName = "seriesNo";
+            this.seriesNo.HeaderText = "袋号";
+            this.seriesNo.Name = "seriesNo";
+            this.seriesNo.ReadOnly = true;
+            this.seriesNo.Width = 65;
+            // 
+            // mat_old
+            // 
+            this.mat_old.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.mat_old.DataPropertyName = "newNo";
+            this.mat_old.HeaderText = "旧物料号";
+            this.mat_old.Name = "mat_old";
+            this.mat_old.ReadOnly = true;
+            this.mat_old.Width = 97;
+            // 
+            // matNo
+            // 
+            this.matNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.matNo.DataPropertyName = "mNo";
+            this.matNo.HeaderText = "物料号";
+            this.matNo.Name = "matNo";
+            this.matNo.ReadOnly = true;
+            this.matNo.Width = 81;
+            // 
+            // batchNo
+            // 
+            this.batchNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.batchNo.DataPropertyName = "bNo";
+            this.batchNo.HeaderText = "批次号";
+            this.batchNo.Name = "batchNo";
+            this.batchNo.ReadOnly = true;
+            this.batchNo.Width = 81;
+            // 
+            // productDesc
+            // 
+            this.productDesc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.productDesc.DataPropertyName = "productDesc";
+            this.productDesc.HeaderText = "产品描述";
+            this.productDesc.Name = "productDesc";
+            this.productDesc.ReadOnly = true;
+            this.productDesc.Width = 97;
+            // 
+            // state
+            // 
+            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.state.DataPropertyName = "STATE";
+            this.state.HeaderText = "状态";
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            this.state.Width = 65;
+            // 
+            // caseWeight
+            // 
+            this.caseWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.caseWeight.DataPropertyName = "caseWeight";
+            this.caseWeight.HeaderText = "袋重";
+            this.caseWeight.Name = "caseWeight";
+            this.caseWeight.ReadOnly = true;
+            this.caseWeight.Width = 65;
+            // 
+            // grade
+            // 
+            this.grade.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.grade.DataPropertyName = "grade";
+            this.grade.HeaderText = "等级";
+            this.grade.Name = "grade";
+            this.grade.ReadOnly = true;
+            this.grade.Width = 65;
+            // 
+            // workLine
+            // 
+            this.workLine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.workLine.DataPropertyName = "workLine";
+            this.workLine.HeaderText = "线别";
+            this.workLine.Name = "workLine";
+            this.workLine.ReadOnly = true;
+            this.workLine.Width = 65;
+            // 
+            // nbtWeight
+            // 
+            this.nbtWeight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nbtWeight.DataPropertyName = "nbtWeight";
+            this.nbtWeight.HeaderText = "净重";
+            this.nbtWeight.Name = "nbtWeight";
+            this.nbtWeight.ReadOnly = true;
+            this.nbtWeight.Width = 65;
+            // 
+            // ProductDate
+            // 
+            this.ProductDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ProductDate.DataPropertyName = "productDate";
+            this.ProductDate.HeaderText = "生产日期";
+            this.ProductDate.Name = "ProductDate";
+            this.ProductDate.ReadOnly = true;
+            this.ProductDate.Width = 97;
+            // 
+            // workShop
+            // 
+            this.workShop.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.workShop.DataPropertyName = "workShop";
+            this.workShop.HeaderText = "生产车间";
+            this.workShop.Name = "workShop";
+            this.workShop.ReadOnly = true;
+            this.workShop.Width = 97;
+            // 
+            // packageType
+            // 
+            this.packageType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.packageType.DataPropertyName = "packageType";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = false;
+            this.packageType.DefaultCellStyle = dataGridViewCellStyle2;
+            this.packageType.FalseValue = "";
+            this.packageType.HeaderText = "生产下线";
+            this.packageType.IndeterminateValue = "";
+            this.packageType.Name = "packageType";
+            this.packageType.ReadOnly = true;
+            this.packageType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.packageType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.packageType.TrueValue = "";
+            this.packageType.Width = 97;
+            // 
+            // comments
+            // 
+            this.comments.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.comments.DataPropertyName = "comments";
+            this.comments.HeaderText = "备注";
+            this.comments.Name = "comments";
+            this.comments.ReadOnly = true;
+            this.comments.Width = 65;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2401,21 +2406,6 @@
         private System.Windows.Forms.Button batch_add;
         private System.Windows.Forms.Button batch_edit;
         private System.Windows.Forms.Button batch_del;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn seriesNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mat_old;
-        private System.Windows.Forms.DataGridViewTextBoxColumn matNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state;
-        private System.Windows.Forms.DataGridViewTextBoxColumn caseWeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
-        private System.Windows.Forms.DataGridViewTextBoxColumn workLine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nbtWeight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn workShop;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn packageType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn comments;
         private System.Windows.Forms.DataGridViewTextBoxColumn MAT_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn mat_oldId;
         private System.Windows.Forms.DataGridViewTextBoxColumn matDesc;
@@ -2463,6 +2453,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn cUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn seriesNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mat_old;
+        private System.Windows.Forms.DataGridViewTextBoxColumn matNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn productDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn state;
+        private System.Windows.Forms.DataGridViewTextBoxColumn caseWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn grade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn workLine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nbtWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn workShop;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn packageType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn comments;
     }
 }
 

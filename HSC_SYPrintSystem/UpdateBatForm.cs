@@ -34,7 +34,6 @@ namespace HSC_SYPrintSystem
             workLineCB.Text = batModel.workLine;
             txt_characteristics.Text = batModel.characteristics;
             siloNoCB.Text = batModel.siloNo;
-            //txt_processNumber.Text = batModel.processNumber;
             gradeCB.Text = batModel.grade;
             dtp_productDate.Value = (DateTime)batModel.productDate;
 
@@ -44,7 +43,7 @@ namespace HSC_SYPrintSystem
         {
             if (batModel == null)
             {
-                MessageBox.Show("界面数据获取异常，请重新打开编辑");
+                MessageBox.Show("界面数据获取异常，请重新打开编辑界面！");
                 this.Close();
                 return;
             }
@@ -52,7 +51,6 @@ namespace HSC_SYPrintSystem
             batModel.workLine = workLineCB.Text.Trim();
             batModel.characteristics = txt_characteristics.Text.Trim();
             batModel.siloNo = siloNoCB.Text.Trim();
-            //batModel.processNumber = txt_processNumber.Text.Trim();
             batModel.grade = gradeCB.Text.Trim().ToUpper();
             batModel.productDate = dtp_productDate.Value;
             #endregion

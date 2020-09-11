@@ -44,13 +44,6 @@ namespace HSC_SYPrintSystem
                 MAT_OLDDESC = oldMatDesc.Text.Trim(),
                 MAT_SPECI = matSpeci.Text.Trim(),
                 MAT_JHSPECI = matJHSpeci.Text.Trim(),
-                //MAT_UNIT = matUnit.Text.Trim().ToUpper(),
-                //MAT_UNITDESC = matUnitDesc.Text.Trim(),
-                //MAT_TYPE = matType.Text.Trim(),
-                //MAT_BATCHMODE = batchMode.Text.Trim().ToUpper(),
-                //MAT_SNCONTROL = snControl.Text.Trim().ToUpper(),
-                //MAT_GROUP = matGroup.Text.Trim(),
-                //MAT_REMARK = matRemark.Text.Trim(),
                 MAT_STATUS = Mat_Status.启用.GetHashCode(),
                 CREATEDATE = now,
                 CREATEUSER = user,
@@ -90,13 +83,6 @@ namespace HSC_SYPrintSystem
             oldMatDesc.Text = "";
             matSpeci.Text = "";
             matJHSpeci.Text = "";
-            //matUnit.Text = "";
-            //matUnitDesc.Text = "";
-            //matType.Text = "";
-            //batchMode.Text = "";
-            //snControl.Text = "";
-            //matGroup.Text = "";
-            //matRemark.Text = "";
         }
 
         private void AddMatForm_FormClosed(object sender, FormClosedEventArgs e)

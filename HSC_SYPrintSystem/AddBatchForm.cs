@@ -115,7 +115,6 @@ namespace HSC_SYPrintSystem
                 batchValidateBox.Visible = true;
                 batchValidateBox.Text = "批次号不能为空！";
                 batchValidateBox.ForeColor = Color.Red;
-                //txt_batchNo.Focus();
                 BatSaveBtn.Enabled = false;
             }
             else
@@ -143,9 +142,6 @@ namespace HSC_SYPrintSystem
                 if (matModel == null)
                 {
                     string msg = string.Format("物料号：{0} 未维护，请先在物料主数据维护该物料后再操作！", materialTB.Text.Trim());
-                    //materialValidateBox.Visible = true;
-                    //materialValidateBox.Text = msg;
-                    //materialValidateBox.ForeColor = Color.Red;
                     materialTB.Focus();
                     BatSaveBtn.Enabled = false;
                     MessageBox.Show(msg, "错误");

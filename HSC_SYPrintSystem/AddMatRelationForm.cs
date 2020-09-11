@@ -66,7 +66,6 @@ namespace HSC_SYPrintSystem
                 hscMatValidateBox.Text = "新物料号不能为空！";
                 hscMatValidateBox.ForeColor = Color.Red;
                 hscMat_ID.Focus();
-                //BatSaveBtn.Enabled = false;
             }
             else
             {

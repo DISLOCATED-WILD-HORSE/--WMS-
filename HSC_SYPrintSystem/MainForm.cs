@@ -15,12 +15,16 @@ namespace HSC_SYPrintSystem
 {
     public partial class MainForm : NForm
     {
+        #region 实例化
         PackageInfoBLL packagebll = new PackageInfoBLL();
         MaterialBLL materialbll = new MaterialBLL();
         BatchInfoBLL batInfobll = new BatchInfoBLL();
         MatMapingBLL matMapingbll = new MatMapingBLL();
+        #endregion
+        #region 自定义变量声明
         packageInfo packageData = null;
-        Dictionary<string, string> dic = null;
+        Dictionary<string, string> dic = null; 
+        #endregion
         public MainForm()
         {
             InitializeComponent();
@@ -76,6 +80,10 @@ namespace HSC_SYPrintSystem
             Search(sender);
         }
 
+        /// <summary>
+        /// 物料主数据搜索条件对象
+        /// </summary>
+        /// <returns></returns>
         private MatModel MatQueryData()
         {
             var model = new MatModel()
@@ -287,6 +295,10 @@ namespace HSC_SYPrintSystem
             txt_chracteristics.Text = "";
         }
 
+        /// <summary>
+        /// 根据物料号获取物料信息
+        /// </summary>
+        /// <param name="material"></param>
         public void QueryMat(string material)
         {
             //去查询物料主数据
@@ -312,6 +324,9 @@ namespace HSC_SYPrintSystem
             }
         }
 
+        /// <summary>
+        /// 清空部分打印信息
+        /// </summary>
         private void resetPartPrintInfo()
         {
             batch_no.Text = "";
@@ -325,6 +340,9 @@ namespace HSC_SYPrintSystem
             remark.Text = "";
         }
 
+        /// <summary>
+        /// 清空全部打印的信息
+        /// </summary>
         private void resetAllPrintInfo()
         {
             jhspeci.Text = "";
@@ -334,6 +352,10 @@ namespace HSC_SYPrintSystem
             resetPartPrintInfo();
         }
 
+        /// <summary>
+        /// 获取标签打印数据
+        /// </summary>
+        /// <returns></returns>
         private packageInfo GetPrintPackageInfo()
         {
             var printModel = new packageInfo();
@@ -463,11 +485,16 @@ namespace HSC_SYPrintSystem
                 packageData = GetPrintPackageInfo();
             }
             if (string.IsNullOrEmpty(type))
-                return new PrintPageEventHandler(PrintExecute);
+                return new PrintPageEventHandler(PrintExecute);//正常打印
             else
-                return new PrintPageEventHandler(revPrintExecute);
+                return new PrintPageEventHandler(revPrintExecute);//标签补打
         }
 
+        /// <summary>
+        /// 标签打印实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PrintExecute(object sender, PrintPageEventArgs e)
         {
             PrintHelper.PrintImplementation(packageData, MaterialNo.Text.Trim(), e);
@@ -477,6 +504,11 @@ namespace HSC_SYPrintSystem
             sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
             packageDate = null;
         }
+        /// <summary>
+        /// 标签补打实现
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void revPrintExecute(object sender, PrintPageEventArgs e)
         {
             var matMapingDao = SqlSugarDB.Instance<MatMaping>();
@@ -491,17 +523,6 @@ namespace HSC_SYPrintSystem
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void siloNum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
-        }
-
-        private void siloNum_SelectedValueChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
-        }
         private void siloNum_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
@@ -522,6 +543,10 @@ namespace HSC_SYPrintSystem
 
         #region 打印记录
 
+        /// <summary>
+        /// 打印记录搜索条件对象
+        /// </summary>
+        /// <returns></returns>
         public PintInfoModel QueryData()
         {
             PintInfoModel model = new PintInfoModel
@@ -547,13 +572,13 @@ namespace HSC_SYPrintSystem
             {
                 model.status = status.Text.Trim();
             }
-            if ("是".Equals(isChangePack.Text.Trim()))
-            {
-                model.isPackage = "0";
-            }
-            else if("否".Equals(isChangePack.Text.Trim()))
+            if ("生产下线".Equals(isChangePack.Text.Trim()))
             {
                 model.isPackage = "1";
+            }
+            else if("改包装".Equals(isChangePack.Text.Trim()))
+            {
+                model.isPackage = "0";
             }
             else
             {
@@ -683,21 +708,36 @@ namespace HSC_SYPrintSystem
             //refrshBTN_Click(sender, e);
         }
 
+        /// <summary>
+        /// 包装日期开始日期改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sPackDate_ValueChanged(object sender, EventArgs e)
         {
             txt_sPackageDate.Text = sPackDate.Value.ToString("yyyy-MM-dd");
         }
-
+        /// <summary>
+        /// 包装日期结束日期改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ePackDate_ValueChanged(object sender, EventArgs e)
         {
             txt_ePackageDate.Text = ePackDate.Value.ToString("yyyy-MM-dd");
         }
-
+        /// <summary>
+        /// 打印日期改变
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void printDate_ValueChanged(object sender, EventArgs e)
         {
             txt_printDate.Text = printDate.Value.ToString("yyyy-MM-dd");
         }
+        #endregion
 
+        #region 分页
         /// <summary>
         /// 首页
         /// </summary>
@@ -711,7 +751,7 @@ namespace HSC_SYPrintSystem
                 nextPage.Enabled = true;
             firstPage.Enabled = false;
             previousPage.Enabled = false;
-            commont(1, sender);
+            Commont(1, sender);
         }
 
         /// <summary>
@@ -725,7 +765,7 @@ namespace HSC_SYPrintSystem
                 nextPage.Enabled = true;
             if (lastPage.Enabled == false)
                 lastPage.Enabled = true;
-            commont(Convert.ToInt32(currentPage.Text), sender);
+            Commont(Convert.ToInt32(currentPage.Text), sender);
         }
 
         /// <summary>
@@ -739,7 +779,7 @@ namespace HSC_SYPrintSystem
                 previousPage.Enabled = true;
             if (firstPage.Enabled == false)
                 firstPage.Enabled = true;
-            commont(Convert.ToInt32(currentPage.Text), sender);
+            Commont(Convert.ToInt32(currentPage.Text), sender);
         }
 
         /// <summary>
@@ -757,7 +797,7 @@ namespace HSC_SYPrintSystem
                 nextPage.Enabled = false;
             if (lastPage.Enabled == true)
                 lastPage.Enabled = false;
-            commont(Convert.ToInt32(totalCount.Text), sender);
+            Commont(Convert.ToInt32(totalCount.Text), sender);
         }
 
         /// <summary>
@@ -810,21 +850,16 @@ namespace HSC_SYPrintSystem
                 nextPage.Enabled = true;
                 lastPage.Enabled = true;
             }
-            commont(jumpPage, sender);
-            //var model = QueryData();
-            //Page page = new Page(jumpPage);
-            //var rv = packagebll.GetPrintInfo(model, page);
-            //if (rv.IsSuccess && rv.Value.Count > 0)
-            //{
-            //    this.printInfoDG.AutoGenerateColumns = false;
-            //    printInfoDG.DataSource = rv.Value;
-            //    this.totalCount.Text = page.GetTotalPage().ToString();
-            //    currentPage.Text = page.pageIndex.ToString();
-            //}
-        }
+            Commont(jumpPage, sender);
+        } 
         #endregion
 
-        private void commont(int pageNo, object sender)
+        /// <summary>
+        /// 实现不同界面分页的方法
+        /// </summary>
+        /// <param name="pageNo"></param>
+        /// <param name="sender"></param>
+        private void Commont(int pageNo, object sender)
         {
             Page pageModel = new Page(pageNo);
             #region 上一页和下一页的额外逻辑
@@ -848,8 +883,6 @@ namespace HSC_SYPrintSystem
                     #region 物料数据
                     var model = MatQueryData();
                     var rv = materialbll.GetMatInfo(model, pageModel);
-                    //this.totalCount.Text = pageModel.GetTotalPage().ToString();
-                    //currentPage.Text = pageModel.pageIndex.ToString();
                     if (rv.IsSuccess && rv.Value.Count > 0)
                     {
                         this.Mat_DataGridView.AutoGenerateColumns = false;
@@ -864,8 +897,6 @@ namespace HSC_SYPrintSystem
                     #region 打印记录
                     var model2 = QueryData();
                     var rv2 = packagebll.GetPrintInfo(model2, pageModel);
-                    //this.totalCount.Text = pageModel.GetTotalPage().ToString();
-                    //currentPage.Text = pageModel.pageIndex.ToString();
                     if (rv2.IsSuccess && rv2.Value.Count > 0)
                     {
                         this.printInfoDG.AutoGenerateColumns = false;
@@ -881,8 +912,6 @@ namespace HSC_SYPrintSystem
                     #region 打印汇总
                     var model3 = SumQueryData();
                     var rv3 = packagebll.GetPrintInfoSum(model3, pageModel);
-                    //totalCount.Text = pageModel.GetTotalPage().ToString();
-                    //currentPage.Text = pageModel.pageIndex.ToString();
                     if (rv3.IsSuccess && rv3.Value.Count > 0)
                     {
                         this.printSumDG.AutoGenerateColumns = false;
@@ -897,8 +926,6 @@ namespace HSC_SYPrintSystem
                     #region 批次信息
                     var model4 = BatQueryData();
                     var rv4 = batInfobll.GetBacthInfo(model4, pageModel);
-                    //this.totalCount.Text = pageModel.GetTotalPage().ToString();
-                    //currentPage.Text = pageModel.pageIndex.ToString();
                     if (rv4.IsSuccess && rv4.Value.Count > 0)
                     {
                         this.batchInfoDG.AutoGenerateColumns = false;
@@ -910,11 +937,10 @@ namespace HSC_SYPrintSystem
                     #endregion
                     break;
                 case "物料关系":
+                    #region 物料关系
                     string customMat = txt_customMat.Text.Trim();
                     string matId = txt_hscMat_ID.Text.Trim();
                     var rv5 = matMapingbll.GetMatMapingInfo(customMat, matId, pageModel);
-                    //this.totalCount.Text = pageModel.GetTotalPage().ToString();
-                    //currentPage.Text = pageModel.pageIndex.ToString();
                     if (rv5.IsSuccess && rv5.Value.Count > 0)
                     {
                         this.matRelationDGV.AutoGenerateColumns = false;
@@ -922,7 +948,8 @@ namespace HSC_SYPrintSystem
                         this.NoChecked(matRelationDGV);
                     }
                     else
-                        this.matRelationDGV.DataSource = null;
+                        this.matRelationDGV.DataSource = null; 
+                    #endregion
                     break;
             }
             int totalPage = pageModel.GetTotalPage();
@@ -937,6 +964,10 @@ namespace HSC_SYPrintSystem
 
         #region 打印汇总
 
+        /// <summary>
+        /// 打印汇总搜索条件对象
+        /// </summary>
+        /// <returns></returns>
         private PintInfoModel SumQueryData()
         {
             var model = new PintInfoModel()
@@ -1023,11 +1054,20 @@ namespace HSC_SYPrintSystem
             this.printSumDG.DataSource = null;
         }
 
+        /// <summary>
+        /// 包装日期开始日期改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void sPackageDateDT_ValueChanged(object sender, EventArgs e)
         {
             txt_startPackageDate.Text = sPackageDateDT.Value.ToString("yyyy-MM-dd");
         }
-
+        /// <summary>
+        /// 包装日期结束日期改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ePackageDateDT_ValueChanged(object sender, EventArgs e)
         {
             txt_endPackageDate.Text = ePackageDateDT.Value.ToString("yyyy-MM-dd");
@@ -1066,6 +1106,10 @@ namespace HSC_SYPrintSystem
 
         #region 批次信息
 
+        /// <summary>
+        /// 批次信息搜索条件对象
+        /// </summary>
+        /// <returns></returns>
         private BatchInfoModel BatQueryData()
         {
             var model = new BatchInfoModel()
@@ -1173,9 +1217,20 @@ namespace HSC_SYPrintSystem
                 Search(sender);
             }
         }
+
+        /// <summary>
+        /// 生产日期改变事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dtp_ProductDate_ValueChanged(object sender, EventArgs e)
+        {
+            txt_changesDate.Text = dtp_ProductDate.Value.ToString("yyyy-MM-dd");
+        }
         #endregion
 
-        
+
+        #region 物料对应关系
         /// <summary>
         /// 物料对应关系新增
         /// </summary>
@@ -1220,6 +1275,11 @@ namespace HSC_SYPrintSystem
             }
         }
 
+        /// <summary>
+        /// 物料对应关系删除
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void matRelationDelBtn_Click(object sender, EventArgs e)
         {
             if (matRelationDGV.SelectedRows.Count <= 0)
@@ -1239,8 +1299,14 @@ namespace HSC_SYPrintSystem
                 MessageBox.Show(rv.Msg);
             }
             Search(sender);
-        }
+        } 
+        #endregion
 
+        /// <summary>
+        /// 关闭主窗口退出程序
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(0);
@@ -1259,12 +1325,7 @@ namespace HSC_SYPrintSystem
                 nextPage.Enabled = true;
             firstPage.Enabled = false;
             previousPage.Enabled = false;
-            commont(1, sender);
-        }
-
-        private void dtp_ProductDate_ValueChanged(object sender, EventArgs e)
-        {
-            txt_changesDate.Text = dtp_ProductDate.Value.ToString("yyyy-MM-dd");
+            Commont(1, sender);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace HSC_SYPrintSystem
         {
             if (matMapingModel == null)
             {
-                MessageBox.Show("界面数据获取异常，请重新打开编辑");
+                MessageBox.Show("界面数据获取异常，请重新打开编辑界面！");
                 this.Close();
                 return;
             }
