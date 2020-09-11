@@ -187,7 +187,7 @@
             this.txt_siloNo = new System.Windows.Forms.TextBox();
             this.siloNoLB = new System.Windows.Forms.Label();
             this.txt_changesDate = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtp_ProductDate = new System.Windows.Forms.DateTimePicker();
             this.productDateLB = new System.Windows.Forms.Label();
             this.cb_grade = new System.Windows.Forms.ComboBox();
             this.gradeLB = new System.Windows.Forms.Label();
@@ -1780,7 +1780,7 @@
             this.batchInfo.Controls.Add(this.txt_siloNo);
             this.batchInfo.Controls.Add(this.siloNoLB);
             this.batchInfo.Controls.Add(this.txt_changesDate);
-            this.batchInfo.Controls.Add(this.dateTimePicker1);
+            this.batchInfo.Controls.Add(this.dtp_ProductDate);
             this.batchInfo.Controls.Add(this.productDateLB);
             this.batchInfo.Controls.Add(this.cb_grade);
             this.batchInfo.Controls.Add(this.gradeLB);
@@ -1860,12 +1860,13 @@
             this.txt_changesDate.Size = new System.Drawing.Size(99, 26);
             this.txt_changesDate.TabIndex = 54;
             // 
-            // dateTimePicker1
+            // dtp_ProductDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 35);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(112, 26);
-            this.dateTimePicker1.TabIndex = 41;
+            this.dtp_ProductDate.Location = new System.Drawing.Point(103, 35);
+            this.dtp_ProductDate.Name = "dtp_ProductDate";
+            this.dtp_ProductDate.Size = new System.Drawing.Size(112, 26);
+            this.dtp_ProductDate.TabIndex = 41;
+            this.dtp_ProductDate.ValueChanged += new System.EventHandler(this.dtp_ProductDate_ValueChanged);
             // 
             // productDateLB
             // 
@@ -2394,7 +2395,7 @@
         private System.Windows.Forms.Label productDateLB;
         private System.Windows.Forms.Label siloNoLB;
         private System.Windows.Forms.TextBox txt_changesDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtp_ProductDate;
         private System.Windows.Forms.TextBox txt_siloNo;
         private System.Windows.Forms.Button batch_search;
         private System.Windows.Forms.Button batch_add;
