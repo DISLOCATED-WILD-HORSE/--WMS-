@@ -48,6 +48,9 @@ namespace HSC_SYPrintSystem
             matModel.MAT_OLD = matoldTB.Text.Trim().ToUpper();
             matModel.MAT_OLDDESC = matolddescTB.Text.Trim();
             matModel.MAT_SPECI = specTB.Text.Trim();
+            matModel.MAT_JHSPECI = txt_JHSPEC.Text.Trim();
+            matModel.MODIFYDATE = DateTime.Now;
+            matModel.MODIFYUSER = UserBLL.userInfo.UserID;
             #endregion
             MaterialBLL matbll = new MaterialBLL();
             var rv = matbll.UpdateMatInfo(matModel);

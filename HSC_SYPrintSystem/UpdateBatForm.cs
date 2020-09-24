@@ -53,6 +53,8 @@ namespace HSC_SYPrintSystem
             batModel.siloNo = siloNoCB.Text.Trim();
             batModel.grade = gradeCB.Text.Trim().ToUpper();
             batModel.productDate = dtp_productDate.Value;
+            batModel.modifyDate = DateTime.Now;
+            batModel.modifyUser = UserBLL.userInfo.UserID;
             #endregion
             BatchInfoBLL batbll = new BatchInfoBLL();
             var rv = batbll.UpdateBatInfo(batModel);
