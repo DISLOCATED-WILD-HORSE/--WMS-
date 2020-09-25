@@ -31,8 +31,10 @@ namespace HSC_Update
             if (ConfigClient == null || ConfigServer == null)
             {
                 MessageBox.Show("获取升级文件发生异常，已结束本次更新！");
+                Process p = Process.Start(path + Const.ProgramName);
                 return false;
             }
+            LogerHelper.WriteLog("静默更新开启状态：" + ConfigServer.IsSilentUpgrade);
             //静默更新开启就开始更新
             if (ConfigServer.IsSilentUpgrade)
             {
