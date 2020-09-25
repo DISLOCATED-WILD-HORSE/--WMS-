@@ -14,7 +14,7 @@ namespace HSC_CustomModel
             this.pageIndex = pageIndex;
         }
         public int pageIndex = 1;
-        public int pageSize = 2;
+        public int pageSize = 200;
         public int totalCount = 0;
 
         private int totalPage;
