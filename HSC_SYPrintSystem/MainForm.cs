@@ -1036,6 +1036,41 @@ namespace HSC_SYPrintSystem
                     }
                     #endregion
                     break;
+                case "物料关系":
+                    string customMat = txt_customMat.Text.Trim();
+                    string matId = txt_hscMat_ID.Text.Trim();
+                    Page page5 = new Page(pageNo);
+                    #region 上一页和下一页的额外逻辑
+                    if (sender.ToString().Contains("上一页"))
+                    {
+                        page5.pageIndex -= 1;
+                        if (page5.pageIndex == 1)
+                        {
+                            previousPage.Enabled = false;
+                            firstPage.Enabled = false;
+                        }
+                    }
+                    if (sender.ToString().Contains("下一页"))
+                    {
+                        page5.pageIndex += 1;
+                    }
+                    #endregion
+                    var rv5 = matMapingbll.GetMatMapingInfo(customMat, matId, page5);
+                    int totalPage5 = page5.GetTotalPage();
+                    if (page5.pageIndex >= totalPage5)
+                    {
+                        nextPage.Enabled = false;
+                        lastPage.Enabled = false;
+                    }
+                    if (rv5.IsSuccess && rv5.Value.Count > 0)
+                    {
+                        this.matRelationDGV.AutoGenerateColumns = false;
+                        matRelationDGV.DataSource = rv5.Value;
+                        this.totalCount.Text = page5.GetTotalPage().ToString();
+                        currentPage.Text = page5.pageIndex.ToString();
+                        this.NoChecked(matRelationDGV);
+                    }
+                    break;
             }
         }
 
