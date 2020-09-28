@@ -519,6 +519,7 @@
             // PrintBtn
             // 
             this.PrintBtn.BackgroundImage = global::HSC_SYPrintSystem.Properties.Resources.back1;
+            this.PrintBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PrintBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PrintBtn.Font = new System.Drawing.Font("宋体", 12F);
             this.PrintBtn.ForeColor = System.Drawing.Color.White;

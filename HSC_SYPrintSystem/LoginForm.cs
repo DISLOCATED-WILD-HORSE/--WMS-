@@ -1,4 +1,5 @@
 ﻿using HSC_BLL;
+using HSC_Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,6 @@ namespace HSC_SYPrintSystem
             {
                 this.InitializeComponent();
             }
-            txt_userId_ValidateBox.LostFocus += new EventHandler(txt_userId_Validating);
         }
         static Mutex mutex = null;
         private static bool CanCreate()
@@ -86,11 +86,18 @@ namespace HSC_SYPrintSystem
 
         private void txt_userId_Validating(object sender, EventArgs e)
         {
+            LogerHelper.WriteLog("账号验证开始");
             if (string.IsNullOrEmpty(txt_userId.Text.Trim()))
             {
                 txt_userId_ValidateBox.Visible = true;
                 txt_userId_ValidateBox.Text = "账号不能为空！";
                 txt_userId_ValidateBox.ForeColor = Color.Red;
+                txt_userId.Focus();
+            }
+            else
+            {
+                txt_userId_ValidateBox.Visible = false;
+                txt_userId_ValidateBox.Text = "";
             }
         }
 
@@ -106,11 +113,13 @@ namespace HSC_SYPrintSystem
             if (string.IsNullOrEmpty(userId))
             {
                 MessageBox.Show("账号不能为空！");
+                txt_userId.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(passWord))
             {
                 MessageBox.Show("密码不能为空！");
+                txt_passWord.Focus();
                 return;
             }
             var rv = UserBLL.Login(userId, passWord);

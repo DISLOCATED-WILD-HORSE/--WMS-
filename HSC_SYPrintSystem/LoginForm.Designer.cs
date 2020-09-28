@@ -96,6 +96,7 @@
             this.txt_userId.Name = "txt_userId";
             this.txt_userId.Size = new System.Drawing.Size(149, 29);
             this.txt_userId.TabIndex = 0;
+            this.txt_userId.Validating += new System.ComponentModel.CancelEventHandler(this.txt_userId_Validating);
             // 
             // label3
             // 
