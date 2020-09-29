@@ -122,10 +122,22 @@ namespace HSC_SYPrintSystem
                 txt_passWord.Focus();
                 return;
             }
-            var rv = UserBLL.Login(userId, passWord);
-            if (rv.StatusCode != HSC_Util.Status.SUCCESS)
+            try
             {
-                MessageBox.Show(rv.Msg);
+                Common.ShowProcessing("正在登录中，请稍候...", this, (obj) =>
+                    {
+                        //这里写处理耗时的代码，代码处理完成则自动关闭该窗口
+                        var rv = UserBLL.Login(userId, passWord);
+                        if (rv.StatusCode != Status.SUCCESS)
+                        {
+                            MessageBox.Show(rv.Msg);
+                            return;
+                        }
+                    }, null);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 return;
             }
             MainForm mf = new MainForm();
