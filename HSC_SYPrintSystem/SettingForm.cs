@@ -18,6 +18,10 @@ namespace HSC_SYPrintSystem
         {
             InitializeComponent();
             autoLogin.Checked = Convert.ToBoolean(cfa.AppSettings.Settings["autoLogin"].Value);
+            if (cfa.AppSettings.Settings["isRemember"].Value.ToLower().Equals("false"))
+            {
+                this.autoLogin.Enabled = false;
+            }
         }
 
         private void autoLogin_CheckedChanged(object sender, EventArgs e)

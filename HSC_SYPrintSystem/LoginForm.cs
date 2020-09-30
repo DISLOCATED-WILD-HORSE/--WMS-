@@ -159,12 +159,26 @@ namespace HSC_SYPrintSystem
                     cfa.AppSettings.Settings["userId"].Value = userId;
                     cfa.AppSettings.Settings["passWord"].Value = passWord;
                 }
+                else
+                {
+                    cfa.AppSettings.Settings["autoLogin"].Value = "false";
+                    cfa.AppSettings.Settings["isRemember"].Value = "false";
+                    cfa.AppSettings.Settings["userId"].Value = "";
+                    cfa.AppSettings.Settings["passWord"].Value = "";
+                }
                 if (autoLogin.Checked)
                 {
                     cfa.AppSettings.Settings["autoLogin"].Value = "true";
                     cfa.AppSettings.Settings["isRemember"].Value = "false";
                     cfa.AppSettings.Settings["userId"].Value = userId;
                     cfa.AppSettings.Settings["passWord"].Value = passWord;
+                }
+                else
+                {
+                    cfa.AppSettings.Settings["autoLogin"].Value = "false";
+                    cfa.AppSettings.Settings["isRemember"].Value = "false";
+                    cfa.AppSettings.Settings["userId"].Value = "";
+                    cfa.AppSettings.Settings["passWord"].Value = "";
                 }
             }
             cfa.Save(); 
@@ -200,7 +214,7 @@ namespace HSC_SYPrintSystem
             // 账号默认记住
             this.txt_userId.Text = ConfigurationManager.AppSettings["userId"];
             //如果记住密码为true 那么把值赋给文本框
-            if (ConfigurationManager.AppSettings["isRemember"].Equals("true"))
+            if (ConfigurationManager.AppSettings["isRemember"].ToLower().Equals("true"))
             {
                 this.txt_passWord.Text = ConfigurationManager.AppSettings["passWord"];
                 isRemember.Checked = true;
@@ -208,7 +222,6 @@ namespace HSC_SYPrintSystem
             //如果是自动登录  那么拿获取 配置文件中的账号密码  然后到数据库里边查询 登录
             if (ConfigurationManager.AppSettings["autoLogin"].ToLower().Equals("true"))
             {
-                //this.txt_passWord.Text = ConfigurationManager.AppSettings["passWord"];
                 autoLogin.Checked = true;
                 Login();
                 this.Close();
@@ -224,6 +237,17 @@ namespace HSC_SYPrintSystem
         {
             if (autoLogin.Checked)
                 isRemember.Checked = true;
+        }
+
+        /// <summary>
+        /// 取消记住账号密码，必须同时取消自动登录
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void isRemember_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!isRemember.Checked)
+                autoLogin.Checked = false;
         }
     }
 }

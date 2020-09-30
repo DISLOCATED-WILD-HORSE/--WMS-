@@ -82,6 +82,7 @@
             this.isRemember.TabIndex = 7;
             this.isRemember.Text = "记住账号密码";
             this.isRemember.UseVisualStyleBackColor = true;
+            this.isRemember.CheckedChanged += new System.EventHandler(this.isRemember_CheckedChanged);
             // 
             // txt_userId_ValidateBox
             // 
