@@ -138,11 +138,11 @@ namespace HSC_SYPrintSystem
                 return;
             }
             #region 配置登录设置参数
-            
-            //cfa.AppSettings.Settings["autoLogin"].Value = "false";
-            //cfa.AppSettings.Settings["isRemember"].Value = "false";
-            //cfa.AppSettings.Settings["userId"].Value = "";
-            //cfa.AppSettings.Settings["passWord"].Value = "";
+
+            cfa.AppSettings.Settings["autoLogin"].Value = "false";
+            cfa.AppSettings.Settings["isRemember"].Value = "false";
+            cfa.AppSettings.Settings["userId"].Value = "";
+            cfa.AppSettings.Settings["passWord"].Value = "";
             if (isRemember.Checked && autoLogin.Checked)
             {
                 cfa.AppSettings.Settings["autoLogin"].Value = "true";
@@ -159,13 +159,13 @@ namespace HSC_SYPrintSystem
                     cfa.AppSettings.Settings["userId"].Value = userId;
                     cfa.AppSettings.Settings["passWord"].Value = passWord;
                 }
-                else
-                {
-                    cfa.AppSettings.Settings["autoLogin"].Value = "false";
-                    cfa.AppSettings.Settings["isRemember"].Value = "false";
-                    cfa.AppSettings.Settings["userId"].Value = "";
-                    cfa.AppSettings.Settings["passWord"].Value = "";
-                }
+                //else
+                //{
+                //    cfa.AppSettings.Settings["autoLogin"].Value = "false";
+                //    cfa.AppSettings.Settings["isRemember"].Value = "false";
+                //    cfa.AppSettings.Settings["userId"].Value = "";
+                //    cfa.AppSettings.Settings["passWord"].Value = "";
+                //}
                 if (autoLogin.Checked)
                 {
                     cfa.AppSettings.Settings["autoLogin"].Value = "true";
@@ -173,13 +173,13 @@ namespace HSC_SYPrintSystem
                     cfa.AppSettings.Settings["userId"].Value = userId;
                     cfa.AppSettings.Settings["passWord"].Value = passWord;
                 }
-                else
-                {
-                    cfa.AppSettings.Settings["autoLogin"].Value = "false";
-                    cfa.AppSettings.Settings["isRemember"].Value = "false";
-                    cfa.AppSettings.Settings["userId"].Value = "";
-                    cfa.AppSettings.Settings["passWord"].Value = "";
-                }
+                //else
+                //{
+                //    cfa.AppSettings.Settings["autoLogin"].Value = "false";
+                //    cfa.AppSettings.Settings["isRemember"].Value = "false";
+                //    cfa.AppSettings.Settings["userId"].Value = "";
+                //    cfa.AppSettings.Settings["passWord"].Value = "";
+                //}
             }
             cfa.Save(); 
             #endregion
