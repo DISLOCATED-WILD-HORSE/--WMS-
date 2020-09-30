@@ -3,6 +3,7 @@ using HSC_Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -16,6 +17,7 @@ namespace HSC_SYPrintSystem
 {
     public partial class LoginForm : Form
     {
+        public static Configuration cfa = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
         public LoginForm()
         {
             //InitializeComponent();
@@ -30,6 +32,14 @@ namespace HSC_SYPrintSystem
             {
                 this.InitializeComponent();
             }
+        }
+
+        public LoginForm(bool autoLogin)
+        {
+            InitializeComponent();
+            this.autoLogin.Checked = autoLogin;
+            cfa.AppSettings.Settings["autoLogin"].Value = autoLogin.ToString();
+            cfa.Save();
         }
         static Mutex mutex = null;
         private static bool CanCreate()
@@ -108,6 +118,11 @@ namespace HSC_SYPrintSystem
         /// <param name="e"></param>
         private void btn_login_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             string userId = txt_userId.Text.Trim().ToUpper();
             string passWord = txt_passWord.Text.Trim();
             if (string.IsNullOrEmpty(userId))
@@ -122,28 +137,93 @@ namespace HSC_SYPrintSystem
                 txt_passWord.Focus();
                 return;
             }
+            #region 配置登录设置参数
+            
+            //cfa.AppSettings.Settings["autoLogin"].Value = "false";
+            //cfa.AppSettings.Settings["isRemember"].Value = "false";
+            //cfa.AppSettings.Settings["userId"].Value = "";
+            //cfa.AppSettings.Settings["passWord"].Value = "";
+            if (isRemember.Checked && autoLogin.Checked)
+            {
+                cfa.AppSettings.Settings["autoLogin"].Value = "true";
+                cfa.AppSettings.Settings["isRemember"].Value = "true";
+                cfa.AppSettings.Settings["userId"].Value = userId;
+                cfa.AppSettings.Settings["passWord"].Value = passWord;
+            }
+            else
+            {
+                if (isRemember.Checked)
+                {
+                    cfa.AppSettings.Settings["autoLogin"].Value = "false";
+                    cfa.AppSettings.Settings["isRemember"].Value = "true";
+                    cfa.AppSettings.Settings["userId"].Value = userId;
+                    cfa.AppSettings.Settings["passWord"].Value = passWord;
+                }
+                if (autoLogin.Checked)
+                {
+                    cfa.AppSettings.Settings["autoLogin"].Value = "true";
+                    cfa.AppSettings.Settings["isRemember"].Value = "false";
+                    cfa.AppSettings.Settings["userId"].Value = userId;
+                    cfa.AppSettings.Settings["passWord"].Value = passWord;
+                }
+            }
+            cfa.Save(); 
+            #endregion
             try
             {
                 Common.ShowProcessing("正在登录中，请稍候...", this, (obj) =>
+                {
+                    //这里写处理耗时的代码，代码处理完成则自动关闭该窗口
+                    var rv = UserBLL.Login(userId, passWord);
+                    if (rv.StatusCode != Status.SUCCESS)
                     {
-                        //这里写处理耗时的代码，代码处理完成则自动关闭该窗口
-                        var rv = UserBLL.Login(userId, passWord);
-                        if (rv.StatusCode != Status.SUCCESS)
-                        {
-                            MessageBox.Show(rv.Msg);
-                            return;
-                        }
-                    }, null);
+                        MessageBox.Show(rv.Msg);
+                        return;
+                    }
+                }, null);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 return;
             }
-            MainForm mf = new MainForm();
+            MainForm mf = new MainForm(cfa);
             //this.Hide();
             mf.Show();
             this.Dispose(false);
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            // 获取输入账号焦点
+            txt_userId.Focus(); 
+            // 账号默认记住
+            this.txt_userId.Text = ConfigurationManager.AppSettings["userId"];
+            //如果记住密码为true 那么把值赋给文本框
+            if (ConfigurationManager.AppSettings["isRemember"].Equals("true"))
+            {
+                this.txt_passWord.Text = ConfigurationManager.AppSettings["passWord"];
+                isRemember.Checked = true;
+            }
+            //如果是自动登录  那么拿获取 配置文件中的账号密码  然后到数据库里边查询 登录
+            if (ConfigurationManager.AppSettings["autoLogin"].ToLower().Equals("true"))
+            {
+                //this.txt_passWord.Text = ConfigurationManager.AppSettings["passWord"];
+                autoLogin.Checked = true;
+                Login();
+                this.Close();
+            }
+        }
+
+        /// <summary>
+        /// 自动登录打勾时默认勾选记住账号密码
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void autoLogin_CheckedChanged(object sender, EventArgs e)
+        {
+            if (autoLogin.Checked)
+                isRemember.Checked = true;
         }
     }
 }

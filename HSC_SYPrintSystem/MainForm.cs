@@ -5,6 +5,7 @@ using HSC_Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -23,13 +24,13 @@ namespace HSC_SYPrintSystem
         #endregion
         #region 自定义变量
         packageInfo packageData = null;
-        Dictionary<string, string> dic = null; 
+        Dictionary<string, string> dic = null;
+        private Configuration CFA;
         #endregion
-        public MainForm()
+        public MainForm(Configuration cfa)
         {
             InitializeComponent();
             GetAllInitInfo(this.Controls[0]);
-            LogerHelper.WriteLog("主窗口自适应完成");
             sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine).Value;
             dic = SelectListModel.SiloNumList();
             //siloNum.DataSource = dic.Keys.ToList();
@@ -50,6 +51,7 @@ namespace HSC_SYPrintSystem
             txt_endPackageDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             #endregion
             this.version.Text = "V" + Assembly.GetExecutingAssembly().GetName().Version;
+            CFA = cfa;
         }
 
         /// <summary>
@@ -1267,6 +1269,16 @@ namespace HSC_SYPrintSystem
             previousPage.Enabled = false;
             commont(1, sender);
         }
-        
+
+        /// <summary>
+        /// 系统设置
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void sysInstall_Click(object sender, EventArgs e)
+        {
+            SettingForm sf = new SettingForm(CFA);
+            sf.Show();
+        }
     }
 }

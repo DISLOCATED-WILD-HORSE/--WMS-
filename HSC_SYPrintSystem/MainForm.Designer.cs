@@ -49,6 +49,7 @@
             this.label51 = new System.Windows.Forms.Label();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.printTab = new System.Windows.Forms.TabPage();
+            this.sysInstall = new System.Windows.Forms.Button();
             this.txt_workLine = new System.Windows.Forms.TextBox();
             this.txt_grade = new System.Windows.Forms.TextBox();
             this.siloNum = new System.Windows.Forms.TextBox();
@@ -413,6 +414,7 @@
             // printTab
             // 
             this.printTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.printTab.Controls.Add(this.sysInstall);
             this.printTab.Controls.Add(this.txt_workLine);
             this.printTab.Controls.Add(this.txt_grade);
             this.printTab.Controls.Add(this.siloNum);
@@ -457,6 +459,16 @@
             this.printTab.Size = new System.Drawing.Size(1014, 439);
             this.printTab.TabIndex = 0;
             this.printTab.Text = "标签打印";
+            // 
+            // sysInstall
+            // 
+            this.sysInstall.Location = new System.Drawing.Point(920, 413);
+            this.sysInstall.Name = "sysInstall";
+            this.sysInstall.Size = new System.Drawing.Size(95, 23);
+            this.sysInstall.TabIndex = 51;
+            this.sysInstall.Text = "系统设置";
+            this.sysInstall.UseVisualStyleBackColor = true;
+            this.sysInstall.Click += new System.EventHandler(this.sysInstall_Click);
             // 
             // txt_workLine
             // 
@@ -2469,6 +2481,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn workShop;
         private System.Windows.Forms.DataGridViewCheckBoxColumn packageType;
         private System.Windows.Forms.DataGridViewTextBoxColumn comments;
+        private System.Windows.Forms.Button sysInstall;
     }
 }
 
