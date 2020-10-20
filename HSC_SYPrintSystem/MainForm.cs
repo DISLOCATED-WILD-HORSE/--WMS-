@@ -1061,6 +1061,7 @@ namespace HSC_SYPrintSystem
                     break;
                 case 9:
                     printInfoDG.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Red;
+                    printInfoDG.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.White;
                     break;
             }
         }
