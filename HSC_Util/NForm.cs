@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace HSC_Util
 {
-     public partial class NForm:Form
+    public partial class NForm : Form
     {
         double formWidth;//窗体原始宽度
         double formHeight;//窗体原始高度
@@ -30,7 +30,7 @@ namespace HSC_Util
             foreach (Control item in CrlContainer.Controls)
             {
                 if (item.Name.Trim() != "")
-                    controlInfo.Add(item.Name, (item.Left + item.Width / 2) + "," + (item.Top + item.Height / 2) + "," + item.Width + "," + item.Height + "," + item.Font.Size);
+                    controlInfo.Add(item.Name, (item.Left + item.Width / 2) + "," + (item.Top + item.Height / 2) + "," + item.Width + "," + item.Height + "," + item.Font.Size + "," + item.Font.Bold);
                 if ((item as UserControl) == null && item.Controls.Count > 0)
                     GetAllInitInfo(item);
             }
@@ -63,7 +63,19 @@ namespace HSC_Util
                     item.Height = Convert.ToInt32(itemHeight);
                     try
                     {
-                        item.Font = new Font(item.Font.Name, float.Parse((pos[4] * Math.Min(scaleX, scaleY)).ToString()));
+                        #region 最大化后的字体样式
+                        string name = item.GetType().FullName;
+                        if ("System.Windows.Forms.DataGridView".Equals(name))
+                        {
+                            item.Font = new Font(item.Font.Name, float.Parse((pos[4] * Math.Min(scaleX, scaleY)).ToString()), FontStyle.Bold);
+                        }
+                        else if ("System.Windows.Forms.TabControl".Equals(name))
+                        {
+                            item.Font = new Font("微软雅黑", float.Parse((pos[4] * Math.Min(scaleX, scaleY)).ToString()), FontStyle.Bold);
+                        }
+                        else
+                            item.Font = new Font(item.Font.Name, float.Parse((pos[4] * Math.Min(scaleX, scaleY)).ToString())); 
+                        #endregion
                     }
                     catch
                     {
@@ -72,7 +84,7 @@ namespace HSC_Util
             }
         }
 
-        protected override void OnSizeChanged(EventArgs  e)
+        protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
             if (controlInfo.Count > 0)
