@@ -29,11 +29,18 @@ namespace HSC_BLL
                 //X2和x2表示不省略首位为0的十六进制数字；
                 str += b.ToString("x2");
             }
-            tbl_HSCUSER user = userDao.Query().First(p => p.UserID == userId && p.UserPwd == str);
-            if (user == null)
-                return rv.Fail("用户名或者密码错误！");
-            userInfo = user;
-            return rv.Success("登录成功！");
+            try
+            {
+                tbl_HSCUSER user = userDao.Query().First(p => p.UserID == userId && p.UserPwd == str);
+                if (user == null)
+                    return rv.Fail("用户名或者密码错误！");
+                userInfo = user;
+                return rv.Success("登录成功！");
+            }
+            catch (Exception e)
+            {
+                return rv.Fail(e.Message);
+            }
         }
     }
 }
