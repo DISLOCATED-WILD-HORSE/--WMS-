@@ -22,7 +22,7 @@ namespace HSC_BLL
         {
             ReturnValue<packageInfo> rv = new ReturnValue<packageInfo>();
             var packageDao = SqlSugarDB.Instance<packageInfo>();
-            var packageModel = packageDao.Query().Where(p => p.mNo.Equals(material)).OrderBy(p => p.id, SqlSugar.OrderByType.Desc).First();
+            var packageModel = packageDao.Query().Where(p => p.mNo.Equals(material) && p.STATE != 9).OrderBy(p => p.id, SqlSugar.OrderByType.Desc).First();
             return rv.Success(packageModel, "");
         }
 
