@@ -28,19 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.version = new System.Windows.Forms.Label();
@@ -207,17 +202,6 @@
             this.txt_batchNo = new System.Windows.Forms.TextBox();
             this.batchNoLB = new System.Windows.Forms.Label();
             this.batchInfoDG = new System.Windows.Forms.DataGridView();
-            this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.changesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.characteritics = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siloNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matMaping = new System.Windows.Forms.TabPage();
             this.matRelationEditBtn = new System.Windows.Forms.Button();
             this.matRelationDelBtn = new System.Windows.Forms.Button();
@@ -235,6 +219,18 @@
             this.cDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label52 = new System.Windows.Forms.Label();
+            this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.characteritics = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siloNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gradeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -1037,14 +1033,6 @@
             this.printInfoDG.AllowUserToAddRows = false;
             this.printInfoDG.AllowUserToResizeRows = false;
             this.printInfoDG.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.printInfoDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.printInfoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.printInfoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -1063,20 +1051,20 @@
             this.packageType,
             this.comments});
             this.printInfoDG.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.printInfoDG.DefaultCellStyle = dataGridViewCellStyle3;
             this.printInfoDG.EnableHeadersVisualStyles = false;
             this.printInfoDG.Location = new System.Drawing.Point(0, 74);
             this.printInfoDG.Name = "printInfoDG";
             this.printInfoDG.ReadOnly = true;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.printInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.printInfoDG.RowTemplate.Height = 23;
             this.printInfoDG.Size = new System.Drawing.Size(1018, 356);
             this.printInfoDG.TabIndex = 0;
@@ -1086,12 +1074,12 @@
             // 
             this.id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.id.DataPropertyName = "id";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.id.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
             this.id.HeaderText = "序号";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 67;
+            this.id.Width = 65;
             // 
             // seriesNo
             // 
@@ -1100,7 +1088,7 @@
             this.seriesNo.HeaderText = "袋号";
             this.seriesNo.Name = "seriesNo";
             this.seriesNo.ReadOnly = true;
-            this.seriesNo.Width = 67;
+            this.seriesNo.Width = 65;
             // 
             // mat_old
             // 
@@ -1109,7 +1097,7 @@
             this.mat_old.HeaderText = "旧物料号";
             this.mat_old.Name = "mat_old";
             this.mat_old.ReadOnly = true;
-            this.mat_old.Width = 101;
+            this.mat_old.Width = 97;
             // 
             // matNo
             // 
@@ -1118,7 +1106,7 @@
             this.matNo.HeaderText = "物料号";
             this.matNo.Name = "matNo";
             this.matNo.ReadOnly = true;
-            this.matNo.Width = 84;
+            this.matNo.Width = 81;
             // 
             // batchNo
             // 
@@ -1127,7 +1115,7 @@
             this.batchNo.HeaderText = "批次号";
             this.batchNo.Name = "batchNo";
             this.batchNo.ReadOnly = true;
-            this.batchNo.Width = 84;
+            this.batchNo.Width = 81;
             // 
             // productDesc
             // 
@@ -1136,7 +1124,7 @@
             this.productDesc.HeaderText = "产品描述";
             this.productDesc.Name = "productDesc";
             this.productDesc.ReadOnly = true;
-            this.productDesc.Width = 101;
+            this.productDesc.Width = 97;
             // 
             // state
             // 
@@ -1145,7 +1133,7 @@
             this.state.HeaderText = "状态";
             this.state.Name = "state";
             this.state.ReadOnly = true;
-            this.state.Width = 67;
+            this.state.Width = 65;
             // 
             // caseWeight
             // 
@@ -1154,7 +1142,7 @@
             this.caseWeight.HeaderText = "袋重";
             this.caseWeight.Name = "caseWeight";
             this.caseWeight.ReadOnly = true;
-            this.caseWeight.Width = 67;
+            this.caseWeight.Width = 65;
             // 
             // grade
             // 
@@ -1163,7 +1151,7 @@
             this.grade.HeaderText = "等级";
             this.grade.Name = "grade";
             this.grade.ReadOnly = true;
-            this.grade.Width = 67;
+            this.grade.Width = 65;
             // 
             // workLine
             // 
@@ -1172,7 +1160,7 @@
             this.workLine.HeaderText = "线别";
             this.workLine.Name = "workLine";
             this.workLine.ReadOnly = true;
-            this.workLine.Width = 67;
+            this.workLine.Width = 65;
             // 
             // nbtWeight
             // 
@@ -1181,7 +1169,7 @@
             this.nbtWeight.HeaderText = "净重";
             this.nbtWeight.Name = "nbtWeight";
             this.nbtWeight.ReadOnly = true;
-            this.nbtWeight.Width = 67;
+            this.nbtWeight.Width = 65;
             // 
             // ProductDate
             // 
@@ -1190,7 +1178,7 @@
             this.ProductDate.HeaderText = "生产日期";
             this.ProductDate.Name = "ProductDate";
             this.ProductDate.ReadOnly = true;
-            this.ProductDate.Width = 101;
+            this.ProductDate.Width = 97;
             // 
             // workShop
             // 
@@ -1199,16 +1187,16 @@
             this.workShop.HeaderText = "生产车间";
             this.workShop.Name = "workShop";
             this.workShop.ReadOnly = true;
-            this.workShop.Width = 101;
+            this.workShop.Width = 97;
             // 
             // packageType
             // 
             this.packageType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.packageType.DataPropertyName = "packageType";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.NullValue = false;
-            this.packageType.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.NullValue = false;
+            this.packageType.DefaultCellStyle = dataGridViewCellStyle2;
             this.packageType.FalseValue = "";
             this.packageType.HeaderText = "生产下线";
             this.packageType.IndeterminateValue = "";
@@ -1217,7 +1205,7 @@
             this.packageType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.packageType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.packageType.TrueValue = "";
-            this.packageType.Width = 101;
+            this.packageType.Width = 97;
             // 
             // comments
             // 
@@ -1226,7 +1214,7 @@
             this.comments.HeaderText = "备注";
             this.comments.Name = "comments";
             this.comments.ReadOnly = true;
-            this.comments.Width = 67;
+            this.comments.Width = 65;
             // 
             // printSummary
             // 
@@ -1423,14 +1411,6 @@
             this.printSumDG.AllowUserToResizeRows = false;
             this.printSumDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.printSumDG.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.printSumDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.printSumDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.printSumDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.规格,
@@ -1447,8 +1427,8 @@
             this.printSumDG.Location = new System.Drawing.Point(0, 41);
             this.printSumDG.Name = "printSumDG";
             this.printSumDG.ReadOnly = true;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.printSumDG.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.printSumDG.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.printSumDG.RowTemplate.Height = 23;
             this.printSumDG.Size = new System.Drawing.Size(1014, 387);
             this.printSumDG.TabIndex = 0;
@@ -1460,7 +1440,7 @@
             this.规格.HeaderText = "规格";
             this.规格.Name = "规格";
             this.规格.ReadOnly = true;
-            this.规格.Width = 67;
+            this.规格.Width = 65;
             // 
             // material
             // 
@@ -1469,7 +1449,7 @@
             this.material.HeaderText = "物料号";
             this.material.Name = "material";
             this.material.ReadOnly = true;
-            this.material.Width = 84;
+            this.material.Width = 81;
             // 
             // oldMaterial
             // 
@@ -1478,7 +1458,7 @@
             this.oldMaterial.HeaderText = "旧物料号";
             this.oldMaterial.Name = "oldMaterial";
             this.oldMaterial.ReadOnly = true;
-            this.oldMaterial.Width = 101;
+            this.oldMaterial.Width = 97;
             // 
             // batch
             // 
@@ -1487,7 +1467,7 @@
             this.batch.HeaderText = "批次号";
             this.batch.Name = "batch";
             this.batch.ReadOnly = true;
-            this.batch.Width = 84;
+            this.batch.Width = 81;
             // 
             // level
             // 
@@ -1496,7 +1476,7 @@
             this.level.HeaderText = "等级";
             this.level.Name = "level";
             this.level.ReadOnly = true;
-            this.level.Width = 67;
+            this.level.Width = 65;
             // 
             // workLines
             // 
@@ -1505,7 +1485,7 @@
             this.workLines.HeaderText = "线别";
             this.workLines.Name = "workLines";
             this.workLines.ReadOnly = true;
-            this.workLines.Width = 67;
+            this.workLines.Width = 65;
             // 
             // packageDate
             // 
@@ -1514,7 +1494,7 @@
             this.packageDate.HeaderText = "包装日期";
             this.packageDate.Name = "packageDate";
             this.packageDate.ReadOnly = true;
-            this.packageDate.Width = 101;
+            this.packageDate.Width = 97;
             // 
             // snCount
             // 
@@ -1523,7 +1503,7 @@
             this.snCount.HeaderText = "袋数";
             this.snCount.Name = "snCount";
             this.snCount.ReadOnly = true;
-            this.snCount.Width = 67;
+            this.snCount.Width = 65;
             // 
             // nbtWeightSum
             // 
@@ -1532,7 +1512,7 @@
             this.nbtWeightSum.HeaderText = "净重小计";
             this.nbtWeightSum.Name = "nbtWeightSum";
             this.nbtWeightSum.ReadOnly = true;
-            this.nbtWeightSum.Width = 101;
+            this.nbtWeightSum.Width = 97;
             // 
             // matData
             // 
@@ -1633,14 +1613,6 @@
             this.Mat_DataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Mat_DataGridView.BackgroundColor = System.Drawing.Color.White;
             this.Mat_DataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Mat_DataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.Mat_DataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Mat_DataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MAT_ID,
@@ -1665,8 +1637,8 @@
             this.Mat_DataGridView.Location = new System.Drawing.Point(0, 38);
             this.Mat_DataGridView.Name = "Mat_DataGridView";
             this.Mat_DataGridView.ReadOnly = true;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Mat_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Mat_DataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.Mat_DataGridView.RowTemplate.Height = 23;
             this.Mat_DataGridView.Size = new System.Drawing.Size(1014, 392);
             this.Mat_DataGridView.TabIndex = 0;
@@ -1993,14 +1965,6 @@
             this.batchInfoDG.AllowUserToResizeRows = false;
             this.batchInfoDG.BackgroundColor = System.Drawing.Color.White;
             this.batchInfoDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.batchInfoDG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.batchInfoDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.batchInfoDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.batchNumber,
@@ -2008,6 +1972,7 @@
             this.line,
             this.changesDate,
             this.characteritics,
+            this.txt_Weight,
             this.siloNo,
             this.gradeNo,
             this.dataGridViewTextBoxColumn14,
@@ -2019,112 +1984,11 @@
             this.batchInfoDG.Location = new System.Drawing.Point(0, 61);
             this.batchInfoDG.Name = "batchInfoDG";
             this.batchInfoDG.ReadOnly = true;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.batchInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.batchInfoDG.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.batchInfoDG.RowTemplate.Height = 23;
             this.batchInfoDG.Size = new System.Drawing.Size(1014, 366);
             this.batchInfoDG.TabIndex = 1;
-            // 
-            // batchNumber
-            // 
-            this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.batchNumber.DataPropertyName = "batchNo";
-            this.batchNumber.HeaderText = "批次号";
-            this.batchNumber.Name = "batchNumber";
-            this.batchNumber.ReadOnly = true;
-            this.batchNumber.Width = 84;
-            // 
-            // materialNum
-            // 
-            this.materialNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.materialNum.DataPropertyName = "material";
-            this.materialNum.HeaderText = "物料号";
-            this.materialNum.Name = "materialNum";
-            this.materialNum.ReadOnly = true;
-            this.materialNum.Width = 84;
-            // 
-            // line
-            // 
-            this.line.DataPropertyName = "workLine";
-            this.line.HeaderText = "生产线";
-            this.line.Name = "line";
-            this.line.ReadOnly = true;
-            // 
-            // changesDate
-            // 
-            this.changesDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.changesDate.DataPropertyName = "productDate";
-            this.changesDate.HeaderText = "生产日期";
-            this.changesDate.Name = "changesDate";
-            this.changesDate.ReadOnly = true;
-            this.changesDate.Width = 101;
-            // 
-            // characteritics
-            // 
-            this.characteritics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.characteritics.DataPropertyName = "characteristics";
-            this.characteritics.HeaderText = "生产特性";
-            this.characteritics.Name = "characteritics";
-            this.characteritics.ReadOnly = true;
-            this.characteritics.Width = 101;
-            // 
-            // siloNo
-            // 
-            this.siloNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.siloNo.DataPropertyName = "siloNo";
-            this.siloNo.HeaderText = "料仓号";
-            this.siloNo.Name = "siloNo";
-            this.siloNo.ReadOnly = true;
-            this.siloNo.Width = 84;
-            // 
-            // gradeNo
-            // 
-            this.gradeNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gradeNo.DataPropertyName = "grade";
-            this.gradeNo.HeaderText = "等级";
-            this.gradeNo.Name = "gradeNo";
-            this.gradeNo.ReadOnly = true;
-            this.gradeNo.Width = 67;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "createDate";
-            this.dataGridViewTextBoxColumn14.HeaderText = "创建日期";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 101;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "createUser";
-            this.dataGridViewTextBoxColumn15.HeaderText = "创建用户";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 101;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "modifyDate";
-            this.dataGridViewTextBoxColumn16.HeaderText = "修改日期";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 101;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "modifyUser";
-            this.dataGridViewTextBoxColumn17.HeaderText = "修改用户";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 101;
             // 
             // matMaping
             // 
@@ -2223,14 +2087,6 @@
             this.matRelationDGV.AllowUserToResizeRows = false;
             this.matRelationDGV.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.matRelationDGV.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.matRelationDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.matRelationDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.matRelationDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.customMat,
@@ -2244,8 +2100,8 @@
             this.matRelationDGV.Location = new System.Drawing.Point(0, 61);
             this.matRelationDGV.Name = "matRelationDGV";
             this.matRelationDGV.ReadOnly = true;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.matRelationDGV.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.matRelationDGV.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.matRelationDGV.RowTemplate.Height = 23;
             this.matRelationDGV.Size = new System.Drawing.Size(1014, 379);
             this.matRelationDGV.TabIndex = 0;
@@ -2257,7 +2113,7 @@
             this.customMat.HeaderText = "物料号";
             this.customMat.Name = "customMat";
             this.customMat.ReadOnly = true;
-            this.customMat.Width = 84;
+            this.customMat.Width = 81;
             // 
             // hscMat_ID
             // 
@@ -2266,7 +2122,7 @@
             this.hscMat_ID.HeaderText = "新物料号";
             this.hscMat_ID.Name = "hscMat_ID";
             this.hscMat_ID.ReadOnly = true;
-            this.hscMat_ID.Width = 101;
+            this.hscMat_ID.Width = 97;
             // 
             // mDate
             // 
@@ -2275,7 +2131,7 @@
             this.mDate.HeaderText = "修改日期";
             this.mDate.Name = "mDate";
             this.mDate.ReadOnly = true;
-            this.mDate.Width = 101;
+            this.mDate.Width = 97;
             // 
             // mUser
             // 
@@ -2284,7 +2140,7 @@
             this.mUser.HeaderText = "修改人";
             this.mUser.Name = "mUser";
             this.mUser.ReadOnly = true;
-            this.mUser.Width = 84;
+            this.mUser.Width = 81;
             // 
             // cDate
             // 
@@ -2293,7 +2149,7 @@
             this.cDate.HeaderText = "创建日期";
             this.cDate.Name = "cDate";
             this.cDate.ReadOnly = true;
-            this.cDate.Width = 101;
+            this.cDate.Width = 97;
             // 
             // cUser
             // 
@@ -2302,7 +2158,7 @@
             this.cUser.HeaderText = "创建人";
             this.cUser.Name = "cUser";
             this.cUser.ReadOnly = true;
-            this.cUser.Width = 84;
+            this.cUser.Width = 81;
             // 
             // label52
             // 
@@ -2314,6 +2170,116 @@
             this.label52.Size = new System.Drawing.Size(63, 14);
             this.label52.TabIndex = 6;
             this.label52.Text = "版本号：";
+            // 
+            // batchNumber
+            // 
+            this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.batchNumber.DataPropertyName = "batchNo";
+            this.batchNumber.HeaderText = "批次号";
+            this.batchNumber.Name = "batchNumber";
+            this.batchNumber.ReadOnly = true;
+            this.batchNumber.Width = 81;
+            // 
+            // materialNum
+            // 
+            this.materialNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.materialNum.DataPropertyName = "material";
+            this.materialNum.HeaderText = "物料号";
+            this.materialNum.Name = "materialNum";
+            this.materialNum.ReadOnly = true;
+            this.materialNum.Width = 81;
+            // 
+            // line
+            // 
+            this.line.DataPropertyName = "workLine";
+            this.line.HeaderText = "生产线";
+            this.line.Name = "line";
+            this.line.ReadOnly = true;
+            // 
+            // changesDate
+            // 
+            this.changesDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.changesDate.DataPropertyName = "productDate";
+            this.changesDate.HeaderText = "生产日期";
+            this.changesDate.Name = "changesDate";
+            this.changesDate.ReadOnly = true;
+            this.changesDate.Width = 97;
+            // 
+            // characteritics
+            // 
+            this.characteritics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.characteritics.DataPropertyName = "characteristics";
+            this.characteritics.HeaderText = "生产特性";
+            this.characteritics.Name = "characteritics";
+            this.characteritics.ReadOnly = true;
+            this.characteritics.Width = 97;
+            // 
+            // txt_Weight
+            // 
+            this.txt_Weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.txt_Weight.DataPropertyName = "ntbWeight";
+            this.txt_Weight.HeaderText = "净重";
+            this.txt_Weight.Name = "txt_Weight";
+            this.txt_Weight.ReadOnly = true;
+            this.txt_Weight.Width = 65;
+            // 
+            // siloNo
+            // 
+            this.siloNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.siloNo.DataPropertyName = "siloNo";
+            this.siloNo.HeaderText = "料仓号";
+            this.siloNo.Name = "siloNo";
+            this.siloNo.ReadOnly = true;
+            this.siloNo.Width = 81;
+            // 
+            // gradeNo
+            // 
+            this.gradeNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gradeNo.DataPropertyName = "grade";
+            this.gradeNo.HeaderText = "等级";
+            this.gradeNo.Name = "gradeNo";
+            this.gradeNo.ReadOnly = true;
+            this.gradeNo.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "createDate";
+            this.dataGridViewTextBoxColumn14.HeaderText = "创建日期";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "createUser";
+            this.dataGridViewTextBoxColumn15.HeaderText = "创建用户";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "modifyDate";
+            this.dataGridViewTextBoxColumn16.HeaderText = "修改日期";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "modifyUser";
+            this.dataGridViewTextBoxColumn17.HeaderText = "修改用户";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 97;
             // 
             // MainForm
             // 
@@ -2487,17 +2453,6 @@
         private System.Windows.Forms.TextBox siloNum;
         private System.Windows.Forms.TextBox txt_grade;
         private System.Windows.Forms.TextBox txt_workLine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn materialNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn line;
-        private System.Windows.Forms.DataGridViewTextBoxColumn changesDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn characteritics;
-        private System.Windows.Forms.DataGridViewTextBoxColumn siloNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn gradeNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.TabPage matMaping;
         private System.Windows.Forms.DataGridView matRelationDGV;
         private System.Windows.Forms.TextBox txt_hscMat_ID;
@@ -2547,6 +2502,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn createUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifyDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifyUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn materialNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn line;
+        private System.Windows.Forms.DataGridViewTextBoxColumn changesDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn characteritics;
+        private System.Windows.Forms.DataGridViewTextBoxColumn txt_Weight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siloNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gradeNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
     }
 }
 

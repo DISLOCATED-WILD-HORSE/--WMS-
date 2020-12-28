@@ -119,13 +119,13 @@ namespace HSC_BLL
         /// 添加批次信息获取批次规则流水号
         /// </summary>
         /// <returns></returns>
-        public ReturnValue<string> GetBatInfoCNo()
+        public ReturnValue<string> GetBatInfoCNo(string workLine)
         {
             ReturnValue<string> rv = new ReturnValue<string>();
             var batDao = SqlSugarDB.Instance<batchInfo>();
             try
             {
-                List<batchInfo> list = batDao.Query().Where(p => SqlFunc.DateIsSame(p.createDate, DateTime.Now)).OrderBy(p => p.createDate, OrderByType.Desc).ToList();
+                List<batchInfo> list = batDao.Query().Where(p => SqlFunc.DateIsSame(p.createDate, DateTime.Now) && SqlFunc.StartsWith(p.workLine, workLine.Substring(0,1))).OrderBy(p => p.createDate, OrderByType.Desc).ToList();
                 if (list != null && list.Count > 0)
                 {
                     return rv.Success(list[0].batchNo.Substring(list[0].batchNo.Length - 1));

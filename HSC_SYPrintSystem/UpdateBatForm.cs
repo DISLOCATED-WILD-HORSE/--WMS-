@@ -31,12 +31,13 @@ namespace HSC_SYPrintSystem
 
         private void UpdateBatForm_Load(object sender, EventArgs e)
         {
+            nbtWeightCB.DataSource = SelectListModel.NbtWeightList();
             workLineCB.Text = batModel.workLine;
             txt_characteristics.Text = batModel.characteristics;
             siloNoCB.Text = batModel.siloNo;
             gradeCB.Text = batModel.grade;
             dtp_productDate.Value = (DateTime)batModel.productDate;
-
+            nbtWeightCB.Text = batModel.ntbWeight.ToString();
         }
 
         private void matSaveBTN_Click(object sender, EventArgs e)
@@ -53,6 +54,7 @@ namespace HSC_SYPrintSystem
             batModel.siloNo = siloNoCB.Text.Trim();
             batModel.grade = gradeCB.Text.Trim().ToUpper();
             batModel.productDate = dtp_productDate.Value;
+            batModel.ntbWeight = Convert.ToDecimal(nbtWeightCB.SelectedValue);
             batModel.modifyDate = DateTime.Now;
             batModel.modifyUser = UserBLL.userInfo.UserID;
             #endregion

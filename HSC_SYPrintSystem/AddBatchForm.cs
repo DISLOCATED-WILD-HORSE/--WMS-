@@ -40,7 +40,7 @@ namespace HSC_SYPrintSystem
         private string GetCNO()
         {
             string cNo = string.Empty;
-            var rv = batbll.GetBatInfoCNo();
+            var rv = batbll.GetBatInfoCNo(workLineCB.Text);
             if (!rv.IsSuccess)
             {
                 MessageBox.Show(rv.Msg);

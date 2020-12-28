@@ -40,6 +40,8 @@
             this.siloNoCB = new System.Windows.Forms.ComboBox();
             this.workLineCB = new System.Windows.Forms.ComboBox();
             this.workLineLB = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nbtWeightCB = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,6 +112,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.nbtWeightCB);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.gradeCB);
             this.panel1.Controls.Add(this.siloNoCB);
             this.panel1.Controls.Add(this.workLineCB);
@@ -148,6 +152,7 @@
             // workLineCB
             // 
             this.workLineCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.workLineCB.Enabled = false;
             this.workLineCB.FormattingEnabled = true;
             this.workLineCB.Items.AddRange(new object[] {
             "140-U010A",
@@ -169,6 +174,25 @@
             this.workLineLB.Size = new System.Drawing.Size(56, 16);
             this.workLineLB.TabIndex = 69;
             this.workLineLB.Text = "线别：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(410, 171);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 16);
+            this.label2.TabIndex = 73;
+            this.label2.Text = "净重：";
+            // 
+            // nbtWeightCB
+            // 
+            this.nbtWeightCB.FormattingEnabled = true;
+            this.nbtWeightCB.Items.AddRange(new object[] {
+            "25"});
+            this.nbtWeightCB.Location = new System.Drawing.Point(472, 168);
+            this.nbtWeightCB.Name = "nbtWeightCB";
+            this.nbtWeightCB.Size = new System.Drawing.Size(192, 24);
+            this.nbtWeightCB.TabIndex = 74;
             // 
             // UpdateBatForm
             // 
@@ -202,5 +226,7 @@
         private System.Windows.Forms.ComboBox workLineCB;
         private System.Windows.Forms.ComboBox siloNoCB;
         private System.Windows.Forms.ComboBox gradeCB;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox nbtWeightCB;
     }
 }
