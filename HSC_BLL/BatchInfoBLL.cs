@@ -125,7 +125,7 @@ namespace HSC_BLL
             var batDao = SqlSugarDB.Instance<batchInfo>();
             try
             {
-                List<batchInfo> list = batDao.Query().Where(p => SqlFunc.DateIsSame(p.createDate, DateTime.Now) && SqlFunc.StartsWith(p.workLine, workLine.Substring(0,1))).OrderBy(p => p.createDate, OrderByType.Desc).ToList();
+                List<batchInfo> list = batDao.Query().Where(p => SqlFunc.DateIsSame(p.createDate, DateTime.Now) && p.workLine == workLine).OrderBy(p => p.createDate, OrderByType.Desc).ToList();
                 if (list != null && list.Count > 0)
                 {
                     return rv.Success(list[0].batchNo.Substring(list[0].batchNo.Length - 1));
