@@ -412,7 +412,7 @@ namespace HSC_SYPrintSystem
             //}
             printModel.workShop = UserBLL.userInfo.WorkLine;
             printModel.wksplit = UserBLL.userInfo.WorkLine;
-            printModel.warehouseNo = "SJC";
+            printModel.warehouseNo = UserBLL.userInfo.CenterWareHouse;
             printModel.CREATEUSER = printModel.MODIFYUSER = UserBLL.userInfo.UserName;
             printModel.CREATEDATE = printModel.MODIFYDATE = DateTime.Now;
             //string fg = siloNum.Text.Split('-')[0].Substring(1, siloNum.Text.Split('-')[0].Length - 1) + (!string.IsNullOrEmpty(printModel.PROCESSNUM.Trim()) ? printModel.PROCESSNUM : "00");
