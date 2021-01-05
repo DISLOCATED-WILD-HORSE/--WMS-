@@ -29,9 +29,24 @@ namespace HSC_SYPrintSystem
         #endregion
         public MainForm(Configuration cfa)
         {
+            packagebll.AfterPrinted = (success, result) =>
+            {
+                string customSN = this.customSn.Text;
+                this.Invoke(new Action(() =>
+                {
+                    if (success)
+                    {
+                        sn.Text = result;
+                        if (string.IsNullOrEmpty(customSN))
+                            customSn.Text = result;
+                        else customSn.Text = customSN.Remove(12, 3).Insert(12, result.Substring(12));
+                    }
+                }));
+            };
             InitializeComponent();
             GetAllInitInfo(this.Controls[0]);
             sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine).Value;
+            customSn.Text = sn.Text;
             dic = SelectListModel.SiloNumList();
             //siloNum.DataSource = dic.Keys.ToList();
             //txt_grade.DataSource = SelectListModel.GradeList();
@@ -359,11 +374,11 @@ namespace HSC_SYPrintSystem
         {
             var printModel = new packageInfo();
 
+            DateTime now = DateTime.Now;
             #region 标签打印数据组装
             //printModel.ORD_NO = txt_ORD_NO.Text;
             printModel.spec = jhspeci.Text.Trim();
             printModel.description = mat_desc.Text.Trim();
-            printModel.hiddenProduct = oldMat.Text.Trim();
             printModel.newNo = oldMat.Text.Trim();
             printModel.productDesc = englishDesc.Text.Trim();
             var matDao = SqlSugarDB.Instance<MatMaping>();
@@ -376,12 +391,10 @@ namespace HSC_SYPrintSystem
             printModel.grade = txt_grade.Text.Trim();
             printModel.characteristic = chracteristicsTB.Text.Trim();
             printModel.PROCESSNUM = PROCESSNUM.Text.Trim();
-            //printModel.grainWeight = txt_grainWeight.Text;
-            //printModel.unit = txt_unit.Text.ToInt();
             printModel.nbtWeight = Convert.ToDecimal(txt_nbtWeight.Text.Trim());
-            //printModel.productDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            printModel.productDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
             printModel.packageDate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
-            printModel.timestamps = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            printModel.timestamps = now;
             printModel.packType = packType.Text.Trim();
             if (com_packageType.Text.Trim().Equals("生产下线"))
             {
@@ -392,31 +405,18 @@ namespace HSC_SYPrintSystem
                 printModel.packageType = 0;
             }
             printModel.productDate = Convert.ToDateTime(txt_productDate.Text.Trim());
-            //printModel.pipeColor = txt_pipeColor.Text;
-            //printModel.wireType = txt_WireType.Text;
-            //printModel.insp = txt_insp.Text;//班次
-            //printModel.caseWeight = txt_caseWeight.Text.ToDecimal();
-            //printModel.canWeight = txt_canWeight.Text.ToDecimal();
-            //printModel.grossWeight = txt_grossWeight.Text.ToDecimal();
             printModel.comments = remark.Text.Trim();
             printModel.ISExport = false;//是否出口
             printModel.ISViceProduct = false;//是否副产品
             printModel.BOX_TYPE = 0;//纸箱类型
-            //if (radioButton3.IsChecked == true)
-            //{
-            //    printModel.packageType = 1;
-            //}
-            //else
-            //{
-            //    printModel.packageType = 0;
-            //}
             printModel.workShop = UserBLL.userInfo.WorkLine;
             printModel.wksplit = UserBLL.userInfo.WorkLine;
             printModel.warehouseNo = UserBLL.userInfo.CenterWareHouse;
             printModel.CREATEUSER = printModel.MODIFYUSER = UserBLL.userInfo.UserName;
-            printModel.CREATEDATE = printModel.MODIFYDATE = DateTime.Now;
+            printModel.CREATEDATE = printModel.MODIFYDATE = now;
             //string fg = siloNum.Text.Split('-')[0].Substring(1, siloNum.Text.Split('-')[0].Length - 1) + (!string.IsNullOrEmpty(printModel.PROCESSNUM.Trim()) ? printModel.PROCESSNUM : "00");
             printModel.seriesNo = sn.Text;
+            printModel.pack_Ex1 = string.IsNullOrEmpty(customSn.Text) ? printModel.seriesNo : customSn.Text;//客户箱号
             #endregion
 
             return printModel;
@@ -499,7 +499,7 @@ namespace HSC_SYPrintSystem
             var result = packagebll.AddPackageInfo(packageData);
             if (!result.IsSuccess)
                 MessageBox.Show(result.Msg);
-            sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
+            //sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text.Trim()).Value;
             packageDate = null;
         }
         /// <summary>
@@ -524,7 +524,7 @@ namespace HSC_SYPrintSystem
         private void siloNum_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = customSn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
 
         /// <summary>
@@ -535,7 +535,7 @@ namespace HSC_SYPrintSystem
         private void PROCESSNUM_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(siloNum.Text))
-                sn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
+                sn.Text = customSn.Text = packagebll.GetSNInfo(UserBLL.userInfo.WorkLine, dic[siloNum.Text], PROCESSNUM.Text).Value;
         }
         #endregion
 

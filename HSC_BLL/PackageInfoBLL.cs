@@ -57,12 +57,24 @@ namespace HSC_BLL
             //var packageDao = new DBHelper<packageInfo>();
             try
             {
-                var package = packageDao.Query().First(p => p.seriesNo.Equals(packageModel.seriesNo));
-                if (package != null)
-                    throw new Exception(string.Format("箱号：{0}已经存在，可能已经打印过了，请检查！", packageModel.seriesNo));
-                var result = packageDao.Insert(packageModel).ExecuteCommand();
-                if (result > 0) return rv.Success("");
-                else return rv.Fail("打印记录添加失败！");
+                if (AfterPrinted != null)
+                {
+                    var package = packageDao.Query().First(p => p.seriesNo.Equals(packageModel.seriesNo));
+                    if (package != null)
+                        throw new Exception(string.Format("箱号：{0}已经存在，可能已经打印过了，请检查！", packageModel.seriesNo));
+                    var result = packageDao.Insert(packageModel).ExecuteCommand();
+                    if (result > 0)
+                    {
+                        string sdt = packageModel.seriesNo.Substring(0, packageModel.seriesNo.Length - 5);
+                        int nextSnPre = packageModel.seriesNo.Substring(packageModel.seriesNo.Length - 5, 5).ObjToInt() + 1;
+                        string nextSeriesNo = sdt + nextSnPre.ToString().PadLeft(5, '0');
+                        this.AfterPrinted(true, nextSeriesNo);
+                        return rv.Success("");
+                    }
+                    else return rv.Fail("打印记录添加失败！");
+                }
+                else
+                    return rv.Fail("打印后续执行委托时异常！");
             }
             catch (Exception e)
             {
@@ -87,7 +99,7 @@ namespace HSC_BLL
                 .WhereIF(!string.IsNullOrEmpty(model.isPackage), p => p.packageType == model.isPackage.ObjToInt())
                 .WhereIF(!string.IsNullOrEmpty(model.spackageDate), p => p.packageDate >= Convert.ToDateTime(model.spackageDate))
                 .WhereIF(!string.IsNullOrEmpty(model.epackageDate), p => p.packageDate <= Convert.ToDateTime(model.epackageDate))
-                .WhereIF(!string.IsNullOrEmpty(model.printDate), p => p.timestamps == Convert.ToDateTime(model.printDate))
+                .WhereIF(!string.IsNullOrEmpty(model.printDate), p => SqlFunc.DateIsSame(p.timestamps, Convert.ToDateTime(model.printDate)))
                 .WhereIF(!string.IsNullOrEmpty(UserBLL.userInfo.WorkLine), p => p.workShop == UserBLL.userInfo.WorkLine)
                 .OrderBy(p => p.id, OrderByType.Desc).ToPageList(page.pageIndex, page.pageSize, ref page.totalCount)
                 .ToList();
@@ -160,5 +172,7 @@ namespace HSC_BLL
                 return rv.Fail(e.Message);
             }
         }
+
+        public Action<bool, string> AfterPrinted = null;
     }
 }

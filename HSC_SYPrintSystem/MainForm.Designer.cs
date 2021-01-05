@@ -202,6 +202,18 @@
             this.txt_batchNo = new System.Windows.Forms.TextBox();
             this.batchNoLB = new System.Windows.Forms.Label();
             this.batchInfoDG = new System.Windows.Forms.DataGridView();
+            this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.changesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.characteritics = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siloNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gradeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matMaping = new System.Windows.Forms.TabPage();
             this.matRelationEditBtn = new System.Windows.Forms.Button();
             this.matRelationDelBtn = new System.Windows.Forms.Button();
@@ -219,18 +231,8 @@
             this.cDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label52 = new System.Windows.Forms.Label();
-            this.batchNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.line = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.changesDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.characteritics = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_Weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siloNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gradeNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.customSn = new System.Windows.Forms.TextBox();
+            this.customSnLB = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.footPanl.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -419,6 +421,8 @@
             // printTab
             // 
             this.printTab.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.printTab.Controls.Add(this.customSnLB);
+            this.printTab.Controls.Add(this.customSn);
             this.printTab.Controls.Add(this.sysInstall);
             this.printTab.Controls.Add(this.txt_workLine);
             this.printTab.Controls.Add(this.txt_grade);
@@ -479,7 +483,7 @@
             // txt_workLine
             // 
             this.txt_workLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txt_workLine.Location = new System.Drawing.Point(140, 283);
+            this.txt_workLine.Location = new System.Drawing.Point(140, 270);
             this.txt_workLine.Name = "txt_workLine";
             this.txt_workLine.ReadOnly = true;
             this.txt_workLine.Size = new System.Drawing.Size(151, 26);
@@ -488,7 +492,7 @@
             // txt_grade
             // 
             this.txt_grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txt_grade.Location = new System.Drawing.Point(353, 212);
+            this.txt_grade.Location = new System.Drawing.Point(353, 203);
             this.txt_grade.Name = "txt_grade";
             this.txt_grade.ReadOnly = true;
             this.txt_grade.Size = new System.Drawing.Size(116, 26);
@@ -497,7 +501,7 @@
             // siloNum
             // 
             this.siloNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.siloNum.Location = new System.Drawing.Point(138, 212);
+            this.siloNum.Location = new System.Drawing.Point(138, 203);
             this.siloNum.Name = "siloNum";
             this.siloNum.ReadOnly = true;
             this.siloNum.Size = new System.Drawing.Size(151, 26);
@@ -507,7 +511,7 @@
             // txt_nbtWeight
             // 
             this.txt_nbtWeight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.txt_nbtWeight.Location = new System.Drawing.Point(353, 281);
+            this.txt_nbtWeight.Location = new System.Drawing.Point(353, 271);
             this.txt_nbtWeight.Name = "txt_nbtWeight";
             this.txt_nbtWeight.ReadOnly = true;
             this.txt_nbtWeight.Size = new System.Drawing.Size(116, 26);
@@ -551,7 +555,7 @@
             // 
             // sn
             // 
-            this.sn.Location = new System.Drawing.Point(140, 400);
+            this.sn.Location = new System.Drawing.Point(140, 367);
             this.sn.Name = "sn";
             this.sn.ReadOnly = true;
             this.sn.Size = new System.Drawing.Size(329, 26);
@@ -560,7 +564,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(93, 403);
+            this.label33.Location = new System.Drawing.Point(93, 370);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(56, 16);
             this.label33.TabIndex = 37;
@@ -569,7 +573,7 @@
             // packType
             // 
             this.packType.FormattingEnabled = true;
-            this.packType.Location = new System.Drawing.Point(353, 356);
+            this.packType.Location = new System.Drawing.Point(353, 335);
             this.packType.Name = "packType";
             this.packType.Size = new System.Drawing.Size(116, 24);
             this.packType.TabIndex = 36;
@@ -577,7 +581,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(306, 359);
+            this.label32.Location = new System.Drawing.Point(306, 338);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(56, 16);
             this.label32.TabIndex = 35;
@@ -585,7 +589,7 @@
             // 
             // remark
             // 
-            this.remark.Location = new System.Drawing.Point(140, 356);
+            this.remark.Location = new System.Drawing.Point(140, 335);
             this.remark.Name = "remark";
             this.remark.Size = new System.Drawing.Size(151, 26);
             this.remark.TabIndex = 34;
@@ -593,7 +597,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(93, 359);
+            this.label31.Location = new System.Drawing.Point(93, 336);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(56, 16);
             this.label31.TabIndex = 33;
@@ -601,7 +605,7 @@
             // 
             // txt_page
             // 
-            this.txt_page.Location = new System.Drawing.Point(353, 317);
+            this.txt_page.Location = new System.Drawing.Point(353, 302);
             this.txt_page.Name = "txt_page";
             this.txt_page.Size = new System.Drawing.Size(116, 26);
             this.txt_page.TabIndex = 32;
@@ -609,7 +613,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(306, 320);
+            this.label30.Location = new System.Drawing.Point(306, 308);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(56, 16);
             this.label30.TabIndex = 31;
@@ -619,7 +623,7 @@
             // 
             this.txt_productDate.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.txt_productDate.Enabled = false;
-            this.txt_productDate.Location = new System.Drawing.Point(140, 313);
+            this.txt_productDate.Location = new System.Drawing.Point(140, 302);
             this.txt_productDate.Name = "txt_productDate";
             this.txt_productDate.Size = new System.Drawing.Size(151, 26);
             this.txt_productDate.TabIndex = 30;
@@ -627,7 +631,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(61, 320);
+            this.label29.Location = new System.Drawing.Point(61, 304);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(88, 16);
             this.label29.TabIndex = 29;
@@ -636,7 +640,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(77, 286);
+            this.label27.Location = new System.Drawing.Point(77, 272);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(72, 16);
             this.label27.TabIndex = 25;
@@ -644,7 +648,7 @@
             // 
             // PROCESSNUM
             // 
-            this.PROCESSNUM.Location = new System.Drawing.Point(353, 246);
+            this.PROCESSNUM.Location = new System.Drawing.Point(353, 237);
             this.PROCESSNUM.Name = "PROCESSNUM";
             this.PROCESSNUM.Size = new System.Drawing.Size(116, 26);
             this.PROCESSNUM.TabIndex = 24;
@@ -653,7 +657,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(290, 249);
+            this.label26.Location = new System.Drawing.Point(290, 240);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(72, 16);
             this.label26.TabIndex = 23;
@@ -662,7 +666,7 @@
             // chracteristicsTB
             // 
             this.chracteristicsTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.chracteristicsTB.Location = new System.Drawing.Point(140, 246);
+            this.chracteristicsTB.Location = new System.Drawing.Point(140, 236);
             this.chracteristicsTB.Name = "chracteristicsTB";
             this.chracteristicsTB.ReadOnly = true;
             this.chracteristicsTB.Size = new System.Drawing.Size(151, 26);
@@ -671,7 +675,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(61, 249);
+            this.label25.Location = new System.Drawing.Point(61, 238);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(88, 16);
             this.label25.TabIndex = 21;
@@ -680,7 +684,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(306, 218);
+            this.label24.Location = new System.Drawing.Point(306, 208);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(56, 16);
             this.label24.TabIndex = 19;
@@ -689,7 +693,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(77, 218);
+            this.label23.Location = new System.Drawing.Point(77, 205);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(72, 16);
             this.label23.TabIndex = 17;
@@ -697,7 +701,7 @@
             // 
             // batch_no
             // 
-            this.batch_no.Location = new System.Drawing.Point(138, 176);
+            this.batch_no.Location = new System.Drawing.Point(138, 168);
             this.batch_no.Name = "batch_no";
             this.batch_no.Size = new System.Drawing.Size(331, 26);
             this.batch_no.TabIndex = 16;
@@ -706,7 +710,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(77, 179);
+            this.label22.Location = new System.Drawing.Point(77, 170);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(72, 16);
             this.label22.TabIndex = 15;
@@ -714,7 +718,7 @@
             // 
             // MaterialNo
             // 
-            this.MaterialNo.Location = new System.Drawing.Point(138, 16);
+            this.MaterialNo.Location = new System.Drawing.Point(138, 8);
             this.MaterialNo.Name = "MaterialNo";
             this.MaterialNo.Size = new System.Drawing.Size(331, 26);
             this.MaterialNo.TabIndex = 12;
@@ -723,7 +727,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(77, 19);
+            this.label20.Location = new System.Drawing.Point(77, 12);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(72, 16);
             this.label20.TabIndex = 11;
@@ -731,7 +735,7 @@
             // 
             // oldMat
             // 
-            this.oldMat.Location = new System.Drawing.Point(138, 139);
+            this.oldMat.Location = new System.Drawing.Point(138, 135);
             this.oldMat.Name = "oldMat";
             this.oldMat.Size = new System.Drawing.Size(331, 26);
             this.oldMat.TabIndex = 10;
@@ -739,7 +743,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(93, 142);
+            this.label19.Location = new System.Drawing.Point(93, 136);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 16);
             this.label19.TabIndex = 9;
@@ -748,7 +752,7 @@
             // englishDesc
             // 
             this.englishDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.englishDesc.Location = new System.Drawing.Point(138, 77);
+            this.englishDesc.Location = new System.Drawing.Point(138, 72);
             this.englishDesc.Name = "englishDesc";
             this.englishDesc.ReadOnly = true;
             this.englishDesc.Size = new System.Drawing.Size(331, 26);
@@ -757,7 +761,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(61, 81);
+            this.label18.Location = new System.Drawing.Point(61, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(88, 16);
             this.label18.TabIndex = 7;
@@ -766,7 +770,7 @@
             // mat_desc
             // 
             this.mat_desc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.mat_desc.Location = new System.Drawing.Point(138, 45);
+            this.mat_desc.Location = new System.Drawing.Point(138, 40);
             this.mat_desc.Name = "mat_desc";
             this.mat_desc.ReadOnly = true;
             this.mat_desc.Size = new System.Drawing.Size(331, 26);
@@ -775,7 +779,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(61, 48);
+            this.label17.Location = new System.Drawing.Point(61, 43);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(88, 16);
             this.label17.TabIndex = 5;
@@ -784,7 +788,7 @@
             // jhspeci
             // 
             this.jhspeci.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.jhspeci.Location = new System.Drawing.Point(138, 110);
+            this.jhspeci.Location = new System.Drawing.Point(138, 105);
             this.jhspeci.Name = "jhspeci";
             this.jhspeci.ReadOnly = true;
             this.jhspeci.Size = new System.Drawing.Size(331, 26);
@@ -793,7 +797,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(77, 113);
+            this.label16.Location = new System.Drawing.Point(77, 106);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(72, 16);
             this.label16.TabIndex = 3;
@@ -803,7 +807,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label28.Location = new System.Drawing.Point(306, 286);
+            this.label28.Location = new System.Drawing.Point(306, 271);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(56, 16);
             this.label28.TabIndex = 28;
@@ -1990,6 +1994,116 @@
             this.batchInfoDG.Size = new System.Drawing.Size(1014, 366);
             this.batchInfoDG.TabIndex = 1;
             // 
+            // batchNumber
+            // 
+            this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.batchNumber.DataPropertyName = "batchNo";
+            this.batchNumber.HeaderText = "批次号";
+            this.batchNumber.Name = "batchNumber";
+            this.batchNumber.ReadOnly = true;
+            this.batchNumber.Width = 81;
+            // 
+            // materialNum
+            // 
+            this.materialNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.materialNum.DataPropertyName = "material";
+            this.materialNum.HeaderText = "物料号";
+            this.materialNum.Name = "materialNum";
+            this.materialNum.ReadOnly = true;
+            this.materialNum.Width = 81;
+            // 
+            // line
+            // 
+            this.line.DataPropertyName = "workLine";
+            this.line.HeaderText = "生产线";
+            this.line.Name = "line";
+            this.line.ReadOnly = true;
+            // 
+            // changesDate
+            // 
+            this.changesDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.changesDate.DataPropertyName = "productDate";
+            this.changesDate.HeaderText = "生产日期";
+            this.changesDate.Name = "changesDate";
+            this.changesDate.ReadOnly = true;
+            this.changesDate.Width = 97;
+            // 
+            // characteritics
+            // 
+            this.characteritics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.characteritics.DataPropertyName = "characteristics";
+            this.characteritics.HeaderText = "生产特性";
+            this.characteritics.Name = "characteritics";
+            this.characteritics.ReadOnly = true;
+            this.characteritics.Width = 97;
+            // 
+            // txt_Weight
+            // 
+            this.txt_Weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.txt_Weight.DataPropertyName = "ntbWeight";
+            this.txt_Weight.HeaderText = "净重";
+            this.txt_Weight.Name = "txt_Weight";
+            this.txt_Weight.ReadOnly = true;
+            this.txt_Weight.Width = 65;
+            // 
+            // siloNo
+            // 
+            this.siloNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.siloNo.DataPropertyName = "siloNo";
+            this.siloNo.HeaderText = "料仓号";
+            this.siloNo.Name = "siloNo";
+            this.siloNo.ReadOnly = true;
+            this.siloNo.Width = 81;
+            // 
+            // gradeNo
+            // 
+            this.gradeNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gradeNo.DataPropertyName = "grade";
+            this.gradeNo.HeaderText = "等级";
+            this.gradeNo.Name = "gradeNo";
+            this.gradeNo.ReadOnly = true;
+            this.gradeNo.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "createDate";
+            this.dataGridViewTextBoxColumn14.HeaderText = "创建日期";
+            this.dataGridViewTextBoxColumn14.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn15.DataPropertyName = "createUser";
+            this.dataGridViewTextBoxColumn15.HeaderText = "创建用户";
+            this.dataGridViewTextBoxColumn15.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            this.dataGridViewTextBoxColumn15.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "modifyDate";
+            this.dataGridViewTextBoxColumn16.HeaderText = "修改日期";
+            this.dataGridViewTextBoxColumn16.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 97;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "modifyUser";
+            this.dataGridViewTextBoxColumn17.HeaderText = "修改用户";
+            this.dataGridViewTextBoxColumn17.MinimumWidth = 80;
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Width = 97;
+            // 
             // matMaping
             // 
             this.matMaping.Controls.Add(this.matRelationEditBtn);
@@ -2171,115 +2285,21 @@
             this.label52.TabIndex = 6;
             this.label52.Text = "版本号：";
             // 
-            // batchNumber
+            // customSn
             // 
-            this.batchNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.batchNumber.DataPropertyName = "batchNo";
-            this.batchNumber.HeaderText = "批次号";
-            this.batchNumber.Name = "batchNumber";
-            this.batchNumber.ReadOnly = true;
-            this.batchNumber.Width = 81;
+            this.customSn.Location = new System.Drawing.Point(140, 398);
+            this.customSn.Name = "customSn";
+            this.customSn.Size = new System.Drawing.Size(329, 26);
+            this.customSn.TabIndex = 53;
             // 
-            // materialNum
+            // customSnLB
             // 
-            this.materialNum.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.materialNum.DataPropertyName = "material";
-            this.materialNum.HeaderText = "物料号";
-            this.materialNum.Name = "materialNum";
-            this.materialNum.ReadOnly = true;
-            this.materialNum.Width = 81;
-            // 
-            // line
-            // 
-            this.line.DataPropertyName = "workLine";
-            this.line.HeaderText = "生产线";
-            this.line.Name = "line";
-            this.line.ReadOnly = true;
-            // 
-            // changesDate
-            // 
-            this.changesDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.changesDate.DataPropertyName = "productDate";
-            this.changesDate.HeaderText = "生产日期";
-            this.changesDate.Name = "changesDate";
-            this.changesDate.ReadOnly = true;
-            this.changesDate.Width = 97;
-            // 
-            // characteritics
-            // 
-            this.characteritics.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.characteritics.DataPropertyName = "characteristics";
-            this.characteritics.HeaderText = "生产特性";
-            this.characteritics.Name = "characteritics";
-            this.characteritics.ReadOnly = true;
-            this.characteritics.Width = 97;
-            // 
-            // txt_Weight
-            // 
-            this.txt_Weight.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.txt_Weight.DataPropertyName = "ntbWeight";
-            this.txt_Weight.HeaderText = "净重";
-            this.txt_Weight.Name = "txt_Weight";
-            this.txt_Weight.ReadOnly = true;
-            this.txt_Weight.Width = 65;
-            // 
-            // siloNo
-            // 
-            this.siloNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.siloNo.DataPropertyName = "siloNo";
-            this.siloNo.HeaderText = "料仓号";
-            this.siloNo.Name = "siloNo";
-            this.siloNo.ReadOnly = true;
-            this.siloNo.Width = 81;
-            // 
-            // gradeNo
-            // 
-            this.gradeNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gradeNo.DataPropertyName = "grade";
-            this.gradeNo.HeaderText = "等级";
-            this.gradeNo.Name = "gradeNo";
-            this.gradeNo.ReadOnly = true;
-            this.gradeNo.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "createDate";
-            this.dataGridViewTextBoxColumn14.HeaderText = "创建日期";
-            this.dataGridViewTextBoxColumn14.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            this.dataGridViewTextBoxColumn14.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "createUser";
-            this.dataGridViewTextBoxColumn15.HeaderText = "创建用户";
-            this.dataGridViewTextBoxColumn15.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            this.dataGridViewTextBoxColumn15.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "modifyDate";
-            this.dataGridViewTextBoxColumn16.HeaderText = "修改日期";
-            this.dataGridViewTextBoxColumn16.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 97;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "modifyUser";
-            this.dataGridViewTextBoxColumn17.HeaderText = "修改用户";
-            this.dataGridViewTextBoxColumn17.MinimumWidth = 80;
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Width = 97;
+            this.customSnLB.AutoSize = true;
+            this.customSnLB.Location = new System.Drawing.Point(62, 402);
+            this.customSnLB.Name = "customSnLB";
+            this.customSnLB.Size = new System.Drawing.Size(72, 16);
+            this.customSnLB.TabIndex = 54;
+            this.customSnLB.Text = "客户袋号";
             // 
             // MainForm
             // 
@@ -2514,6 +2534,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.TextBox customSn;
+        private System.Windows.Forms.Label customSnLB;
     }
 }
 

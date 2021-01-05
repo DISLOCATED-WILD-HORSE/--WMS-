@@ -46,7 +46,7 @@ namespace HSC_Util
             g.DrawString(string.Format("执行标准 EXECUTIVE STANDARD {0}", string.IsNullOrEmpty(printModel.standard) ? "DTY FZ/T54007-2009" : printModel.standard), Font9, bush, new Rectangle(10, 81, 360, 40), sf);
             g.DrawString("批号", Font9, bush, 21, 125);
             g.DrawString("LOT.NO", Font9, bush, 19, 146);
-            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.hiddenProduct) ? "FNC103" : printModel.hiddenProduct), Font16, bush, 100, 126);
+            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.newNo) ? "FNC103" : printModel.newNo), Font16, bush, 100, 126);
 
             g.DrawString("物料号", Font9, bush, 19, 179);
             g.DrawString("M.NO", Font9, bush, 19, 198);
@@ -68,7 +68,7 @@ namespace HSC_Util
 
             g.DrawString("袋号", Font9, bush, 22, 396);
             g.DrawString("C.NO", Font9, bush, 55, 396);
-            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.seriesNo) ? "A117020600001" : printModel.seriesNo), Font15, bush, new Rectangle(15, 408, 210, 46), sf);
+            g.DrawString(string.Format("{0}", string.IsNullOrEmpty(printModel.pack_Ex1) ? printModel.seriesNo : printModel.pack_Ex1), Font15, bush, new Rectangle(15, 408, 210, 46), sf);
         }
 
         public static Bitmap Create_ImgCode2(string CodeNumber, int size)
