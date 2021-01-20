@@ -37,13 +37,19 @@ namespace HSC_SYPrintSystem
         /// 获取批次流水号
         /// </summary>
         /// <returns></returns>
-        private string GetCNO(string tabStr)
+        private string GetCNO(string tabStr, DateTime? createDate = null)
         {
             string cNo = string.Empty;
             string workline = "";
-            if ("新建批次".Equals(tabStr)) workline = workLineCB.Text;
-            else workline = wkLineCB.Text;
-            var rv = batbll.GetBatInfoCNo(workline);
+            if ("新建批次".Equals(tabStr))
+            {
+                workline = workLineCB.Text;
+            }
+            else 
+            { 
+                workline = wkLineCB.Text;
+            }
+            var rv = batbll.GetBatInfoCNo(workline, createDate);
             if (!rv.IsSuccess)
             {
                 MessageBox.Show(rv.Msg);
@@ -351,9 +357,9 @@ namespace HSC_SYPrintSystem
             {
                 productType = pdTypeCB.Text.Substring(pdTypeCB.Text.Length - 1);
             }
-            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text);
+            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text, dtp_bNoCrDate.Value);
             if (!string.IsNullOrEmpty(cNo))
-                txt_bNo.Text = "J" + productType + workline + DateTime.Now.ToString("yyMMdd") + cNo;
+                txt_bNo.Text = "J" + productType + workline + dtp_bNoCrDate.Value.ToString("yyMMdd") + cNo;
         }
 
         private void wkLineCB_SelectedValueChanged(object sender, EventArgs e)
@@ -368,9 +374,9 @@ namespace HSC_SYPrintSystem
             {
                 productType = pdTypeCB.Text.Substring(pdTypeCB.Text.Length - 1);
             }
-            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text);
+            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text, dtp_bNoCrDate.Value);
             if (!string.IsNullOrEmpty(cNo))
-                txt_bNo.Text = "J" + productType + workline + DateTime.Now.ToString("yyMMdd") + cNo;
+                txt_bNo.Text = "J" + productType + workline + dtp_bNoCrDate.Value.ToString("yyMMdd") + cNo;
         }
 
         private void dtp_bNoCrDate_ValueChanged(object sender, EventArgs e)
@@ -385,7 +391,7 @@ namespace HSC_SYPrintSystem
             {
                 productType = pdTypeCB.Text.Substring(pdTypeCB.Text.Length - 1);
             }
-            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text);
+            string cNo = this.GetCNO(this.AddBatNoTabControl.SelectedTab.Text, dtp_bNoCrDate.Value);
             DateTime selectTime = dtp_bNoCrDate.Value;
             txt_bNo.Text = "J" + productType + workline + selectTime.ToString("yyMMdd") + cNo;
         }

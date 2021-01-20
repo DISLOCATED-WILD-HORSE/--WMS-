@@ -39,7 +39,11 @@ namespace HSC_SYPrintSystem
                         sn.Text = result;
                         if (string.IsNullOrEmpty(customSN))
                             customSn.Text = result;
-                        else customSn.Text = customSN.Remove(12, 3).Insert(12, result.Substring(12));
+                        else
+                        {
+                            int cNo = Convert.ToInt32(customSN.Substring(12)) + 1;
+                            customSn.Text = customSN.Remove(12, 3).Insert(12, cNo.ToString());
+                        }
                     }
                 }));
             };
