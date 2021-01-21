@@ -41,8 +41,9 @@ namespace HSC_SYPrintSystem
                             customSn.Text = result;
                         else
                         {
-                            int cNo = Convert.ToInt32(customSN.Substring(12)) + 1;
-                            customSn.Text = customSN.Remove(12, 3).Insert(12, cNo.ToString());
+                            string cNo = (Convert.ToInt32(customSN.Substring(12)) + 1).ToString();
+                            if (cNo.Length < 3) cNo = cNo.PadLeft(3, '0');
+                            customSn.Text = customSN.Remove(12, 3).Insert(12, cNo);
                         }
                     }
                 }));
